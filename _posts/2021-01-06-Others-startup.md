@@ -75,15 +75,19 @@ _Pithch(던지다, 투수)의 의미에서 유추할 수 있듯 투자자들에�
     이를 통해 회사의 비즈니스의 수익률과 앞으로 기대가 되는지 아닌지를 유추할 수 있다. 
 
     - 고객 1명(=Unit)을 기준으로, **CAC**(Customer Acquisition Cost)와 **LTV**(Lifetime Value)를 계산해서 Payback Period를 산출
-    - [Unit Economics 자세히](./2021-01-21-other-startupac.md)
+    - [Unit Economics 자세히](https://cslee94.github.io/others/2021/01/06/others-startupac/)
 
     
 - 회사의 재정적 전망
     최근 18개월 동안 월별 소득 계산서와 향후 3~5년간 예상되는 소득 계산서<br>
     미래를 정확히 예측할 수는 없지만 향후 전망에 대한 정보와 이에 대한 근거 제공을 목적
 - 유저 매트릭 혹은 기업을 대상으로 하는 서비스일 경우 주요 고객 및 파이프라인
+
+
 - 목표로 잡고 있는 투자 유치 금액
-    
+
+<br>
+
 
 # PitchDeck제외내용
 - 곧 출시 예정인 기능에 대한 자세한 설명
@@ -91,8 +95,15 @@ _Pithch(던지다, 투수)의 의미에서 유추할 수 있듯 투자자들에�
 - 연봉에 관한 정보
 - 경쟁사 or 대중에게 알리고 싶지 않은 내용
 
-# PitchDeck예시
+<br>
 
+
+# PitchDeck예시
+- [Facebook Pitch Deck](https://www.slideshare.net/startuphome/facebook-pitch-deck-87761364)
+- [eShare Series A Investor Deck](https://www.slideshare.net/startuphome/eshares-series-a-investor-deck)
+- [Peter Thiel's Pitch Deck Template](https://alejandrocremades.com/silicon-valley-legend-creates-pitch-deck-template-for-entrepreneurs/)
+
+<br>
 
 # 참고자료
 - Pitch Deck 개념
