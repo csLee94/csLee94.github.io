@@ -8,7 +8,7 @@ comments: true
 ---
 
 # 목차
-> 해당 내용은 `코멘토 직무부트캠프`에서 진행된 내용을 정리한 것입니다.
+> 해당 내용은 [코멘토 직무부트캠프](https://comento.kr/edu/learn/ITSW/%EB%B9%85%EB%8D%B0%EC%9D%B4%ED%84%B0-G381)에서 진행된 내용을 정리한 것입니다.
 
 1. 
 2. 
@@ -22,7 +22,7 @@ comments: true
 # 데이터 분석 직무 필수 역량
 1. 하나 이상의 분석언어(Python, R)
 2. SQL
-3. Kaggle(Dacon)
+3. Kaggle(Dacon)<br>
 Kaggle(Dacon)이 중요한 이유
 > *석사, 꼭 해야만 하나요?*
 

@@ -84,7 +84,7 @@ _Pithch(던지다, 투수)의 의미에서 유추할 수 있듯 투자자들에�
     이를 통해 회사의 비즈니스의 수익률과 앞으로 기대가 되는지 아닌지를 유추할 수 있다. 
 
     - 고객 1명(=Unit)을 기준으로, **CAC**(Customer Acquisition Cost)와 **LTV**(Lifetime Value)를 계산해서 Payback Period를 산출
-    - [Unit Economics 자세히](https://cslee94.github.io/others/2021/01/06/others-startupac/)
+    - [Unit Economics 자세히](https://cslee94.github.io/others/2021/01/06/others-uniteconomics/)
 
     
 - 회사의 재정적 전망
