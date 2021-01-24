@@ -1081,94 +1081,171 @@ df
 
 # DataFrame's Columns
 
+
+
 |No|Name|Descirption|Category|
+
 |---|---|---|---|
+
 |1|MSSubClass| Identifies the type of dwelling involved in the sale.|Lot|
+
 |2|MSZoning| Identifies the general zoning classification of the sale.|Lot|
+
 |3|LotFrontage| Linear feet of street connected to property|Lot|
+
 |4|LotArea| Lot size in square feet|Lot|
+
 |5|Street| Type of road access to property|Lot|
+
 |6|Alley| Type of alley access to property|Lot|
+
 |7|LotShape| General shape of property|Lot|
+
 |8|LandContour| Flatness of the property|Lot|
+
 |9|Utilities| Type of utilities available|Lot|
+
 |10|LotConfig| Lot configuration|Lot|
+
 |11|LandSlope| Slope of property|Lot|
+
 |12|Neighborhood| Physical locations within Ames city limits|Lot|
+
 |13|Condition1| Proximity to various conditions|Lot|
+
 |14|Condition2| Proximity to various conditions (if more than one is present)|Lot|
+
 |15|BldgType| Type of dwelling|House|
+
 |16|HouseStyle| Style of dwelling|House|
+
 |17|OverallQual| Rates the overall material and finish of the house|House|
+
 |18|OverallCond| Rates the overall condition of the house|House|
+
 |19|YearBuilt| Original construction date|House|
+
 |20|YearRemodAdd| Remodel date (same as construction date if no remodeling or additions)|House|
+
 |21|RoofStyle| Type of roof|House|
+
 |22|RoofMatl| Roof material|House|
+
 |23|Exterior1st| Exterior covering on house|House|
+
 |24|Exterior2nd| Exterior covering on house (if more than one material)|House|
+
 |25|MasVnrType| Masonry veneer type|House|
+
 |26|MasVnrArea| Masonry veneer area in square feet|House|
+
 |27|ExterQual| Evaluates the quality of the material on the exterior |House|
+
 |28|ExterCond| Evaluates the present condition of the material on the exterior|House|
+
 |29|Foundation| Type of foundation|House|
+
 |30|BsmtQual| Evaluates the height of the basement|House|
+
 |31|BsmtCond| Evaluates the general condition of the basement|House|
+
 |32|BsmtExposure| Refers to walkout or garden level walls|House|
+
 |33|BsmtFinType1| Rating of basement finished area|House|
+
 |34|BsmtFinSF1| Type 1 finished square feet|House|
+
 |35|BsmtFinType2| Rating of basement finished area (if multiple types)|House|
+
 |36|BsmtFinSF2| Type 2 finished square feet|House|
+
 |37|BsmtUnfSF| Unfinished square feet of basement area|House|
+
 |38|TotalBsmtSF| Total square feet of basement area|House|
+
 |39|Heating| Type of heating|House|
+
 |40|HeatingQC| Heating quality and condition|House|
+
 |41|CentralAir| Central air conditioning|House|
+
 |42|Electrical| Electrical system|House|
+
 |43|1stFlrSF| First Floor square feet|House|
+
 |44|2ndFlrSF| Second floor square feet|House|
+
 |45|LowQualFinSF| Low quality finished square feet (all floors)|House|
+
 |46|GrLivArea| Above grade (ground) living area square feet|House|
+
 |47|BsmtFullBath| Basement full bathrooms|House|
+
 |48|BsmtHalfBath| Basement half bathrooms|House|
+
 |49|FullBath| Full bathrooms above grade|House|
+
 |50|HalfBath| Half baths above grade|House|
+
 |51|Bedroom| Bedrooms above grade (does NOT include basement bedrooms)|House|
+
 |52|Kitchen| Kitchens above grade|House|
+
 |53|KitchenQual| Kitchen quality|House|
+
 |54|TotRmsAbvGrd| Total rooms above grade (does not include bathrooms)|House|
+
 |55|Functional| Home functionality (Assume typical unless deductions are warranted)|House|
+
 |56|Fireplaces| Number of fireplaces|House|
+
 |57|FireplaceQu| Fireplace quality|House|
+
 |58|GarageType| Garage location|House|
+
 |59|GarageYrBlt| Year garage was built|House|
+
 |60|GarageFinish| Interior finish of the garage|House|
+
 |61|GarageCars| Size of garage in car capacity|House|
+
 |62|GarageArea| Size of garage in square feet|House|
+
 |63|GarageQual| Garage quality|House|
+
 |64|GarageCond| Garage condition|House|
+
 |65|PavedDrive| Paved driveway|House|
+
 |66|WoodDeckSF| Wood deck area in square feet|House|
+
 |67|OpenPorchSF| Open porch area in square feet|House|
+
 |68|EnclosedPorch| Enclosed porch area in square feet|House|
+
 |69|3SsnPorch| Three season porch area in square feet|House|
+
 |70|ScreenPorch| Screen porch area in square feet|House|
+
 |71|PoolArea| Pool area in square feet|House|
+
 |72|PoolQC| Pool quality|House|
+
 |73|Fence| Fence quality|House|
+
 |74|MiscFeature| Miscellaneous feature not covered in other categories|House|
+
 |75|MiscVal| $Value of miscellaneous feature|House|
+
 |76|MoSold| Month Sold (MM)|Sale|
+
 |77|YrSold| Year Sold (YYYY)|Sale|
+
 |78|SaleType| Type of sale|Sale|
+
 |79|SaleCondition| Condition of sale|Sale|
+
 |80|SalePrice|Price of sale|Sale|
-
-
-
-
-
-
 
 # Data Split(1): Lot
 
