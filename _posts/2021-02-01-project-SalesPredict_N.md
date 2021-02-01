@@ -917,7 +917,7 @@ plt.show()
 
 
     
-![png]https://drive.google.com/uc?id=1tNzMyrrMITTkCFWwiTO1s1x75YgYBqCz)
+![png](https://drive.google.com/uc?id=1tNzMyrrMITTkCFWwiTO1s1x75YgYBqCz)
     
 
 
