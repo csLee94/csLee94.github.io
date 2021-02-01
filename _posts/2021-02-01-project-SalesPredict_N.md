@@ -1,7 +1,7 @@
 ---
 layout: post
-title:  "LSTM을 이용한 매출예측 모델"
-subtitle:   LSTM을 이용한 매출예측 모델
+title:  "시계열 기반 미래 매출 예측"
+subtitle:   시계열 기반 미래 매출 예측
 categories: career
 tags: dataanalytics project jupyter-notebook stock LSTM
 comments: true
@@ -615,7 +615,7 @@ plt.show()
 
 
     
-![png](SalesPredict_N_files/SalesPredict_N_13_1.png)
+![png](https://drive.google.com/uc?id=1odGh0WgPQ9aT_PSbtUmK7Z5l_39v_00o)
     
 
 
@@ -894,7 +894,7 @@ plt.show()
 
 
     
-![png](SalesPredict_N_files/SalesPredict_N_17_0.png)
+![png](https://drive.google.com/uc?id=1KeMhZoYhYBnHWKbRFKwIlRK1bN7YQlMH)
     
 
 
@@ -917,7 +917,7 @@ plt.show()
 
 
     
-![png](SalesPredict_N_files/SalesPredict_N_18_0.png)
+![png]https://drive.google.com/uc?id=1tNzMyrrMITTkCFWwiTO1s1x75YgYBqCz)
     
 
 
@@ -940,7 +940,7 @@ plt.show()
 
 
     
-![png](SalesPredict_N_files/SalesPredict_N_19_0.png)
+![png](https://drive.google.com/uc?id=1vaAsCsQDoRz5LOf-wgTuGCXNgLQfRH7r)
     
 
 
@@ -963,7 +963,7 @@ plt.show()
 
 
     
-![png](SalesPredict_N_files/SalesPredict_N_20_0.png)
+![png](https://drive.google.com/uc?id=1ssvU4FpSZGiApZCU4UCjiwe8Qq668blr)
     
 
 
@@ -1013,7 +1013,7 @@ plt.show()
 
 
     
-![png](SalesPredict_N_files/SalesPredict_N_21_1.png)
+![png](https://drive.google.com/uc?id=1JATUIEs55Mn4qdfYHGg97RZGUVxxAB8J)
     
 
 
@@ -3119,7 +3119,7 @@ plt.show()
 
 
     
-![png](SalesPredict_N_files/SalesPredict_N_44_0.png)
+![png](https://drive.google.com/uc?id=1Bol4rYwvDgNgnaoGl7mGG0lWtXZT3FOi)
     
 
 
@@ -3144,7 +3144,7 @@ plt.show()
 
 
     
-![png](SalesPredict_N_files/SalesPredict_N_45_0.png)
+![png](https://drive.google.com/uc?id=1NrKTA6dVKE-m5QE0nLvUoUpMds-A28OJ)
     
 
 
