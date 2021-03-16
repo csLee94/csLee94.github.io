@@ -1,8 +1,8 @@
 ---
 layout: tag-blog
-title: Python
-slug: python
-category: dev
+title: Dev
+slug: Dev
+category: datascience
 menu: false
 order: 1
 ---

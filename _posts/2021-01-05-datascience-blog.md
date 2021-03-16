@@ -2,8 +2,8 @@
 layout: post
 title:  "Github를 이용한 블로그 개설하기"
 subtitle:   Github를 이용한 블로그 개설하기
-categories: dev
-tags: github jekyll 
+categories: datascience
+tags: github jekyll dev
 comments: true
 ---
 # 목차

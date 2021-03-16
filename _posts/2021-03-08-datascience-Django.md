@@ -2,8 +2,8 @@
 layout: post
 title:  "Django"
 subtitle:   Django
-categories: dev
-tags: Django webframework 
+categories: datascience
+tags: Django webframework dev
 comments: true
 ---
 
