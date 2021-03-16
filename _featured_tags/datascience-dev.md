@@ -1,7 +1,7 @@
 ---
 layout: tag-blog
 title: Dev
-slug: Dev
+slug: dev
 category: datascience
 menu: false
 order: 1

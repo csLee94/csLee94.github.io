@@ -1,7 +1,7 @@
 ---
 layout: tag-blog
-title: Dev
-slug: Dev
+title: AI
+slug: AI
 category: datascience
 menu: false
 order: 2
