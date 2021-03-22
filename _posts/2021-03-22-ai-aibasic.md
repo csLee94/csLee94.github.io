@@ -5,7 +5,6 @@ subtitle:   ai 기초 개요
 categories: datascience
 tags: AI
 comments: true
-use_math: true
 ---
 1
 ## 1. AI란?
@@ -69,19 +68,19 @@ use_math: true
     \\[
     x = \begin{pmatrix}
     x_1 \cr
-    x_2 \\
-    x_3 \\
-    x_4 \\
-    ... \\
-    x_d \\
+    x_2 \cr
+    x_3 \cr
+    x_4 \cr
+    ... \cr
+    x_d \cr
     \end{pmatrix}
     \text{ * }
     w =\begin{pmatrix}
-    w_1 \\
-    w_2 \\
-    w_3 \\
-    w_4 \\
-    ... \\
+    w_1 \cr
+    w_2 \cr
+    w_3 \cr
+    w_4 \cr
+    ... \cr
     w_d
     \end{pmatrix}
     \\]
