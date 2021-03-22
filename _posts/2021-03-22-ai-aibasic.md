@@ -164,8 +164,13 @@ comments: true
 0. 참고 사이트 
 
     [남세동의 딥러닝 이야기](https://www.youtube.com/watch?v=kMGEpIYPCiM)
+    
     [Deep Learning VS Machine Learning](https://brunch.co.kr/@itschloe1/8)
+    
     [Neural Network](https://brunch.co.kr/@gdhan/6)
+    
     [Deep Learning Feature 추출](https://warm-uk.tistory.com/53)
+    
     [Neural Network_video](https://www.youtube.com/watch?v=aircAruvnKk)
+    
     [DNN vs DL](https://www.quora.com/Is-Convolutional-Neural-Network-basically-data-preprocessing-via-kernel-plus-Neural-Networks-Isnt-Deep-Learning-just-neural-networks-with-some-pre-processing-for-automated-feature-selections)
