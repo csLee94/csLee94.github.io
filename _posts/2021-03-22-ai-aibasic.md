@@ -8,7 +8,7 @@ comments: true
 ---
 
 ## 1. AI란?
-
+1
 인공지능이란 기계가 주어진 문제를 사고를 통해 해결하고, 경험을 통해 능력을 향상하는 학습 능력을 갖추도록 하는 기술이라고 정의할 수 있다. 
 
 ![img](https://drive.google.com/uc?id=1u_lOBhfe2cAGulK9z2Ri91CrXgeS05ch)
@@ -65,7 +65,7 @@ comments: true
     *1958년 Frank Rosenblatt* : 기존 신경망 모델을 발전시켜 실전 문제 접목
 
 
-    \\[
+    \[
     x = \begin{pmatrix}
     x_1 \cr
     x_2 \cr
@@ -83,7 +83,7 @@ comments: true
     ... \cr
     w_d
     \end{pmatrix}
-    \\]
+    \]
 
     처음에는 임의로 설정된 weight로 시작하여, 퍼셉트론 모형의 분류가 잘못되었을 때, 각 가중치(weight)를 개선해 나간다. 학습하는 과정에서 각각의 입력값( \\(x\\) )과 그에 대한 가중치( \\(w\\) )를 행렬곱으로 계산하며 많은 연산이 필요하게 되고 이것이 GPU가 필요한 이유가 된다. 
 
