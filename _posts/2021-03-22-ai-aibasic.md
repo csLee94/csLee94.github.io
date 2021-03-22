@@ -7,7 +7,7 @@ tags: AI
 comments: true
 use_math: true
 ---
-
+1
 ## 1. AI란?
 
 인공지능이란 기계가 주어진 문제를 사고를 통해 해결하고, 경험을 통해 능력을 향상하는 학습 능력을 갖추도록 하는 기술이라고 정의할 수 있다. 
@@ -68,7 +68,7 @@ use_math: true
 
     \\[
     x = \begin{pmatrix}
-    x_1 \\
+    x_1 \cr
     x_2 \\
     x_3 \\
     x_4 \\
@@ -90,8 +90,8 @@ use_math: true
 
     또한, 가중치가 반영된 입력값을 가지고 bias(편향)을 통해 Output layer에서 활성화 정도를 조절할 수 있다. 출력층에 설정된 임계점( \\(\theta\\) )을 넘지 못하면 활성화되지 않게 되는데 활성화 정도를 높이기 위해 편향을 통해 조절할 수 있다. 퍼셉트론을 간단한 수식으로 나타내면 다음과 같다.
 
-    \\[\hat{y} = 
-    b+\sum_{i=0}^{n} x_i * w_i
+    \\[
+        \hat{y} = b+\sum_{i=0}^{n} x_i * w_i
     \\]
 
     그러나 퍼셉트론은 [XOR 문제](https://ardino-lab.com/%EB%8B%A8%EC%B8%B5-%ED%8D%BC%EC%85%89%ED%8A%B8%EB%A1%A0%EC%9D%98-%EB%AC%B8%EC%A0%9C%EC%99%80-%ED%95%9C%EA%B3%84/)를 해결하지 못한다는 문제가 있다. 
