@@ -5,6 +5,7 @@ subtitle:   ai 기초 개요
 categories: datascience
 tags: AI
 comments: true
+use_math: true
 ---
 
 ## 1. AI란?
