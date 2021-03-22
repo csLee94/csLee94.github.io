@@ -1,18 +1,13 @@
----
-layout: post
-title:  "AI 기초 개요"
-subtitle:   ai 기초 개요
-categories: datascience
-tags: AI
-comments: true
-use_math: true
----
+# AI Study
+
+상태: 진행 중
+작성일시: 2021년 3월 16일 오후 1:44
 
 ## 1. AI란?
 
 인공지능이란 기계가 주어진 문제를 사고를 통해 해결하고, 경험을 통해 능력을 향상하는 학습 능력을 갖추도록 하는 기술이라고 정의할 수 있다. 
 
-![img](https://drive.google.com/uc?id=1u_lOBhfe2cAGulK9z2Ri91CrXgeS05ch)
+![img]((https://drive.google.com/uc?id=1u_lOBhfe2cAGulK9z2Ri91CrXgeS05ch)
 
 인공지능 이전에 기계에게 결정을 내리도록 하는데 알고리즘을 사용하였다. 소프트웨어가 수신하는 각 유형의 입력값들에 대한 출력을 정의하는 **규칙**을 설정하였고, 기계는 이 규칙을 토대로 입력값들에 대한 출력을 결정하였다. 
 
@@ -42,17 +37,17 @@ use_math: true
 
     ![img](https://drive.google.com/uc?id=1PvmfWT1VO3gR7c66Dvphe6uGOlhnHzAg)
 
-    예를 들어 몸무게와 키에 대한 데이터 분포가 위와 같다. 데이터 분포를 토대로  $$y = ax + b$$ 과 같은 수식으로 데이터 가운데 직선을 그릴 수 있다. 다만 분포가 완벽한 형태를 띄지 않기 때문에 각 데이터들에 대한 $$e$$(오차)가 생길 것이고, 컴퓨터는 $e$의 총합이 최소가 되는 직선을 찾는다. 
+    예를 들어 몸무게와 키에 대한 데이터 분포가 위와 같다. 데이터 분포를 토대로  $y = ax + b$ 과 같은 수식으로 데이터 가운데 직선을 그릴 수 있다. 다만 분포가 완벽한 형태를 띄지 않기 때문에 각 데이터들에 대한 $e$(오차)가 생길 것이고, 컴퓨터는 $e$의 총합이 최소가 되는 직선을 찾는다. 
 
     또한 데이터가 쌓일수록 [경험이 증가할수록] 직선의 형태가 변화하며 더 나은 직선을 그리게 된다. 혹은 추가 변수를 통해 직선의 설명력을 향상시킬 수도 있다.
 
-    이렇게 만들어진 직선 $$f(x)$$를 통해 기계는 새로운 값 키(ex. 190cm)를 입력받았을 때 약 90kg이라고 '예측'하게 된다.
+    이렇게 만들어진 직선 $f(x)$를 통해 기계는 새로운 값 키(ex. 190cm)를 입력받았을 때 약 90kg이라고 '예측'하게 된다.
 
-      >**기계학습과 통계학의 차이** <br>
-      통계학이 가설을 검증하는 일과 좀 더 밀접하게 관련돼 있는 반면, 
-      기계학습은 가설을 통해 일반화한 프로세스를 공식화하는 작업에 좀 더 연관돼 있다. 
+    > **기계학습과 통계학의 차이**<br>
+    통계학이 가설을 검증하는 일과 좀 더 밀접하게 관련돼 있는 반면, 
+    기계학습은 가설을 통해 일반화한 프로세스를 공식화하는 작업에 좀 더 연관돼 있다. 
 
-2. Deep Learning 
+ 2. Deep Learning 
 
     기존 Machine Learning의 학습 방식이 아닌 사람이 학습하는 방식을 차용한 방식이다. 
 
@@ -62,17 +57,17 @@ use_math: true
 
     사람이나 동물의 신경계를 본 따 만든 학습 알고리즘으로 . Input, Weights, Output, Activation Function으로 나누어 볼 수 있다. Input 된 다수의 신호를 받아 각각 고유한 weight 값을 곱한 값을 활성화함수를 통해 0과 1로 출력한다. 
 
-    >*1943년 Warren McCulloch* : 신경망 연구 중 맥컬론-피츠 모델 발표 (수학적 모델 제시) <br>
+    >*1943년 Warren McCulloch* : 신경망 연구 중 맥컬론-피츠 모델 발표 (수학적 모델 제시)<br>
     *1958년 Frank Rosenblatt* : 기존 신경망 모델을 발전시켜 실전 문제 접목
 
     $$
     x = \begin{pmatrix}
-      x_1 \\
-      x_2 \\
-      x_3 \\
-      x_4 \\
-      ... \\
-      x_d \\
+    x_1 \\
+    x_2 \\
+    x_3 \\
+    x_4 \\
+    ... \\
+    x_d \\
     \end{pmatrix}
     \text{ }
     \text{ }
@@ -87,11 +82,12 @@ use_math: true
     ... \\
     w_d
     \end{pmatrix}
+
     $$
 
-    처음에는 임의로 설정된 weight로 시작하여, 퍼셉트론 모형의 분류가 잘못되었을 때, 각 가중치(weight)를 개선해 나간다. 학습하는 과정에서 각각의 입력값($$x$$)과 그에 대한 가중치($$w$$)를 행렬곱으로 계산하며 많은 연산이 필요하게 되고 이것이 GPU가 필요한 이유가 된다. 
+    처음에는 임의로 설정된 weight로 시작하여, 퍼셉트론 모형의 분류가 잘못되었을 때, 각 가중치(weight)를 개선해 나간다. 학습하는 과정에서 각각의 입력값($x$)과 그에 대한 가중치($w$)를 행렬곱으로 계산하며 많은 연산이 필요하게 되고 이것이 GPU가 필요한 이유가 된다. 
 
-    또한, 가중치가 반영된 입력값을 가지고 bias(편향)을 통해 Output layer에서 활성화 정도를 조절할 수 있다. 출력층에 설정된 임계점($$\theta$$)을 넘지 못하면 활성화되지 않게 되는데 활성화 정도를 높이기 위해 편향을 통해 조절할 수 있다. 퍼셉트론을 간단한 수식으로 나타내면 다음과 같다.
+    또한, 가중치가 반영된 입력값을 가지고 bias(편향)을 통해 Output layer에서 활성화 정도를 조절할 수 있다. 출력층에 설정된 임계점($\theta$)을 넘지 못하면 활성화되지 않게 되는데 활성화 정도를 높이기 위해 편향을 통해 조절할 수 있다. 퍼셉트론을 간단한 수식으로 나타내면 다음과 같다.
 
     $$\hat{y} = 
     b+\sum_{i=0}^{n} x_i * w_i
@@ -139,11 +135,11 @@ use_math: true
 
     반면 Deep Learning은 '비교적' 통계적 제약으로 부터 자유롭다. Deep Learning 중 DNN(Deep Neural Network)이 일정 부분 전처리를 자체적으로 진행하기 때문이다. 물론 Input에 대한 정규화(normalization)가 필요할 때도 있지만, missing values도 전처리하지 않는 경우도 있다.  
 
-    >Deep Learning(DL) vs Deep Neural Network(DNN) <br>
-    >DL은 자연이 매우 구성적이라는데서 착안했다. 컴퓨터 비전을 예로 들면 
-    >- 픽셀이 결합하여 가장자리를 형성한다. 
-    >- 모서리가 결합되어 부품을 형성한다. 
-    >- 부품이 결합되어 완전한 개체를 형성한다. <br>
+    >Deep Learning(DL) vs Deep Neural Network(DNN)
+    DL은 자연이 매우 구성적이라는데서 착안했다. 컴퓨터 비전을 예로 들면 
+    > - 픽셀이 결합하여 가장자리를 형성한다. 
+    > - 모서리가 결합되어 부품을 형성한다. 
+    > - 부품이 결합되어 완전한 개체를 형성한다. <br> 
     
     >이러한 계층적 표현(hierarchical representation)에 대한 학습을 말한다. 그에 반해 DNN은 모델이 데이터를 적절하게 처리할 수 있게끔 전처리하는 역할을 한다.
 
@@ -163,14 +159,9 @@ use_math: true
 
 0. 참고 사이트 
 
-    [남세동의 딥러닝 이야기](https://www.youtube.com/watch?v=kMGEpIYPCiM)
-
-    [Deep Learning VS Machine Learning](https://brunch.co.kr/@itschloe1/8)
-
-    [Neural Network](https://brunch.co.kr/@gdhan/6)
-
-    [Deep Learning Feature 추출](https://warm-uk.tistory.com/53)
-
-    [Neural Network_video](https://www.youtube.com/watch?v=aircAruvnKk)
-
+    [남세동의 딥러닝 이야기](https://www.youtube.com/watch?v=kMGEpIYPCiM) <br>
+    [Deep Learning VS Machine Learning](https://brunch.co.kr/@itschloe1/8) <br>
+    [Neural Network](https://brunch.co.kr/@gdhan/6) <br>
+    [Deep Learning Feature 추출](https://warm-uk.tistory.com/53) <br>
+    [Neural Network_video](https://www.youtube.com/watch?v=aircAruvnKk) <br>
     [DNN vs DL](https://www.quora.com/Is-Convolutional-Neural-Network-basically-data-preprocessing-via-kernel-plus-Neural-Networks-Isnt-Deep-Learning-just-neural-networks-with-some-pre-processing-for-automated-feature-selections)
