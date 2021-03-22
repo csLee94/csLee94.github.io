@@ -6,7 +6,7 @@ categories: datascience
 tags: AI
 comments: true
 ---
-1
+
 ## 1. AI란?
 
 인공지능이란 기계가 주어진 문제를 사고를 통해 해결하고, 경험을 통해 능력을 향상하는 학습 능력을 갖추도록 하는 기술이라고 정의할 수 있다. 
