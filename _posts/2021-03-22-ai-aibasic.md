@@ -86,7 +86,6 @@ comments: true
     ... \\
     w_d
     \end{pmatrix}
-
     $$
 
     처음에는 임의로 설정된 weight로 시작하여, 퍼셉트론 모형의 분류가 잘못되었을 때, 각 가중치(weight)를 개선해 나간다. 학습하는 과정에서 각각의 입력값($$x$$)과 그에 대한 가중치($$w$$)를 행렬곱으로 계산하며 많은 연산이 필요하게 되고 이것이 GPU가 필요한 이유가 된다. 
@@ -164,13 +163,13 @@ comments: true
 0. 참고 사이트 
 
     [남세동의 딥러닝 이야기](https://www.youtube.com/watch?v=kMGEpIYPCiM)
-    
+
     [Deep Learning VS Machine Learning](https://brunch.co.kr/@itschloe1/8)
-    
+
     [Neural Network](https://brunch.co.kr/@gdhan/6)
-    
+
     [Deep Learning Feature 추출](https://warm-uk.tistory.com/53)
-    
+
     [Neural Network_video](https://www.youtube.com/watch?v=aircAruvnKk)
-    
+
     [DNN vs DL](https://www.quora.com/Is-Convolutional-Neural-Network-basically-data-preprocessing-via-kernel-plus-Neural-Networks-Isnt-Deep-Learning-just-neural-networks-with-some-pre-processing-for-automated-feature-selections)
