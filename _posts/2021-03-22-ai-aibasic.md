@@ -3,7 +3,7 @@ layout: post
 title:  "AI 기초 개요"
 subtitle:   ai 기초 개요
 categories: datascience
-tags: AI
+tags: AI DeepLearning 
 comments: true
 ---
 
