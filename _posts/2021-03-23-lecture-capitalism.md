@@ -7,11 +7,11 @@ tags: Review Book
 comments: true
 ---
 
-<center> 
+
 
 ![img](https://drive.google.com/uc?id=1ns5HzwgbAfs5TDs61_ii03K4Wj7MrP2T)
 
-</center>
+
 
 <br><br>
 
