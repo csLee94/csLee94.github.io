@@ -8,7 +8,7 @@ comments: true
 ---
 
 ## 1. AI란?
-1
+
 인공지능이란 기계가 주어진 문제를 사고를 통해 해결하고, 경험을 통해 능력을 향상하는 학습 능력을 갖추도록 하는 기술이라고 정의할 수 있다. 
 
 ![img](https://drive.google.com/uc?id=1u_lOBhfe2cAGulK9z2Ri91CrXgeS05ch)
@@ -74,7 +74,9 @@ comments: true
         ... \cr
         x_d \cr
         \end{pmatrix}
+
         \text{  *  }
+
         w =\begin{pmatrix}
         w_1 \cr
         w_2 \cr
