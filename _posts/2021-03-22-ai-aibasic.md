@@ -66,25 +66,25 @@ comments: true
 
 
     \\[
-        x = \begin{pmatrix}
-        x_1 \cr
-        x_2 \cr
-        x_3 \cr
-        x_4 \cr
-        ... \cr
-        x_d \cr
-        \end{pmatrix}
+    x = \begin{pmatrix}
+    x_1 \cr
+    x_2 \cr
+    x_3 \cr
+    x_4 \cr
+    ... \cr
+    x_d \cr
+    \end{pmatrix}
 
-        \text{  *  }
+    \text{  *  }
 
-        w =\begin{pmatrix}
-        w_1 \cr
-        w_2 \cr
-        w_3 \cr
-        w_4 \cr
-        ... \cr
-        w_d
-        \end{pmatrix}
+    w =\begin{pmatrix}
+    w_1 \cr
+    w_2 \cr
+    w_3 \cr
+    w_4 \cr
+    ... \cr
+    w_d
+    \end{pmatrix}
     \\]
 
     처음에는 임의로 설정된 weight로 시작하여, 퍼셉트론 모형의 분류가 잘못되었을 때, 각 가중치(weight)를 개선해 나간다. 학습하는 과정에서 각각의 입력값(\(x\))과 그에 대한 가중치(\(w\))를 행렬곱으로 계산하며 많은 연산이 필요하게 되고 이것이 GPU가 필요한 이유가 된다. 
@@ -92,7 +92,7 @@ comments: true
     또한, 가중치가 반영된 입력값을 가지고 bias(편향)을 통해 Output layer에서 활성화 정도를 조절할 수 있다. 출력층에 설정된 임계점(\(\theta\))을 넘지 못하면 활성화되지 않게 되는데 활성화 정도를 높이기 위해 편향을 통해 조절할 수 있다. 퍼셉트론을 간단한 수식으로 나타내면 다음과 같다.
 
     \\[
-        \hat{y} = b+\sum_{i=0}^{n} x_i * w_i
+    \hat{y} = b+\sum_{i=0}^{n} x_i * w_i
     \\]
 
     그러나 퍼셉트론은 [XOR 문제](https://ardino-lab.com/%EB%8B%A8%EC%B8%B5-%ED%8D%BC%EC%85%89%ED%8A%B8%EB%A1%A0%EC%9D%98-%EB%AC%B8%EC%A0%9C%EC%99%80-%ED%95%9C%EA%B3%84/)를 해결하지 못한다는 문제가 있다. 
