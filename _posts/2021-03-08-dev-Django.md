@@ -99,6 +99,7 @@ $ python manage.py makemigrations app_name
 template은 유저가 보는 화면입니다. app 폴더 안에 templates 폴더를 만들고 templates 내부에 HTML 파일들을 넣어줍니다.
 
 >**app_name/templates/helloworld.html**
+
 ```html
 <h1>
     Hello, World!
@@ -140,7 +141,7 @@ path(경로, view에 정의된 함수, 이름)
 
 ## 5. 서버 실행
 이제 터미널에서 아래 명령어를 통해 어떤 웹사이트가 만들어졌는지 확인할 수 있습니다. 
-```python
+```vim
 $ python manage.py runserver
 ```
 <br>
