@@ -150,8 +150,8 @@ $ python manage.py runserver
 
 
 <br><br>
+
 # 참고 자료
 - [HonKit](https://tutorial.djangogirls.org/ko/django_start_project/)
 - [docs.djangoproject](https://docs.djangoproject.com/ko/3.1/intro/tutorial01/)
-- [hidaehyunlee님의 블로그](https://velog.io/@hidaehyunlee/Django%EB%8A%94-%EC%96%B4%EB%96%BB%EA%B2%8C-%EC%9E%91%EB%8F%99%ED%95%A0%EA%B9%8C)
 - [tothefullest08님의 블로그](https://tothefullest08.github.io/django/2019/02/11/django01/)
