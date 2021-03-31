@@ -51,7 +51,8 @@ $ python manage.py startapp app_name
 # 2. Django의 구성요소
 
 - ## Django의 구조
-    |||
+
+    |Name|File|
     |---|---|
     |1. 프로젝트 생성||
     |2. 앱 생성||
