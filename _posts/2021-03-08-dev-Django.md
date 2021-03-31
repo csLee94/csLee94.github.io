@@ -56,7 +56,7 @@ $ python manage.py startapp app_name
     |---|---|
     |1. 프로젝트 생성||
     |2. 앱 생성||
-    |[3. 프로젝트와 앱 연결](#1-settings.py) |**setting.py**|
+    |[3. 프로젝트와 앱 연결](#1-settings) |**setting.py**|
     |[4. template 생성](#2-template-생성) |**.html**|
     |[5. 앱 기능 구현](#3-앱-기능-구현) |**views.py**|
     |[6. URL 요청을 views에 연결](#4-URL과-View-연결) |**urls.py**|
@@ -66,7 +66,7 @@ $ python manage.py startapp app_name
 
 
 
-## 1. settings.py
+## 1. settings
 app을 만들었지만 project는 아직 그 app의 존재를 모릅니다. 그래서 우리는 app을 만들었다고 등록해주는 절차가 필요합니다.
 >**project_name/settings.py** 수정
 
@@ -149,7 +149,11 @@ $ python manage.py runserver
 
 이렇게 Django는 `settings.py`, `html`, `views.py`, `urls.py`, `manage.py` 이 다섯 가지 파일들끼리 서로 데이터를 어떻게 처리하고 연결하는지 흐름을 이해하면 됩니다.
 
+<br><br>
 
+# 3. Django 자세히
+
+## 1. request와 post&get
 
 <br><br>
 
