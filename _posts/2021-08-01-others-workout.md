@@ -61,5 +61,9 @@ comments: true
 ## 2. Dead lift
 
 ## 3. Squat
+>  **단단한 등 만들기** <br> **곧추서기(척추중립)** <br> **잘 앉기**
+
+
+>  **<span style="color:red">단단한 등 만들기</span>**
 
 - 
