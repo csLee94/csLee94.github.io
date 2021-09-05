@@ -3,7 +3,7 @@ layout: post
 title:  "서버리스 개념과 Serverless Framework"
 subtitle:   서버리스 개념과 Serverless Framework
 categories: datascience
-tags: dev serverless, server, aws, lambda
+tags: dev serverless server aws lambda
 comments: true
 ---
 
