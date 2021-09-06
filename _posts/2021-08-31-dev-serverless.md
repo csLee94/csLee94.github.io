@@ -190,7 +190,7 @@ comments: true
             name: aws
             runtime: python3.8
             region: ap-northeast-2 # 배포하고자 하는 지역
-            stage: dev # API Gateway의 지점
+            stage: dev # API Gateway의 지점 / API endpoint URL에 반영
 
         functions:
             hello:
@@ -204,11 +204,13 @@ comments: true
     3. **deploy**
         Deploy 하기 전 serverless-python-requirements plugins를 추가해야한다. 이를 위해서 패키지에 대한 정보와 버전에 대한 정보가 있는 package.json 파일을 만들어야한다. 생성한 프로젝트 경로에서 아래 코드를 입력한다.
         ```vim
-        npm init
-        npm install --save serverless-python-requirements
+        sls plugin install -n serverless-python-requirements        
         ```
-        > 참고자료: [serverless 홈페이지 serverless-python-requirements 안내 docs](https://www.serverless.com/plugins/serverless-python-requirements/)
-
+        serverless framework에서 library의 정보를 읽을 수 있도록 `pipenv`에 설치한 목록을 **requirements.txt**로 내보낸다.
+        ```vim
+        pipenv lock -r > requirements.txt
+        ```
+        
         이후 plugin을 사용하기 위해서 serverless.yml에 해당 코드를 추가한다.
         ```yaml
         plugins:
@@ -247,3 +249,4 @@ comments: true
 > - [hello-bryan님의 블로그](https://hello-bryan.tistory.com/95): NPM 설치하기
 > - [chullino님의 블로그](https://medium.com/@chullino/serverless-python-requirements-%ED%99%9C%EC%9A%A9%ED%95%98%EA%B8%B0-8c93fdf43c9a): python-requirement 활용하기
 > - [changhoi님의블로그](https://changhoi.github.io/posts/serverless/serverless-framework-quicklearn-(1)/): serverless.yml 기초개념
+> - [drgabrielharris님의 블로그](https://drgabrielharris.medium.com/python-how-create-requirements-txt-using-pipenv-2c22bbb533af): pipenv 사용법
