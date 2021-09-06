@@ -106,6 +106,12 @@ comments: true
     AWS Console 외부에서 자유롭게 서버를 배포하고 생성할 수 있도록 IAM계정을 생성한다.
         > 이때 생성되는 액세스 키 ID에 대한 키는 **절대** 공유되어선 안된다. 과금에 대한 부분도 건드릴 수 있기 때문에 Github이나, 블로그에 배포하지 않도록 유념한다.
 
+        IAM 계정이 준비되었다면, 로컬에 배포할 수 있도록 serverless framework 환경 설정을 해준다. (Configure the **default** profile)
+        ```vim
+        serverless config credentials --provider aws --key 액세스키ID --secret 비밀액세스키
+        ```
+
+
     - 가상환경 준비 <br>
     AWS Lambda에 업로드할 때 zip 파일을 좀 더 쉽게 생성하기 위해서 가상환경 사용한다. 나중에 'python-requirements' Plugin과 함께 사용 <br>
     여기서는 **pipenv**를 사용한다.
@@ -197,7 +203,7 @@ comments: true
               handler: handler.hello
               events:
                 - httpApi:
-                    path: hello/get
+                    path: hello
                     method: get
         ```
 
@@ -210,7 +216,7 @@ comments: true
         ```vim
         pipenv lock -r > requirements.txt
         ```
-        
+
         이후 plugin을 사용하기 위해서 serverless.yml에 해당 코드를 추가한다.
         ```yaml
         plugins:
@@ -246,6 +252,7 @@ comments: true
 > -  [노마드 코더 Nomad Coders](https://www.youtube.com/channel/UCUpJs89fSBXNolQGOYKn0YQ) 유튜브: [서버리스 기초개념](https://www.youtube.com/watch?v=ufLmReluPww&t=448s)
 > - [Gyullbb님의 블로그](https://velog.io/@_gyullbb/Serverless-Framework-VS-Chalice-4) : Serverless 개념과 Python에서 serverless framework 다루기
 > - [Neon K.I.D님의 블로그](https://blog.neonkid.xyz/140): Serverless Framework를 사용하여 더 쉽게 서버 배포하기
+> - [velopert님의 블로그](https://velopert.com/3549): Serverless 프레임워크로 서버리스 애플리케이션 생성 및 배포하기
 > - [hello-bryan님의 블로그](https://hello-bryan.tistory.com/95): NPM 설치하기
 > - [chullino님의 블로그](https://medium.com/@chullino/serverless-python-requirements-%ED%99%9C%EC%9A%A9%ED%95%98%EA%B8%B0-8c93fdf43c9a): python-requirement 활용하기
 > - [changhoi님의블로그](https://changhoi.github.io/posts/serverless/serverless-framework-quicklearn-(1)/): serverless.yml 기초개념
