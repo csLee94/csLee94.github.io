@@ -10,8 +10,8 @@ comments: true
 # 목차
 1. [서버리스(Serverless)의 개념](#serverless의-개념)
 2. [AWS Lambda](#aws-lambda)
-3. [Serverless Framework](#serverless-framework)
-4. Reference
+3. [Serverless Framework](#serverless-framework) 
+4. [Reference](#reference)
 
 ---
 <br>
@@ -101,11 +101,139 @@ comments: true
 <br>
 
 ## Serverless Framework 다루기
-1. 설치 
+1. 사전준비 <br>
+    - IAM 계정 준비 <br>
+    AWS Console 외부에서 자유롭게 서버를 배포하고 생성할 수 있도록 IAM계정을 생성한다.
+        > 이때 생성되는 액세스 키 ID에 대한 키는 **절대** 공유되어선 안된다. 과금에 대한 부분도 건드릴 수 있기 때문에 Github이나, 블로그에 배포하지 않도록 유념한다.
 
+    - 가상환경 준비 <br>
+    AWS Lambda에 업로드할 때 zip 파일을 좀 더 쉽게 생성하기 위해서 가상환경 사용한다. 나중에 'python-requirements' Plugin과 함께 사용 <br>
+    여기서는 **pipenv**를 사용한다.
+        > pipenv의 대표적인 기능
+        > - pip과 virtualenv의 기능 동시 사용
+        > - requirements.txt 대신 Pipfile, Pipfile.lock 사용
+        > - 해쉬의 자동 생성
+        > - .env 자동 인식
+    
+2. 설치 <br>
+    - Serverless Framework를 설치하기 위해서 NPM을 먼저 설치해야한다. [Node JS 사이트](https://nodejs.org/en/download/)에 접속해 자신의 운영 체제에 맞는 버전을 선택해 설치한다. 대부분 `LTS` 버전을 선택한다.
+    - Node 및 NPM이 설치됐다면, 아래 명령어로 Serverless Framework를 설치한다.
+        ```vim
+        npm install -g serverless
+        ```
+3. 로컬에서 서비스 만들기
+    ```vim
+    serverless create --template aws-python3 --name ProjectName --path ProjectPath
+    ```
+    - `--template`은 serverless에서 사용할 수 있는 template이다.
+    - `--name`은 serverless.yml 파일 속 서비스 이름이다.
+    - `--path`는 서비스가 생성되어야하는 path다. 
 
+    위 명령어를 실행시키면 해당 경로 아래 `--path`에 설정한 이름을 가진 폴더가 생성된다. 해당 폴더 아래 **handler.py**와 **serverless.yml**파일이 생성됐다. **serverless.yml** 파일을 열어보면 service에 `--name`에 설정한대로 설정되었음을 알 수 있다.
+    ```yaml
+    service: ProjectName
+    ```
 
+    > 이후 해당 폴더에서 **pipenv**를 통해 가상환경을 활성화하고 Pipefile.lock파일도 만들어주기 위해 명령어를 한번 더 친다.
+    > ```vim
+    > pipenv shell
+    > pipenv lock
+    > ```
 
+    1. **handler.py** <br>
+    handler는 이벤트를 처리하는 Lambda 함수의 메서드다. 이 안에 정의하는 함수대로 Lambda가 생성된다.python에서 AWS Lamb Function Handler를 정의하는 기본 구조는 다음과 같다.
+        ```python
+        def handler_name(event, context):
+            ...
+            return value
+        ```
+        이 때 handler를 실행시키기 위해 별도 Library가 필요하다면 설치해줘야한다. AWS Lambda 환경에 handler.py와 함께 zip파일로 올려주기 위해 가상환경에 설치한다.
+        ```vim
+        pipenv install (library)
+        ```
+    
+    2. **serverless.yml 파일 수정** <br>
+    serverless.yml은 서비스 설정 값들이 관리되고 있는 파일이다. 
+        > serverless.yml의 역할
+        > - 서버리스 서비스 선언
+        > - 서비스에 들어갈 한 개 이상의 함수를 정의
+        > - Provider 정의 (AWS, GCP, Azure 등)
+        > - Plugin 정의
+        > - 함수들을 실행할 이벤트들을 정의
+        > - 함수에서 사용되는 리소스 정의
+        > - 이벤트 섹션에 나열된 이벤트들이 개발 시 이벤트들이 요구하는 리소스들을 자동적으로   생성하도록 허용
+        > - 서버리스의 변수들을 사용해서 유연한 설정값을 만들도록 허용
+    
+        <br>
+
+        serverless.yml은 사용되지 않는 기능들의 예시를 주석으로 채워놨다. 주석을 제거한 가장 기본 형태는 다음과 같다.
+        
+        ```yaml
+        service: ServiceName
+
+        provider:
+            name: aws
+            runtime: python3.8
+        
+        functions:
+            hello:
+              handler: handler.hello
+        ```
+
+        여기서 `function`속성은 서비스 내의모든 함수들을 나열하고 있다. `function`속성은 `provider`속성에서 상속 받은 속성을 덮어쓴다. <br>
+        여기에 배포할 지역(Region)과 배포할 스테이지(Stage), Lambda 함수를 작동시킬 트리거로 event 설정을 진행하면 다음과 같다. `events`는 `handler`의 바로 밑에 위치해야한다. 코드의 인덴트(들여쓰기)가 망가지지 않도록 주의하자. 
+
+        ```yaml
+        service: ServiceName
+
+        provider:
+            name: aws
+            runtime: python3.8
+            region: ap-northeast-2 # 배포하고자 하는 지역
+            stage: dev # API Gateway의 지점
+
+        functions:
+            hello:
+              handler: handler.hello
+              events:
+                - httpApi:
+                    path: hello/get
+                    method: get
+        ```
+
+    3. **deploy**
+        Deploy 하기 전 serverless-python-requirements plugins를 추가해야한다. 이를 위해서 패키지에 대한 정보와 버전에 대한 정보가 있는 package.json 파일을 만들어야한다. 생성한 프로젝트 경로에서 아래 코드를 입력한다.
+        ```vim
+        npm init
+        npm install --save serverless-python-requirements
+        ```
+        > 참고자료: [serverless 홈페이지 serverless-python-requirements 안내 docs](https://www.serverless.com/plugins/serverless-python-requirements/)
+
+        이후 plugin을 사용하기 위해서 serverless.yml에 해당 코드를 추가한다.
+        ```yaml
+        plugins:
+            - serverless-python-requirements
+        
+        custom:
+            pythonRequirements:
+                dockerizePip: non-linux
+        ```
+        > **dockerizePip**는 aws lambda가 돌아가는 OS환경인 Linux 환경에서 컴파일하기 위한 옵션이다. 사용자의 OS가 Linux여서 굳이 docker를 사용하지 않아도 된다면, `pythonRequirements`이하를 지우면 된다.
+
+        이후 다음 명령어를 통해 배포한다.
+        ```vim
+        serverless deploy
+        ```
+
+        - serverless deploy를 했을 때 동작 process
+            1. serverless.yml 설정 파일로부터 AWS CloudFormation 템플릿 파일 생성
+            2. Lambda function으로 실행될 코드들을 Zip 파일로 압축
+            3. 이전 배포된 모든 파일에 대한 hash를 가져온 뒤 현재 로컬에 있는 파일들의 hash와 비교
+            4. 만약 hash결과가 같으면 배포 프로세스는 종료
+            5. hash 결과가 같지 않으면, zip파일을 s3 bucket에 업로드
+            6. 모든 IAM Roles, Lambda Function, Events 및 그 외 자원들이 AWS CloudFormation 템플릿에 추가
+            7. 새로운 CloudFormation 템플릿으로 Stack을 업데이트
+            8. 각각의 배포는 각 Lambda function을 새로운 버전으로 발행
 
 
 
@@ -116,3 +244,6 @@ comments: true
 > -  [노마드 코더 Nomad Coders](https://www.youtube.com/channel/UCUpJs89fSBXNolQGOYKn0YQ) 유튜브: [서버리스 기초개념](https://www.youtube.com/watch?v=ufLmReluPww&t=448s)
 > - [Gyullbb님의 블로그](https://velog.io/@_gyullbb/Serverless-Framework-VS-Chalice-4) : Serverless 개념과 Python에서 serverless framework 다루기
 > - [Neon K.I.D님의 블로그](https://blog.neonkid.xyz/140): Serverless Framework를 사용하여 더 쉽게 서버 배포하기
+> - [hello-bryan님의 블로그](https://hello-bryan.tistory.com/95): NPM 설치하기
+> - [chullino님의 블로그](https://medium.com/@chullino/serverless-python-requirements-%ED%99%9C%EC%9A%A9%ED%95%98%EA%B8%B0-8c93fdf43c9a): python-requirement 활용하기
+> - [changhoi님의블로그](https://changhoi.github.io/posts/serverless/serverless-framework-quicklearn-(1)/): serverless.yml 기초개념
