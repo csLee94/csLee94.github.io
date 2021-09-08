@@ -10,8 +10,8 @@ comments: true
 # 목차
 1. [서버리스(Serverless)의 개념](#serverless의-개념)
 2. [AWS Lambda](#aws-lambda)
-3. [Serverless Framework](#serverless-framework) 
-    - [serverless Framework Basic Components](#serverless-framework-basic-components) 
+3. [Serverless Framework](#serverless-framework) <br>
+    [Serverless Framework Basic Components](#serverless-framework-basic-components) 
 4. [Reference](#reference)
 
 ---
