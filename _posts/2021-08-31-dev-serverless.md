@@ -229,7 +229,7 @@ comments: true
             7. 새로운 CloudFormation 템플릿으로 Stack을 업데이트
             8. 각각의 배포는 각 Lambda function을 새로운 버전으로 발행
         
-        <br>
+<br>
 
 ### Serverless Framework Basic Components
 - service <br>
@@ -274,7 +274,13 @@ functions:
 
 
 <br><br>
+
+---
+
+<br><br>
+
 # Reference
+
 > -  [노마드 코더 Nomad Coders](https://www.youtube.com/channel/UCUpJs89fSBXNolQGOYKn0YQ) 유튜브: [서버리스 기초개념](https://www.youtube.com/watch?v=ufLmReluPww&t=448s)
 > - [Gyullbb님의 블로그](https://velog.io/@_gyullbb/Serverless-Framework-VS-Chalice-4) : Serverless 개념과 Python에서 serverless framework 다루기
 > - [Neon K.I.D님의 블로그](https://blog.neonkid.xyz/140): Serverless Framework를 사용하여 더 쉽게 서버 배포하기
