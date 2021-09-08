@@ -160,7 +160,7 @@ comments: true
         ```
     
     2. **serverless.yml 파일 수정** <br>
-    serverless.yml은 서비스 설정 값들이 관리되고 있는 파일이다. 
+        serverless.yml은 서비스 설정 값들이 관리되고 있는 파일이다. 
         > serverless.yml의 역할
         > - 서버리스 서비스 선언
         > - 서비스에 들어갈 한 개 이상의 함수를 정의
@@ -184,11 +184,13 @@ comments: true
         
         functions:
             hello:
-              handler: handler.hello
+                handler: handler.hello
         ```
+
         <br>
-        
+
         ### Serverless Framework Basic Components
+
         - service <br>
             service는 Lambda에서 표시할 Prefix(접두사)이다. 실제로 서버리스가 배포되면 service의 이름이 앞에 붙은 이름으로 배포된다.
         - provider <br>
