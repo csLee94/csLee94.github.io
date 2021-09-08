@@ -168,13 +168,13 @@ comments: true
         > - Plugin 정의
         > - 함수들을 실행할 이벤트들을 정의
         > - 함수에서 사용되는 리소스 정의
-        > - 이벤트 섹션에 나열된 이벤트들이 개발 시 이벤트들이 요구하는 리소스들을 자동적으로   생성하도록 허용
+        > - 이벤트 섹션에 나열된 이벤트들이 개발 시 이벤트들이 요구하는 리소스들을 자동적으로   생성하도록  허용
         > - 서버리스의 변수들을 사용해서 유연한 설정값을 만들도록 허용
     
         <br>
 
         serverless.yml은 사용되지 않는 기능들의 예시를 주석으로 채워놨다. 주석을 제거한 가장 기본 형태는 다음과 같다.
-        
+
         ```yaml
         service: ServiceName
 
@@ -186,12 +186,10 @@ comments: true
             hello:
                 handler: handler.hello
         ```
-        > [serverless.yml components 상세 하단 참조](#serverless-framework-basic-components)
 
-        <br>
+        [serverless.yml components 상세 하단 참조](#serverless-framework-basic-components)
 
-
-
+    <br>
 
     3. **deploy** <br>
         Deploy 하기 전 serverless-python-requirements plugins를 추가해야한다. 이를 위해서 패키지에 대한 정보와 버전에 대한 정보가 있는 package.json 파일을 만들어야한다. 생성한 프로젝트 경로에서 아래 코드를 입력한다.
