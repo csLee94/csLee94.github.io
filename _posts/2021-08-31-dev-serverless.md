@@ -11,6 +11,7 @@ comments: true
 1. [서버리스(Serverless)의 개념](#serverless의-개념)
 2. [AWS Lambda](#aws-lambda)
 3. [Serverless Framework](#serverless-framework) 
+    - [serverless Framework Basic Components](#serverless-framework-basic-components) 
 4. [Reference](#reference)
 
 ---
@@ -185,7 +186,7 @@ comments: true
             hello:
               handler: handler.hello
         ```
-        ### Serverless Framework(AWS template) Basic Components
+        ### Serverless Framework Basic Components
         - service
             service는 Lambda에서 표시할 Prefix(접두사)이다. 실제로 서버리스가 배포되면 service의 이름이 앞에 붙은 이름으로 배포된다.
         - provider <br>
@@ -210,8 +211,8 @@ comments: true
         provider:
             name: aws
             runtime: python3.8
-            region: ap-northeast-2 # 배포하고자 하는 지역
-            stage: dev # API Gateway의 지점 / API endpoint URL에 반영
+            region: ap-northeast-2 
+            stage: dev 
 
         functions:
             hello:
