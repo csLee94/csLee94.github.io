@@ -11,7 +11,7 @@ comments: true
 1. [서버리스(Serverless)의 개념](#serverless의-개념)
 2. [AWS Lambda](#aws-lambda)
 3. [Serverless Framework](#serverless-framework) <br>
-    [Serverless Framework Basic Components](#serverless-framework-basic-components) 
+    - [Serverless Framework Basic Components](#serverless-framework-basic-components) 
 4. [Reference](#reference)
 
 ---
@@ -186,6 +186,7 @@ comments: true
             hello:
               handler: handler.hello
         ```
+
         ### Serverless Framework Basic Components
         - service <br>
             service는 Lambda에서 표시할 Prefix(접두사)이다. 실제로 서버리스가 배포되면 service의 이름이 앞에 붙은 이름으로 배포된다.
