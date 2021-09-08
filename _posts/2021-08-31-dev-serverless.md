@@ -222,7 +222,7 @@ comments: true
                     method: get
         ```
 
-        `ap-northeast-2`(서울)로 지역 설정하고, `dev` 스테이지로 배포한다. 또한 `hello`라는 함수는 `handler.hello`와 연결되어 잇고, `http`의 `GET`방식을 통해 실행 할 수 있다.
+        `ap-northeast-2`(서울)로 지역 설정하고, `dev` 스테이지로 배포한다. 또한 `hello`라는 함수는 `handler.hello`와 연결되어 잇고, `http`의 `GET`방식을 통해 실행할 수 있다.
 
         <br>
 
