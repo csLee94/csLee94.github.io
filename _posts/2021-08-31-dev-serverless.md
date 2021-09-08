@@ -186,52 +186,14 @@ comments: true
             hello:
                 handler: handler.hello
         ```
+        > [serverless.yml components 상세 하단 참조](#serverless-framework-basic-components)
 
         <br>
 
-        ### Serverless Framework Basic Components
 
-        - service <br>
-            service는 Lambda에서 표시할 Prefix(접두사)이다. 실제로 서버리스가 배포되면 service의 이름이 앞에 붙은 이름으로 배포된다.
-        - provider <br>
-            name: 서버를 제공하는 곳<br>
-            runtime: 언어<br>
-            region: 배포하고자 하는 지역 (서울은 ap-northeast-2)<br>
-            stage: API Gateway의 지점 (API endpoint URL에 반영)
-        - functions <br>
-            hello: function의 경우 첫 부분에 함수 이름 <br>
-            handler: `handler.` 뒤에 `handler.py`에서 정의한 함수의 이름<br>
-            event: Lambda에서 트리거가 될 event 정의
-            > 작성 시 참고 사항<br>
-            > - function 속성은 provider에서 상속받은 속성을 덮어쓴다.
-            > - events는 handler의 바로 밑에 위치해야한다.
-            > - 코드의 인덴트(들여쓰기)가 망가지지 않도록 주의하자.(yml 파일 특성)
-        
-        <br>
 
-        ```yaml
-        service: ServiceName
 
-        provider:
-            name: aws
-            runtime: python3.8
-            region: ap-northeast-2 
-            stage: dev 
-
-        functions:
-            hello:
-              handler: handler.hello
-              events:
-                - http:
-                    path: hello
-                    method: get
-        ```
-
-        `ap-northeast-2`(서울)로 지역 설정하고, `dev` 스테이지로 배포한다. 또한 `hello`라는 함수는 `handler.hello`와 연결되어 잇고, `http`의 `GET`방식을 통해 실행할 수 있다.
-
-        <br>
-
-    3. **deploy**
+    3. **deploy** <br>
         Deploy 하기 전 serverless-python-requirements plugins를 추가해야한다. 이를 위해서 패키지에 대한 정보와 버전에 대한 정보가 있는 package.json 파일을 만들어야한다. 생성한 프로젝트 경로에서 아래 코드를 입력한다.
         ```vim
         sls plugin install -n serverless-python-requirements        
@@ -266,7 +228,47 @@ comments: true
             6. 모든 IAM Roles, Lambda Function, Events 및 그 외 자원들이 AWS CloudFormation 템플릿에 추가
             7. 새로운 CloudFormation 템플릿으로 Stack을 업데이트
             8. 각각의 배포는 각 Lambda function을 새로운 버전으로 발행
+        
+        <br>
 
+### Serverless Framework Basic Components
+- service <br>
+    service는 Lambda에서 표시할 Prefix(접두사)이다. 실제로 서버리스가 배포되면 service의 이름이 앞에 붙은 이름으로 배포된다.
+- provider <br>
+    name: 서버를 제공하는 곳<br>
+    runtime: 언어<br>
+    region: 배포하고자 하는 지역 (서울은 ap-northeast-2)<br>
+    stage: API Gateway의 지점 (API endpoint URL에 반영)
+- functions <br>
+    hello: function의 경우 첫 부분에 함수 이름 <br>
+    handler: `handler.` 뒤에 `handler.py`에서 정의한 함수의 이름<br>
+    event: Lambda에서 트리거가 될 event 정의
+    > 작성 시 참고 사항<br>
+    > - function 속성은 provider에서 상속받은 속성을 덮어쓴다.
+    > - events는 handler의 바로 밑에 위치해야한다.
+    > - 코드의 인덴트(들여쓰기)가 망가지지 않도록 주의하자.(yml 파일 특성)
+        
+<br>
+
+```yaml
+service: ServiceName
+
+provider:
+    name: aws
+    runtime: python3.8
+    region: ap-northeast-2 
+    stage: dev 
+
+functions:
+    hello:
+        handler: handler.hello
+        events:
+        - http:
+            path: hello
+            method: get
+```
+
+`ap-northeast-2`(서울)로 지역 설정하고, `dev` 스테이지로 배포한다. 또한 `hello`라는 함수는 `handler.hello`와 연결되어 잇고, `http`의 `GET`방식을 통해 실행할 수 있다.
 
 
 
