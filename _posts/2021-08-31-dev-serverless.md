@@ -185,9 +185,24 @@ comments: true
             hello:
               handler: handler.hello
         ```
-
-        여기서 `function`속성은 서비스 내의모든 함수들을 나열하고 있다. `function`속성은 `provider`속성에서 상속 받은 속성을 덮어쓴다. <br>
-        여기에 배포할 지역(Region)과 배포할 스테이지(Stage), Lambda 함수를 작동시킬 트리거로 event 설정을 진행하면 다음과 같다. `events`는 `handler`의 바로 밑에 위치해야한다. 코드의 인덴트(들여쓰기)가 망가지지 않도록 주의하자. 
+        ### Serverless Framework(AWS template) Basic Components
+        - service
+            service는 Lambda에서 표시할 Prefix(접두사)이다. 실제로 서버리스가 배포되면 service의 이름이 앞에 붙은 이름으로 배포된다.
+        - provider <br>
+            name: 서버를 제공하는 곳<br>
+            runtime: 언어<br>
+            region: 배포하고자 하는 지역 (서울은 ap-northeast-2)<br>
+            stage: API Gateway의 지점 (API endpoint URL에 반영)
+        - functions <br>
+            hello: function의 경우 첫 부분에 함수 이름 <br>
+            handler: `handler.` 뒤에 `handler.py`에서 정의한 함수의 이름<br>
+            event: Lambda에서 트리거가 될 event 정의
+            > 작성 시 참고 사항<br>
+            > - function 속성은 provider에서 상속받은 속성을 덮어쓴다.
+            > - events는 handler의 바로 밑에 위치해야한다.
+            > - 코드의 인덴트(들여쓰기)가 망가지지 않도록 주의하자.(yml 파일 특성)
+        
+        <br>
 
         ```yaml
         service: ServiceName
@@ -202,10 +217,14 @@ comments: true
             hello:
               handler: handler.hello
               events:
-                - httpApi:
+                - http:
                     path: hello
                     method: get
         ```
+
+        `ap-northeast-2`(서울)로 지역 설정하고, `dev` 스테이지로 배포한다. 또한 `hello`라는 함수는 `handler.hello`와 연결되어 잇고, `http`의 `GET`방식을 통해 실행 할 수 있다.
+
+        <br>
 
     3. **deploy**
         Deploy 하기 전 serverless-python-requirements plugins를 추가해야한다. 이를 위해서 패키지에 대한 정보와 버전에 대한 정보가 있는 package.json 파일을 만들어야한다. 생성한 프로젝트 경로에서 아래 코드를 입력한다.
