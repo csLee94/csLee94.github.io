@@ -186,7 +186,8 @@ comments: true
             hello:
               handler: handler.hello
         ```
-
+        <br>
+        
         ### Serverless Framework Basic Components
         - service <br>
             service는 Lambda에서 표시할 Prefix(접두사)이다. 실제로 서버리스가 배포되면 service의 이름이 앞에 붙은 이름으로 배포된다.
