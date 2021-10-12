@@ -12,8 +12,8 @@ comments: true
 2. [AWS Lambda](#aws-lambda)
 3. [Serverless Framework](#serverless-framework) <br>
     - [Serverless Framework Basic Components](#serverless-framework-basic-components) 
-0. [Related Post](#related-post) 
-0. [Reference](#reference)
+4. [Related Post](#related-post) 
+5. [Reference](#reference)
 
 ---
 <br>
@@ -279,7 +279,7 @@ functions:
 <br><br>
 
 # Related Post
-- AWS Lambda
+- [AWS Lambda](https://cslee94.github.io/datascience/2021/10/12/dev-AWS-Lambda/)
 
 <br><br>
 # Reference
