@@ -12,7 +12,8 @@ comments: true
 2. [AWS Lambda](#aws-lambda)
 3. [Serverless Framework](#serverless-framework) <br>
     - [Serverless Framework Basic Components](#serverless-framework-basic-components) 
-4. [Reference](#reference)
+0. [Related Post](#related-post) 
+0. [Reference](#reference)
 
 ---
 <br>
@@ -277,6 +278,10 @@ functions:
 
 <br><br>
 
+# Related Post
+- AWS Lambda
+
+<br><br>
 # Reference
 
 > -  [노마드 코더 Nomad Coders](https://www.youtube.com/channel/UCUpJs89fSBXNolQGOYKn0YQ) 유튜브: [서버리스 기초개념](https://www.youtube.com/watch?v=ufLmReluPww&t=448s)
