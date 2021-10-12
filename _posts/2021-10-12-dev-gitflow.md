@@ -1,15 +1,17 @@
 ---
 layout: post
-title:  "Git Flow"
-subtitle:   Git Flow
+title:  "Git/Github/Gitflow/Gitlab"
+subtitle:   Git/Github/Gitflow/Gitlab
 categories: datascience
-tags: dev git gitflow
+tags: dev git github gitlab gitflow ci/cd
 comments: true
 ---
 
 # 목차
-1. [Git Flow란](#git-flow란)
-2. [Git Flow 흐름](#git-flow-흐름)
+1. [Git이란]()
+2. [Git Flow란](#git-flow란)
+    -  [Git Flow 흐름](#git-flow-흐름)
+3. [Gitlab에서 CI/CD]()
 0. [Reference](#reference)
 
 <br>
@@ -33,7 +35,7 @@ Git Flow는 5가지의 브랜치를 사용한다. <BR>
 
 <br><br>
 
-# Git Flow 흐름
+## Git Flow 흐름
 Git Flow의 프로세스는 아래 이미지와 같다.
 ![img](https://drive.google.com/uc?id=1UbfqgDi3dBkBxIgZLiM9BCgY9fA89PHb)
 
