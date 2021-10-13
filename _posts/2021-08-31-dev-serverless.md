@@ -10,10 +10,8 @@ comments: true
 # 목차
 1. [서버리스(Serverless)의 개념](#serverless의-개념)
 2. [AWS Lambda](#aws-lambda)
-3. [Serverless Framework](#serverless-framework) <br>
-    - [Serverless Framework Basic Components](#serverless-framework-basic-components) 
-4. [Related Post](#related-post) 
-5. [Reference](#reference)
+3. [Serverless Framework](#serverless-framework) 
+4. [Reference](#reference)
 
 ---
 <br>
@@ -161,7 +159,7 @@ comments: true
         ```
     
     2. **serverless.yml 파일 수정** <br>
-        serverless.yml은 서비스 설정 값들이 관리되고 있는 파일이다. 
+    serverless.yml은 서비스 설정 값들이 관리되고 있는 파일이다. 
         > serverless.yml의 역할
         > - 서버리스 서비스 선언
         > - 서비스에 들어갈 한 개 이상의 함수를 정의
@@ -169,13 +167,13 @@ comments: true
         > - Plugin 정의
         > - 함수들을 실행할 이벤트들을 정의
         > - 함수에서 사용되는 리소스 정의
-        > - 이벤트 섹션에 나열된 이벤트들이 개발 시 이벤트들이 요구하는 리소스들을 자동적으로   생성하도록  허용
+        > - 이벤트 섹션에 나열된 이벤트들이 개발 시 이벤트들이 요구하는 리소스들을 자동적으로   생성하도록 허용
         > - 서버리스의 변수들을 사용해서 유연한 설정값을 만들도록 허용
     
         <br>
 
         serverless.yml은 사용되지 않는 기능들의 예시를 주석으로 채워놨다. 주석을 제거한 가장 기본 형태는 다음과 같다.
-
+        
         ```yaml
         service: ServiceName
 
@@ -185,12 +183,29 @@ comments: true
         
         functions:
             hello:
-                handler: handler.hello
+              handler: handler.hello
         ```
 
-        [serverless.yml components 상세 하단 참조](#serverless-framework-basic-components)
+        여기서 `function`속성은 서비스 내의모든 함수들을 나열하고 있다. `function`속성은 `provider`속성에서 상속 받은 속성을 덮어쓴다. <br>
+        여기에 배포할 지역(Region)과 배포할 스테이지(Stage), Lambda 함수를 작동시킬 트리거로 event 설정을 진행하면 다음과 같다. `events`는 `handler`의 바로 밑에 위치해야한다. 코드의 인덴트(들여쓰기)가 망가지지 않도록 주의하자. 
 
-    <br>
+        ```yaml
+        service: ServiceName
+
+        provider:
+            name: aws
+            runtime: python3.8
+            region: ap-northeast-2 # 배포하고자 하는 지역
+            stage: dev # API Gateway의 지점 / API endpoint URL에 반영
+
+        functions:
+            hello:
+              handler: handler.hello
+              events:
+                - httpApi:
+                    path: hello
+                    method: get
+        ```
 
     3. **deploy** <br>
         Deploy 하기 전 serverless-python-requirements plugins를 추가해야한다. 이를 위해서 패키지에 대한 정보와 버전에 대한 정보가 있는 package.json 파일을 만들어야한다. 생성한 프로젝트 경로에서 아래 코드를 입력한다.
@@ -213,6 +228,24 @@ comments: true
         ```
         > **dockerizePip**는 aws lambda가 돌아가는 OS환경인 Linux 환경에서 컴파일하기 위한 옵션이다. 사용자의 OS가 Linux여서 굳이 docker를 사용하지 않아도 된다면, `pythonRequirements`이하를 지우면 된다.
 
+        <br>
+
+        마지막으로, 로컬에서만 활용되는 파일들은 `package - exclude`를 통해 배포에서 제외해준다.
+        ```yaml
+        package:
+            exclude:
+                - node_modules/**
+                - .venv/**
+                - package.json
+                - package-lock.json
+                - Pipfile
+                - Pipfile.lock
+                - requirements.txt
+                - .serverless/**
+        ```
+
+        <br>
+
         이후 다음 명령어를 통해 배포한다.
         ```vim
         serverless deploy
@@ -227,63 +260,49 @@ comments: true
             6. 모든 IAM Roles, Lambda Function, Events 및 그 외 자원들이 AWS CloudFormation 템플릿에 추가
             7. 새로운 CloudFormation 템플릿으로 Stack을 업데이트
             8. 각각의 배포는 각 Lambda function을 새로운 버전으로 발행
-        
-<br>
 
-### Serverless Framework Basic Components
-- service <br>
-    service는 Lambda에서 표시할 Prefix(접두사)이다. 실제로 서버리스가 배포되면 service의 이름이 앞에 붙은 이름으로 배포된다.
-- provider <br>
-    name: 서버를 제공하는 곳<br>
-    runtime: 언어<br>
-    region: 배포하고자 하는 지역 (서울은 ap-northeast-2)<br>
-    stage: API Gateway의 지점 (API endpoint URL에 반영)
-- functions <br>
-    hello: function의 경우 첫 부분에 함수 이름 <br>
-    handler: `handler.` 뒤에 `handler.py`에서 정의한 함수의 이름<br>
-    event: Lambda에서 트리거가 될 event 정의
-    > 작성 시 참고 사항<br>
-    > - function 속성은 provider에서 상속받은 속성을 덮어쓴다.
-    > - events는 handler의 바로 밑에 위치해야한다.
-    > - 코드의 인덴트(들여쓰기)가 망가지지 않도록 주의하자.(yml 파일 특성)
-        
-<br>
-
-```yaml
-service: ServiceName
-
-provider:
-    name: aws
-    runtime: python3.8
-    region: ap-northeast-2 
-    stage: dev 
-
-functions:
-    hello:
-        handler: handler.hello
-        events:
-        - http:
-            path: hello
-            method: get
-```
-
-`ap-northeast-2`(서울)로 지역 설정하고, `dev` 스테이지로 배포한다. 또한 `hello`라는 함수는 `handler.hello`와 연결되어 잇고, `http`의 `GET`방식을 통해 실행할 수 있다.
+    4. (+@) Lambda Layer 활용 <br>
+        용량이 큰 library를 사용하는 경우 Lambda layer 형태로 사용해야한다.
+        1. Layer 생성 
+            - **requirements.txt로 Layer 생성**
+                ```yaml
+                custom:
+                    pythonRequirements:
+                    dockerizePip: non-linux
+                    # 생성할 Layer 추가
+                    layer:
+                        name: layer-name # layer의 이름 지정
+                        compatibleRuntimes:
+                        - python3.8
+                ```
+            - 이미 만들어놓은 zip파일 사용 <br>
+                예시는 AWS Wrangler에서 제공하는 파일     
+                ```yaml
+                custom:
+                    pythonRequirements:
+                    dockerizePip: non-linux
+                    # 생성할 Layer 추가
+                    layer:
+                        awswrangler:
+                            package:
+                                artifact: awswrangler.zip
+                ```
+        2.  함수에 Layer 적용하기 <br>
+        **Name + LambdaLayer** 형태로 활용하며, 첫글자는 대문자로 설정하는 것을 주의한다.
+            ```yaml
+            functions:
+                hello:
+                    handler: handler.hello
+                    # handler 아래 부분에 layer 정보 작성
+                    layers:
+                        - {Ref: PythonRequirementsLambdaLayer}
+                        - {Ref: AwswranglerLambdaLayer}
+            ```
 
 
-
-
-<br><br>
-
----
-
-<br><br>
-
-# Related Post
-- [AWS Lambda](https://cslee94.github.io/datascience/2021/10/12/dev-AWS-Lambda/)
 
 <br><br>
 # Reference
-
 > -  [노마드 코더 Nomad Coders](https://www.youtube.com/channel/UCUpJs89fSBXNolQGOYKn0YQ) 유튜브: [서버리스 기초개념](https://www.youtube.com/watch?v=ufLmReluPww&t=448s)
 > - [Gyullbb님의 블로그](https://velog.io/@_gyullbb/Serverless-Framework-VS-Chalice-4) : Serverless 개념과 Python에서 serverless framework 다루기
 > - [Neon K.I.D님의 블로그](https://blog.neonkid.xyz/140): Serverless Framework를 사용하여 더 쉽게 서버 배포하기
@@ -292,3 +311,4 @@ functions:
 > - [chullino님의 블로그](https://medium.com/@chullino/serverless-python-requirements-%ED%99%9C%EC%9A%A9%ED%95%98%EA%B8%B0-8c93fdf43c9a): python-requirement 활용하기
 > - [changhoi님의블로그](https://changhoi.github.io/posts/serverless/serverless-framework-quicklearn-(1)/): serverless.yml 기초개념
 > - [drgabrielharris님의 블로그](https://drgabrielharris.medium.com/python-how-create-requirements-txt-using-pipenv-2c22bbb533af): pipenv 사용법
+> - [yahwang님의 블로그](https://yahwang.github.io/posts/92): Lambda Layer 및 배포
