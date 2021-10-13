@@ -326,3 +326,4 @@ comments: true
 > - [changhoi님의블로그](https://changhoi.github.io/posts/serverless/serverless-framework-quicklearn-(1)/): serverless.yml 기초개념
 > - [drgabrielharris님의 블로그](https://drgabrielharris.medium.com/python-how-create-requirements-txt-using-pipenv-2c22bbb533af): pipenv 사용법
 > - [yahwang님의 블로그](https://yahwang.github.io/posts/92): Lambda Layer 및 배포
+> - [happydaddy님의 Post](https://daddyprogrammer.org/post/14099/aws-lambda-layer-slim-lambda/): Lambda layer로 배포 사이즈 줄이기
