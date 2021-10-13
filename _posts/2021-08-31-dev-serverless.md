@@ -207,6 +207,15 @@ comments: true
                     method: get
         ```
 
+        > httpApi에서 `POST` Method의 경우 Lambda에서 event['body']에서 읽을 수 있다. <br>
+        > ```python
+        > import json
+        > 
+        > def hello(event, context):
+        >     body = json.loads(event['body'])
+        > ```
+
+
     3. **deploy** <br>
         Deploy 하기 전 serverless-python-requirements plugins를 추가해야한다. 이를 위해서 패키지에 대한 정보와 버전에 대한 정보가 있는 package.json 파일을 만들어야한다. 생성한 프로젝트 경로에서 아래 코드를 입력한다.
         ```vim
