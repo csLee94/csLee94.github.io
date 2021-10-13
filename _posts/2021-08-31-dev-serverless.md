@@ -270,6 +270,11 @@ comments: true
             7. 새로운 CloudFormation 템플릿으로 Stack을 업데이트
             8. 각각의 배포는 각 Lambda function을 새로운 버전으로 발행
 
+        제거 시, remove 명령어를 이용한다. 
+        ```vim
+        serverless remove
+        ```
+
     4. (+@) Lambda Layer 활용 <br>
         용량이 큰 library를 사용하는 경우 Lambda layer 형태로 사용해야한다.
         1. Layer 생성 
