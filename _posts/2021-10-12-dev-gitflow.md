@@ -8,16 +8,16 @@ comments: true
 ---
 
 # 목차
-1. [Git이란]()
-2. [Git Flow란](#git-flow란)
-    -  [Git Flow 흐름](#git-flow-흐름)
-3. [Gitlab에서 CI/CD]()
-0. [Reference](#reference)
+1. [Git Flow란](#git-flow란)
+2. [Git Flow 흐름](#git-flow-흐름)
+3. [Reference](#reference)
 
 <br>
 
 ---
+
 <br><br>
+
 
 # Git Flow란
 Git Flow는 **Vincent Driessen**에 의해 고안된 방법론이다. <br> Git으로 개발할 때 거의 표준과 같이 사용되지만, Vincent Driessen이 언급했듯, 완벽한 방법론은 아니고 각자 개발 환경에 따라 수정하고 변형해서 사용한다.
@@ -30,8 +30,6 @@ Git Flow는 5가지의 브랜치를 사용한다. <BR>
 > - feature: 기능을 개발하는 브랜치
 > - release: 이번 출시 버전을 준비하는 브랜치
 > - hotfixes: 출시 버전에서 발생한 버그를 수정하는 브랜치
-
-
 
 <br><br>
 
@@ -54,9 +52,10 @@ Git Flow의 프로세스는 아래 이미지와 같다.
 <br><br>
 
 # Rerference
-- [Gitflow 원본](https://nvie.com/posts/a-successful-git-branching-model/)
-- [우아한형제들 기술 블로그](https://techblog.woowahan.com/2553/)
-- [UX공작소](https://ux.stories.pe.kr/183)
-- [Json님의 포스트](https://blog.gangnamunni.com/post/understanding_git_flow/)
-- [Hackernoon님의 포스트](https://hackernoon.com/gitflow-is-a-poor-branching-model-hack-d46567a156e7)
+
+>   - [Gitflow 원본](https://nvie.com/posts/a-successful-git-branching-model/)
+>   - [우아한형제들 기술 블로그](https://techblog.woowahan.com/2553/)
+>   - [UX공작소](https://ux.stories.pe.kr/183)
+>   - [Json님의 포스트](https://blog.gangnamunni.com/post/understanding_git_flow/)
+>   - [Hackernoon님의 포스트](https://hackernoon.com/gitflow-is-a-poor-branching-model-hack-d46567a156e7)
 
