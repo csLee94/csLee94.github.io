@@ -1,9 +1,9 @@
 ---
 layout: post
-title:  "Git/Github/Gitflow/Gitlab"
-subtitle:   Git/Github/Gitflow/Gitlab
+title:  "Gitflow"
+subtitle:   Gitflow
 categories: datascience
-tags: dev git github gitlab gitflow ci/cd
+tags: dev git gitflow 
 comments: true
 ---
 
@@ -49,6 +49,7 @@ Git Flow의 프로세스는 아래 이미지와 같다.
 > 브랜치를 Merge할 때는 항상 `--no-ff` 옵션을 붙여서 브랜치에 대한 기록이 사라지는 것을 방지
 > ![img2](https://drive.google.com/uc?id=1y_iAEPDwBtiLLB5ROVIZ4o2zJZrvQHi_)
 
+> [git command 참고](https://cslee94.github.io/datascience/2021/10/13/dev-git/)
 <br><br>
 
 # Rerference
