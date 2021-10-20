@@ -26,7 +26,7 @@ Git Flow는 **Vincent Driessen**에 의해 고안된 방법론이다. <br> Git�
 
 Git Flow는 5가지의 브랜치를 사용한다. <BR>
 항상 유지되는 메인 브랜치(master, develop)과 일정 기간 동안만 유지되는 보조 브랜치(feature, release, hotfix)가 있다.
-> - master: 제품으로 출시될 수 있는 브랜치
+> - master: 배포(Release) 이력을 관리하기 위해 사용. 즉, 배포 가능한 상태만을 관리하는 브랜치
 > - develop: 다음 출시 버전을 개발하는 브랜치
 > - feature: 기능을 개발하는 브랜치
 > - release: 이번 출시 버전을 준비하는 브랜치
@@ -54,11 +54,13 @@ Git Flow의 프로세스는 아래 이미지와 같다.
 <br><br>
 
 # Git Flow 사용 예시
+- 기본 git flow는 로컬에서만 작동한다. (Merge, 브랜치 생성 등)
+- **pull-request**사용 여부 등 중앙 원격 저장소에 push하는 것은 프로젝트별 정책을 따른다.
 
 ## git flow 초기화
 1. `.git`파일이 있는, git repository에서 git flow 초기화 명령어를 실행한다.
     ```vim
-    git flow init
+    $ git flow init
     ```
     
     해당 명령어를 실행하면, git flow 전략에 맞는 브랜치들을 자동으로 생성해준다. 각 단계에서 생성되는 브랜치의 이름을 확인하도록 요청하고, Enter키를 눌러 기본값으로 생성한다.
@@ -83,7 +85,7 @@ Git Flow의 프로세스는 아래 이미지와 같다.
 
     > 생성 확인이 귀찮다면 -d 옵션을 사용할 수 있다.
     >   ```vim
-    >   git flow init -d
+    >   $ git flow init -d
     >   ```
 
 <br>
@@ -91,7 +93,7 @@ Git Flow의 프로세스는 아래 이미지와 같다.
 ## 브랜치 확인 & 동기화
 `git branch -v` 명령어를 통해 생성된 브랜치들을 확인한다.
 ```vim
-git branch -v
+$ git branch -v
 * develop 29990c7 first ☜ 체크아웃
   master  29990c7 first
 ```
@@ -99,7 +101,7 @@ git branch -v
 
 **로컬**에서 초기화된 master 브랜치 & develop 브랜치와 원격 저장소를 동기화를 진행한다.
 ```vim
-git push -u origin develop
+$ git push -u origin develop
 Total 0 (delta 0), reused 0 (delta 0)
 remote:
 remote: Create a pull request for 'develop' on GitHub by visiting:
@@ -112,34 +114,96 @@ Branch 'develop' set up to track remote branch 'develop' from 'origin'.
 
 <br>
 
-## git flow branch 사용법 - feature
-버그 수정이나 기능추가를 위한 feature를 생성하기 위해 다음 명령을 실행한다.
-```vim
-git flow feature start <feature name>
-```
-
-생성된 feature 브랜치에서 평소 git을 이용하는 것처럼 개발을 진행하고, 작업이 끝난 이후 feature 브랜치를 마무리할 땐, 다음 명령어를 실행한다.
-
-```vim
-git flow feature finish <feature name>
-```
-
-이 명령어를 실행하면, git-flow가 develop 브랜치로 checkout한 다음 feature 브랜치의 내용을 병합 후 feature 브랜치를 삭제한다.
+## Branch별 상세
+---
+### Master Brench
+제품으로 출시될 수 있는 브랜치이며, 배포(Release) 이력을 관리하기 위해 사용한다. 즉, 배포 가능한 상태만을 관리한다.
 
 <br>
 
-## git flow branch 사용법 - release
-release 브랜치를 생성하기 위해 다음 명령어를 실행한다.
+### Develop Branch
+다음 출시 버전을 개발하는 브랜치이며, 기능개발을 위한 브랜치들을 위해 사용한다. 모든 기능이 추가되고, 디버깅이 완료된 안정적인 상태라면 develop 브랜치를 **'Master Branch'**에 병합(merge)한다.<br>
+평소에 이 브랜치에서 개발을 진행한다.
 
-```vim
-git flow release start <version>
+<br>
 
-```
-이 명령어를 실행하면 release/version이라는 release 브랜치가 생성된다. 이후 release 준비가 끝났으면 finish 명령어를 통해 마무리한다.
+### Feature Branch
+새로운 기능 개발 및 버그 수정이 필요할 때마다 'Develop Branch'로부터 분기해 사용한다. 일반적으로 Feature Branch에서의 작업은 공유할 필요가 없기 때문에 자신의 로컬 저장소에서 관리하고, 개발이 완료되면 'develop' 브랜치로 병합(Merge)해 다른 사람들과 공유한다.
 
-```vim
-git flow release finish <version>
-```
+- feature branch 생성 및 종료 과정
+    ```vim
+    $ git checkout -b feature/temp develop # temp 기능 구현을 위한 브랜치를 분기
+
+    # 새로운 기능에 대한 작업 수행
+
+    $ git checkout develop # develop 브랜치로 이동
+
+    $ git merge --no-ff feature/temp # feature 브랜치에 존재하는 커밋이력을 모두 합쳐서 develop 브랜치로 병합
+
+    $ git branch -d feature/temp # feature/temp 브랜치 삭제
+
+    $ git push origin develop # develop 브랜치를 원격 중앙 저장소에 올린다.
+    ```
+
+<br>
+
+### Release Branch
+배포를 위한 전용 브랜치를 사용함으로 한 팀이 해당 배포를 준비하는 동안, 다른 팀은 다음 배포를 위한 기능 개발을 계속할 수 있다. 
+1. Release 브랜치를 develop 브랜치에서 분기한다.
+    - **develop 브랜치에서 배포할 수 있는 수준의 기능이 모이면** release 브랜치를 분기하며, 배포를 위한 최종 작업(버그 수정, 문서 추가)을 제외하고는 추가로 merge하지 않는다.
+    - release 브랜치를 만드는 순간부터 배포 사이클이 시작된다.
+2. **모든 기능이 정상적으로 동작**하면 release 버전 태그를 부여해 'master' 브랜치에 병합한다.<br>
+배포를 준비하는 동안 release 브랜치가 변경되었을 수 있으니, 배포 완료 후 'develop' 브랜치에도 병합한다.
+
+> release 브랜치 이름은 `release-*` 또는, `release/*`와 같이 짓는 게 일반적이다.
+
+- release branch 생성 및 종료 과정
+    ```vim
+    $ git checkout -b release/v1.1.3 develop # develop 브랜치로부터 release 브랜치를 분기
+
+    # 배포 사이클이 시작되며, 배포 가능한 상태가 되면
+
+    $ git checkout master 
+
+    $ git merge --no-ff release/v1.1.3 #master 브랜치에 release/v1.1.3 브랜치 merge
+
+    $ git tag -a v1.1.3 # 병합한 커밋에 release 버전 태그 부여
+
+    # release 브랜치의 변경 사항을 develop 브랜치에도 적용
+
+    $ git checkout develop
+
+    $ git merge --no-ff release/v1.1.3
+
+    $ git branch -d release/v1.1.3 # release/v1.1.3에 해당하는 브랜치 삭제
+
+    ```
+
+<br>
+
+### Hotfix Branch
+배포한 버전에 긴급하게 수정해야할 경우, 'master' 브랜치에서 분기하는 브랜치이다. 'develop'브랜치에서 수정 & 배포하기엔 시간도 많이 소요되고, 안정성을 보장하기도 어려워 바로 배포가 가능한 'master' 브랜치에서 분기해 필요한 부분만을 수정 후 다시 'master' 브랜치에 병합해 배포하는 것이다.
+> 'hoxfix' 브랜치는 'master' 브랜치를 부모로 하는 임시 브랜치로, 다음 배포를 위해 개발하던 작업 내용에 전혀 영향을 주지 않는다.
+
+- hotfix branch 생성 및 종료 과정
+    ```vim
+    $ git checkout -b hotfix/v1.1.4 master # hotfix 브랜치를 master 브랜치에서 분기
+
+    # 문제 부분 수정
+
+    $ git checkout master
+    
+    $ git merge --no-ff hotfix/v1.1.4 # master 브랜치에 hotfix/v1.1.4 내용을 병합
+
+    $ git tag -a 1.1.4 # 병합한 커밋에 새로운 버전 이름으로 태그 부여
+
+    # hotfix 브랜치 변경 사항 develop 브랜치에도 적용
+
+    $ git checkout develop
+
+    $ git merge --no-ff hotfix/v1.1.4
+    
+    ```
 
 
 <br><br>
@@ -152,4 +216,5 @@ git flow release finish <version>
 >   - [Json님의 포스트](https://blog.gangnamunni.com/post/understanding_git_flow/)
 >   - [Hackernoon님의 포스트](https://hackernoon.com/gitflow-is-a-poor-branching-model-hack-d46567a156e7)
 >   - [Git Textbook](https://git.jiny.dev/gitflow/init)
->   - [킴루코님의 블로그](https://hbase.tistory.com/60)
+>   - [heejeong Kwon님의 블로그(1)](https://gmlwjd9405.github.io/2018/05/11/types-of-git-branch.html)
+>   - [heejeong Kwon님의 블로그(1)](https://gmlwjd9405.github.io/2018/05/12/how-to-collaborate-on-GitHub-3.html)
