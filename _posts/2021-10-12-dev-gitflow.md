@@ -112,49 +112,17 @@ To https://github.com/jinygit/gitstudy13.git
 Branch 'develop' set up to track remote branch 'develop' from 'origin'.
 ```
 
-<br>
-
-## git flow 전반적인 사용 플로우
-1. Feature 개발 
-```vim
-$ git pull --rebase origin develop
-```
-feature 브랜치를 생성하기 전에 원격 develop 브랜치에서 최신의 코드를 다운로드 및 항상 로컬 develop 브랜치를 원격 develop 브랜치와 일치화
-
-<br>
-
-```vim
-$ git flow feature start feature_name
-Switched to a new branch 'feature/feature_name'
-
-Summary of actions:
-- A new branch 'feature/feature_name' was created, based on 'develop'
-- You are now on branch 'feature/feature_name'
-
-Now, start committing on your feature. When done, use:
-
-     git flow feature finish feature_name
-```
-기능 개발을 위한 Feature 브랜치 생성 <br>
-`git flow feature start <feature name>` 에서 이슈 번호를 붙여서 feature 이름을 작성하면 git flow init에서 지정한 prefix인 'feature/'가 자동으로 붙어 브랜치가 생성
-
-<br>
-
-```vim
-$ git commit -m '<feature name> 기능 개발'
-[feature/feature_name 0e5a183] <feature name> 기능 개발
- 1 file changed, 1 insertion(+)
- create mode 100644 func.py
-```
-기능 구현 후 커밋 메세지 작성 
 
 
 
 <br>
 
 ## Branch별 상세
+
 > 아래선 git flow command가 아닌 git command 위주로 설정한다.
+
 ---
+
 ### Master Brench
 제품으로 출시될 수 있는 브랜치이며, 배포(Release) 이력을 관리하기 위해 사용한다. 즉, 배포 가능한 상태만을 관리한다.
 
