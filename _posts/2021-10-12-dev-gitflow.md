@@ -114,7 +114,14 @@ Branch 'develop' set up to track remote branch 'develop' from 'origin'.
 
 <br>
 
+## git flow 전반적인 사용 플로우
+
+
+
+<br>
+
 ## Branch별 상세
+> 아래선 git flow command가 아닌 git command 위주로 설정한다.
 ---
 ### Master Brench
 제품으로 출시될 수 있는 브랜치이며, 배포(Release) 이력을 관리하기 위해 사용한다. 즉, 배포 가능한 상태만을 관리한다.
@@ -171,6 +178,8 @@ Branch 'develop' set up to track remote branch 'develop' from 'origin'.
 
     $ git push origin master # master브랜치를 중앙 원격 저장소에 업로드
 
+    $ git push origin master --tags # tag push
+    
     # release 브랜치의 변경 사항을 develop 브랜치에도 적용
 
     $ git checkout develop
@@ -228,3 +237,5 @@ Branch 'develop' set up to track remote branch 'develop' from 'origin'.
 >   - [Git Textbook](https://git.jiny.dev/gitflow/init)
 >   - [heejeong Kwon님의 블로그(1)](https://gmlwjd9405.github.io/2018/05/11/types-of-git-branch.html)
 >   - [heejeong Kwon님의 블로그(1)](https://gmlwjd9405.github.io/2018/05/12/how-to-collaborate-on-GitHub-3.html)
+>   - [outsider님의 블로그](https://blog.outsider.ne.kr/644)
+>   - [jinwoo1990님의 블로그](https://jinwoo1990.github.io/git/git-flow-tutorial/)
