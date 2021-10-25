@@ -212,13 +212,19 @@ Branch 'develop' set up to track remote branch 'develop' from 'origin'.
 
     # 문제 부분 수정
 
+    $ git add . # 문제 부분 수정 내용 추가
+
+    $ git commit -m '수정 메세지' 
+
     $ git checkout master
     
     $ git merge --no-ff hotfix/v1.1.4 # master 브랜치에 hotfix/v1.1.4 내용을 병합
 
-    $ git tag -a 1.1.4 # 병합한 커밋에 새로운 버전 이름으로 태그 부여
+    $ git tag -a v1.1.4 # 병합한 커밋에 새로운 버전 이름으로 태그 부여
 
     $ git push origin master # master 브랜치 중앙 원격 저장소에 업로드
+
+    $ git push origin master --tags
 
     # hotfix 브랜치 변경 사항 develop 브랜치에도 적용
 
