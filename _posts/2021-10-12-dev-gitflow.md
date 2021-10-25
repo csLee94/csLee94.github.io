@@ -115,6 +115,38 @@ Branch 'develop' set up to track remote branch 'develop' from 'origin'.
 <br>
 
 ## git flow 전반적인 사용 플로우
+1. Feature 개발 
+```vim
+$ git pull --rebase origin develop
+```
+feature 브랜치를 생성하기 전에 원격 develop 브랜치에서 최신의 코드를 다운로드 및 항상 로컬 develop 브랜치를 원격 develop 브랜치와 일치화
+
+<br>
+
+```vim
+$ git flow feature start feature_name
+Switched to a new branch 'feature/feature_name'
+
+Summary of actions:
+- A new branch 'feature/feature_name' was created, based on 'develop'
+- You are now on branch 'feature/feature_name'
+
+Now, start committing on your feature. When done, use:
+
+     git flow feature finish feature_name
+```
+기능 개발을 위한 Feature 브랜치 생성 <br>
+`git flow feature start <feature name>` 에서 이슈 번호를 붙여서 feature 이름을 작성하면 git flow init에서 지정한 prefix인 'feature/'가 자동으로 붙어 브랜치가 생성
+
+<br>
+
+```vim
+$ git commit -m '<feature name> 기능 개발'
+[feature/feature_name 0e5a183] <feature name> 기능 개발
+ 1 file changed, 1 insertion(+)
+ create mode 100644 func.py
+```
+기능 구현 후 커밋 메세지 작성 
 
 
 
@@ -143,13 +175,17 @@ Branch 'develop' set up to track remote branch 'develop' from 'origin'.
 
     # 새로운 기능에 대한 작업 수행
 
+    $ git add . # 변경 내역들 저장
+
+    $ git commit -m func_message # 변경 내역 메세지 작성
+
     $ git checkout develop # develop 브랜치로 이동
 
     $ git merge --no-ff feature/temp # feature 브랜치에 존재하는 커밋이력을 모두 합쳐서 develop 브랜치로 병합
 
-    $ git branch -d feature/temp # feature/temp 브랜치 삭제
-
     $ git push origin develop # develop 브랜치를 원격 중앙 저장소에 올린다.
+
+    $ git branch -d feature/temp # feature/temp 브랜치 삭제
     ```
 
 <br>
@@ -169,6 +205,10 @@ Branch 'develop' set up to track remote branch 'develop' from 'origin'.
     $ git checkout -b release/v1.1.3 develop # develop 브랜치로부터 release 브랜치를 분기
 
     # 배포 사이클이 시작되며, 배포 가능한 상태가 되면
+
+    $ git add . # 변경 내역 저장
+
+    $ git commit -m release/v* # 버전 정보 commit
 
     $ git checkout master 
 
@@ -236,6 +276,7 @@ Branch 'develop' set up to track remote branch 'develop' from 'origin'.
 >   - [Hackernoon님의 포스트](https://hackernoon.com/gitflow-is-a-poor-branching-model-hack-d46567a156e7)
 >   - [Git Textbook](https://git.jiny.dev/gitflow/init)
 >   - [heejeong Kwon님의 블로그(1)](https://gmlwjd9405.github.io/2018/05/11/types-of-git-branch.html)
->   - [heejeong Kwon님의 블로그(1)](https://gmlwjd9405.github.io/2018/05/12/how-to-collaborate-on-GitHub-3.html)
+>   - [heejeong Kwon님의 블로그(2)](https://gmlwjd9405.github.io/2018/05/12/how-to-collaborate-on-GitHub-3.html)
 >   - [outsider님의 블로그](https://blog.outsider.ne.kr/644)
 >   - [jinwoo1990님의 블로그](https://jinwoo1990.github.io/git/git-flow-tutorial/)
+>   - [imbolic0301님의 블로그](https://velog.io/@imbolic0301/Merge-%EA%B8%B0%EB%B0%98%EC%9D%98-git-convention-%EC%98%88%EC%8B%9C)
