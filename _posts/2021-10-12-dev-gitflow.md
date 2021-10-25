@@ -10,7 +10,7 @@ comments: true
 # 목차
 1. [Git Flow란](#git-flow란)
 2. [Git Flow 흐름](#git-flow-흐름)
-3. [Git Flow 사용 예시](#Git-Flow-사용-예시)
+3. [Git Flow 사용 예시](#git-flow-사용-예시)
 4. [Reference](#reference)
 
 <br>
@@ -169,11 +169,15 @@ Branch 'develop' set up to track remote branch 'develop' from 'origin'.
 
     $ git tag -a v1.1.3 # 병합한 커밋에 release 버전 태그 부여
 
+    $ git push origin master # master브랜치를 중앙 원격 저장소에 업로드
+
     # release 브랜치의 변경 사항을 develop 브랜치에도 적용
 
     $ git checkout develop
 
     $ git merge --no-ff release/v1.1.3
+
+    $ git push origin develop # merge된 develop 브랜치를 중앙 원격 저장소에 업로드
 
     $ git branch -d release/v1.1.3 # release/v1.1.3에 해당하는 브랜치 삭제
 
@@ -197,18 +201,24 @@ Branch 'develop' set up to track remote branch 'develop' from 'origin'.
 
     $ git tag -a 1.1.4 # 병합한 커밋에 새로운 버전 이름으로 태그 부여
 
+    $ git push origin master # master 브랜치 중앙 원격 저장소에 업로드
+
     # hotfix 브랜치 변경 사항 develop 브랜치에도 적용
 
     $ git checkout develop
 
     $ git merge --no-ff hotfix/v1.1.4
+
+    $ git push origin develop # develop 브랜치 중앙 원격 저장소에 업로드
+
+    $ git branch -d hotfix/v1.1.4
     
     ```
 
 
 <br><br>
 
-# Rerference
+# Reference
 
 >   - [Gitflow 원본](https://nvie.com/posts/a-successful-git-branching-model/)
 >   - [우아한형제들 기술 블로그](https://techblog.woowahan.com/2553/)
