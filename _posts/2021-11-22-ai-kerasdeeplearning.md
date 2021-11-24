@@ -52,11 +52,18 @@ comments: true
     |---|---|---|
     |벡터 데이터|(samples, features)|2D 텐서|
     |시계열 데이터 혹은 시퀀스 데이터| (samples, timesteps, features)|3D 텐서|
-    |이미지 데이터| (samples, height, wight, channels)| 4D 텐서|
-    |동영상 데이터| (samples, frames, height, width, channels)| 5D 텐서
+    |이미지 데이터| (samples, height, wight, channels)|4D 텐서|
+    |동영상 데이터| (samples, frames, height, width, channels)|5D 텐서|
 
+### 신경망의 엔진
+```python
+output = relu(dot(W, input) + b)
+# dot는 행렬 곱을 계산하는 numpy function
+```
 
-
+- **가중치(weight) 혹은 커널(kernel)**: 위 식 상 W에 해당하는 값 
+- **훈련되는 파라미터 혹은 편향(bias)**: 위 식 상 b에 해당하는 값 
+- 커널(kernel): 커널은 여러 가지 의미로 사용되는데, 대표적으로 서포트 백터 머신의 커널함수와 합성곱 신경망의 필터가 있습니다. 
 
 <br>
 
