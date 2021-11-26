@@ -3,7 +3,7 @@ layout: post
 title:  "케라스 창시자에게 배우는 딥러닝 Study(1) - 용어 정리"
 subtitle:   케라스 창시자에게 배우는 딥러닝 Study
 categories: datascience
-tags: AI DeepLearning keras review 
+tags: AI DeepLearning keras review ongoing
 comments: true
 ---
 
