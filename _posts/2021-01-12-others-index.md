@@ -2,7 +2,7 @@
 layout: post
 title:  "기초 주식 투자 지표"
 subtitle:   기초 주식 투자 지표
-categories: economic
+categories: others
 tags: stock economic 
 comments: true
 ---

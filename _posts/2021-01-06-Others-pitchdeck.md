@@ -3,7 +3,7 @@ layout: post
 title:  "스타트업의 PitchDeck"
 subtitle:   스타트업의 PitchDeck
 categories: others
-tags: startup 
+tags: startup pitchdeck IR
 comments: true
 ---
 

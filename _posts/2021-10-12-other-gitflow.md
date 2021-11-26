@@ -3,7 +3,7 @@ layout: post
 title:  "Gitflow"
 subtitle:   Gitflow
 categories: datascience
-tags: dev git gitflow 
+tags: other git gitflow 
 comments: true
 ---
 
