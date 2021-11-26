@@ -2,7 +2,7 @@
 layout: post
 title:  "운동법 정리[Dead lift, Squat, Bench Press, OHP, Pendlay Row, Lat Pull Down]"
 subtitle:   운동법 정리
-categories: others
+categories: delay
 tags: workout
 comments: true
 ---

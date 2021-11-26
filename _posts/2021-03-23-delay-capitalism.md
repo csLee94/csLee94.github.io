@@ -2,7 +2,7 @@
 layout: post
 title:  "[Review_Book] EBS 다큐 프라임 자본주의"
 subtitle:   ebs 다큐 프라임 자본주의
-categories: lecture
+categories: delay
 tags: Review Book 
 comments: true
 ---
