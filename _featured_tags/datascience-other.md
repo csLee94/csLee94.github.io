@@ -1,8 +1,8 @@
 ---
 layout: tag-blog
-title: AI
-slug: AI
+title: other
+slug: other
 category: datascience
 menu: false
-order: 3
+order: 4
 ---

@@ -1,7 +1,7 @@
 ---
 layout: tag-blog
-title: Resume
-slug: resume
+title: Side_Project
+slug: Side_Project
 category: career
 menu: false
 order: 2

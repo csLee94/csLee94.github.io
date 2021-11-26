@@ -6,5 +6,5 @@ menu: true
 submenu: false
 order: 5
 description: >
-  기타 취미 생활이나 관심사
+  Keep in mind what you're interested in
 ---

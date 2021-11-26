@@ -4,7 +4,7 @@ title: Career
 slug: career
 menu: true
 submenu: true
-order: 4
+order: 2
 description: >
-  Career Path & HR
+  What did I do with Data
 ---
