@@ -8,10 +8,6 @@ comments: true
 ---
 
 
-<!-- # 목차
-1. [Reference](#reference)
-
-<br> -->
 
 > 이 글은 **"케라스 창시자에게 배우는 딥러닝"** (프랑소와 숄레, 박해선 옮김; 길벗출판사)를 읽고 공부하며 남기는 Post입니다.
 ![img](https://drive.google.com/uc?id=1knT2Fs7LfbZ7iLrAzSK2wvNpcDV4zb5D)
