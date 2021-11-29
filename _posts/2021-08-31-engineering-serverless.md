@@ -3,7 +3,7 @@ layout: post
 title:  "서버리스 개념과 Serverless Framework"
 subtitle:   서버리스 개념과 Serverless Framework
 categories: datascience
-tags: engineering serverless server aws lambda
+tags: engineering cloud serverless server aws lambda
 comments: true
 ---
 
@@ -34,7 +34,7 @@ comments: true
 <br>
 
 - Serverless의 특징
-    > 서버리스가 아닌 경우, 서버는 24식나 돌아가며 항상 요청에 응답할 준비 대기<br> **서버리스의 경우** 내가 업로드한 함수들은 잠들어 있고, request가 오는 순간 AWS가 함수를 깨워 작동. 수행을 마치고 다시 Sleep
+    > 서버리스가 아닌 경우, 서버는 24시간 돌아가며 항상 요청에 응답할 준비 대기<br> **서버리스의 경우** 내가 업로드한 함수들은 잠들어 있고, request가 오는 순간 AWS가 함수를 깨워 작동. 수행을 마치고 다시 Sleep
     - 장점
     1. 저렴한 사용 가격 (항시 서버 운영이 아닌 Request에 반응해 작동)
     2. 스케일 조정이 용이 (유저에 따라 AWS에서 함수를 복제해 작동)
