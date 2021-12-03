@@ -3,7 +3,7 @@ layout: post
 title:  "Data Lake, Data Warehouse, Data Mart 분류 및 비교"
 subtitle:   Data Lake, Data Warehouse, Data Mart 분류 및 비교
 categories: datascience
-tags: engineering datalake datawarehouse datamart ongoing
+tags: engineering datalake datawarehouse datamart
 comments: true
 ---
 
@@ -19,9 +19,9 @@ comments: true
 <br>
 
 데이터의 저장소인 데이터베이스, DB는 저장 목적과 데이터의 활용처에 따라 크게 3가지 분류로 나눌 수 있습니다.
-- Data Lake
-- Data Warehouse
-- Data Mart
+- **Data Lake**: 원시 데이터를 메타 데이터(날짜, 출처 등)을 그대로 저장하는 비정형 데이터 저장소
+- **Data Warehouse**: 여러 곳에서 발생하는 데이터를 전사적 구조에 맞춰 저장하는 정형 데이터 저장소
+- **Data Mart**: 특정 주제 및 요구사항으로 엮은 Warehouse의 하위 집합 격인 데이터 저장소
 
 # Data Lake
 Data Lake는 구조화, 반구조화, 원시 데이터 형태로 저장된 비정형의 저장소이며, 관계형 데이터, CSV나 json, 기계 및 센서 데이터의 형태로 저장됩니다.
@@ -59,7 +59,7 @@ Data Mart는 Data Warehouse 설계 시, 핵심 고려 사항입니다. Data Ware
 <br>
 
 # Summary
-| |Data Lake|Data Warehouse|Data Mart|
+||Data Lake|Data Warehouse|Data Mart|
 |---|---|---|---|
 |Usage|고급 예측 분석|운영 및 성능 분석|프런트 라인 비즈니스 보고|
 |User|Low|High|Low|
