@@ -23,6 +23,24 @@ comments: true
 - **Data Warehouse**: 여러 곳에서 발생하는 데이터를 전사적 구조에 맞춰 저장하는 정형 데이터 저장소
 - **Data Mart**: 특정 주제 및 요구사항으로 엮은 Warehouse의 하위 집합 격인 데이터 저장소
 
+||Data Lake|Data Warehouse|Data Mart|
+|---|---|---|---|
+|Usage|고급 예측 분석|운영 및 성능 분석|프런트 라인 비즈니스 보고|
+|User|Low|High|Low|
+|Cost|Very High|Medium-to-High|Low|
+|Data growth|Very High|Low-to-Medium|Low|
+|Time-to-Market|Weeks, Months|Weeks, days, hour (Depending on Approach)|Minutes, hours|
+
+<br>
+
+![img](https://drive.google.com/uc?id=1Qzir766Ie7r6K93w17oSbm3Xn2DVvH8C)
+
+<br>
+
+![img](https://drive.google.com/uc?id=1OjRp_T8w_8nvjtO2UAIu_YpbIxcVzmPe)
+
+<br>
+
 # Data Lake
 Data Lake는 구조화, 반구조화, 원시 데이터 형태로 저장된 비정형의 저장소이며, 관계형 데이터, CSV나 json, 기계 및 센서 데이터의 형태로 저장됩니다.
 
@@ -57,32 +75,6 @@ Data Mart는 Data Warehouse의 **하위 집합**으로, 특정 운영 부서 또
 Data Mart는 Data Warehouse 설계 시, 핵심 고려 사항입니다. Data Warehouse를 구축하는 방법은 **부서 별로 데이터를 통합, 모델링하고 개별 Data Mart를 만든 다음 하나로 묶어 Enterprise DataWarehouse를 구성**하는 것입니다. 이는 보다 민첩한 접근 방식으로 기업에서 비즈니스 프로세스에 대한 심층적인 이해를 높이고 개별 DataMart를 도출하기 위해 특정 요구사항에 집중할 수 있습니다.
 
 <br>
-
-# Summary
-||Data Lake|Data Warehouse|Data Mart|
-|---|---|---|---|
-|Usage|고급 예측 분석|운영 및 성능 분석|프런트 라인 비즈니스 보고|
-|User|Low|High|Low|
-|Cost|Very High|Medium-to-High|Low|
-|Data growth|Very High|Low-to-Medium|Low|
-|Time-to-Market|Weeks, Months|Weeks, days, hour (Depending on Approach)|Minutes, hours|
-
-<br>
-
-![img](https://drive.google.com/uc?id=1Qzir766Ie7r6K93w17oSbm3Xn2DVvH8C)
-
-<br>
-
-![img](https://drive.google.com/uc?id=1OjRp_T8w_8nvjtO2UAIu_YpbIxcVzmPe)
-
-
-
-
-
-
-
-
-
 
 # Reference
 > - [우주먼지](https://rk1993.tistory.com/entry/DataLake-VS-DataWarehouse-VS-DataMart-%EB%B9%84%EA%B5%90)님의 블로그
