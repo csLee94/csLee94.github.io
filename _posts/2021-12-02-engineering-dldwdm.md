@@ -30,6 +30,7 @@ comments: true
 |Cost|Very High|Medium-to-High|Low|
 |Data growth|Very High|Low-to-Medium|Low|
 |Time-to-Market|Weeks, Months|Weeks, days, hour (Depending on Approach)|Minutes, hours|
+|Type|Big data OLAP|OLAP|OLTP|
 
 <br>
 
