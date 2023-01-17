@@ -208,4 +208,5 @@ download:
   icon: icon-box-add
 notion:
   name: Portfolio
+  icon: icon-link
   prepend: "https://www.notion.so/"
