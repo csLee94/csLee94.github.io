@@ -60,6 +60,21 @@
 }
 
   {
+<<<<<<< HEAD
+=======
+  % assign font=site.font | default: "'Sans-serif'" %
+}
+
+  {
+  % assign font_heading=site.font_heading | default: "'Helvetica'" %
+}
+
+  {
+  % assign google_fonts=site.google_fonts | default: "Roboto+Slab:700|Noto+Serif:400,400i,700,700i" %
+}
+
+  {
+>>>>>>> develop
   % unless site.no_google_fonts %
 }
 
@@ -92,6 +107,7 @@
     }
 
     ;
+<<<<<<< HEAD
   }
 }
 
@@ -118,12 +134,15 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     opacity: 0.5;
+=======
+>>>>>>> develop
   }
 }
 
   {
   % endunless %
 }
+<<<<<<< HEAD
 =======
   {% unless site.hydejack.no_mark_external or site.no_mark_external %}
     @import "hydejack/__link__/mark-external";
@@ -181,3 +200,31 @@
 
 @import "syntax";
 >>>>>>> d54ccd8db13786e81053e349970563fa0273bd75
+=======
+
+  {
+  % unless site.no_mark_external %
+}
+
+@media screen {
+
+  a[href*="//"]::after,
+  a.no-push-state::after {
+    font-family: 'icomoon' !important;
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    font-size: smaller;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    opacity: 0.5;
+  }
+}
+
+  {
+  % endunless %
+}
+>>>>>>> develop

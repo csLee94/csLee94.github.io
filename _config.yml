@@ -117,6 +117,7 @@ kramdown:
   math_engine:       mathjax
   math_engine_opts:  {}
   footnote_backlink: '&#x21a9;&#xfe0e;'
+<<<<<<< HEAD
 =======
 lang:                  en
 title:                 Hydejack
@@ -183,6 +184,8 @@ titles_from_headings:
   strip_title:         true
   collections:         true
 >>>>>>> d54ccd8db13786e81053e349970563fa0273bd75
+=======
+>>>>>>> develop
 
 compress_html:
   comments:            ["<!-- ", " -->"]
