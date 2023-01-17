@@ -206,3 +206,6 @@ keybase:
 download:
   name: Download
   icon: icon-box-add
+notion:
+  name: Portfolio
+  prepend: "https://www.notion.so/"
