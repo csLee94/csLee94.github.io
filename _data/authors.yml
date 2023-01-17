@@ -1,29 +1,36 @@
 # The primary author of this blog.
 # Must be the same as `author` in `_config.yml`.
-# Change `qwtel` to your shortname (used in the front matter to set a page's author, e.g. `author: qwtel`).
-csLee94:
-  name:              LCS
-  email:             lcs62@naver.com
+# Change `author1` to your shortname.
+author1:
+  name:              <firstname> <lastname>
+  email:             <mail@domain.tld>
 
   # Used at the bottom of each page and at the top of the `about` layout
   # Markdown enabled, can use multiple paragraphs (enabled by `|`)
   about:             |
-    We are what we repeatedly do.
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+    
+    Open `_data/authors.yml` to edit this text.
 
   # This photo will be used in the about section
   picture:
-    src:             /assets/img/me.jpg
+    path:            https://via.placeholder.com/128x128
     # srcset is optional, but can be used to provide higher res versions for retina displays
     srcset:
-      1x:            /assets/img/me.jpg
-      2x:            /assets/img/me.jpg
+      1x:            https://via.placeholder.com/128x128
+      2x:            https://via.placeholder.com/256x256
 
   # Social media icons in sidebar
   # Comment/uncommet to show/hide
-  # Icons appear in order, can be rearranged:
+  # Rearrange to change the order in which they appear
   social:
-    # facebook:        
-    # twitter:         <username>
+    twitter:         <username>
+    github:          <username>
+    # email:           <mail@domain.tld>
+    # rss:             https://<url>/feed.xml
+    # facebook:        <username>
     # google:          <number>
     # vk:              <username>
     # youtube:         <string_string_string>
@@ -46,7 +53,6 @@ csLee94:
     # pinterest:       <username>
     # foursquare:      <number>
     # yelp:            <string>
-    github:          csLee94
     # stackoverflow:   <number/username>
     # npm:             <username>
     # hackernews:      <username>
@@ -57,11 +63,11 @@ csLee94:
     # delicious:       <username>
     # stumbleupon:     <username>
     # paypal:          <username>
-    email:           mailto:lcs625@naver.com
-    # rss:             
+    # download:        <url>
+    # keybase          <username>
 
-# Another author
-mdo:
+# Another author (optional)
+author2:
   name:              <firtname> <lastname>
   email:             <mail@domain.tld>
   about:             |
@@ -70,9 +76,7 @@ mdo:
     Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
 
     Open `_data/authors.yml` to edit this text.
+
   picture:           https://placehold.it/128x128
-  social:
-    github:          <username>
-    twitter:         <username>
-  image: 'data:image/gif;base64,R0lGODlhAQABAPAAACAgIP///yH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==' # http://jsfiddle.net/LPxrT/
-  color: '#268bd2'
+  twitter:           <username>
+  github:            <username>
