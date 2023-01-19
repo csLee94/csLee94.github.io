@@ -1,3 +1,6 @@
+#  custom
+_posts/example*
+
 # hidden files
 .*
 !.git*
