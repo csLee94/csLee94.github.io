@@ -1,20 +1,11 @@
 ---
-layout: post
-title:  "서버리스 개념과 Serverless Framework"
-subtitle:   서버리스 개념과 Serverless Framework
-categories: datascience
-tags: engineering cloud serverless server aws lambda
-comments: true
+title: 서버리스 개념과 Serverless Framework
+author: csLee94
+date: 2021-08-31 00:00:00 +0900
+categories: [data engineering]
+tags: [serverless, aws, lamdba]
 ---
 
-# 목차
-1. [서버리스(Serverless)의 개념](#serverless의-개념)
-2. [AWS Lambda](#aws-lambda)
-3. [Serverless Framework](#serverless-framework) 
-4. [Reference](#reference)
-
----
-<br>
 
 # Serverless의 개념
 

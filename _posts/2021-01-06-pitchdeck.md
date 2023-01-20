@@ -1,7 +1,7 @@
 ---
 title: 스타트업의 PitchDeck
 author: csLee94
-date: 2023-01-18 00:00:00 +0900
+date: 2021-01-06 00:00:00 +0900
 categories: [article]
 tags: [business, startup]
 ---
