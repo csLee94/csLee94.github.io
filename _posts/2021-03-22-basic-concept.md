@@ -14,7 +14,7 @@ math: true
 
 인공지능이란 기계가 주어진 문제를 사고를 통해 해결하고, 경험을 통해 능력을 향상하는 학습 능력을 갖추도록 하는 기술이라고 정의할 수 있다. 
 
-![img](https://drive.google.com/uc?id=1u_lOBhfe2cAGulK9z2Ri91CrXgeS05ch)
+![Desktop View](uc?id=1u_lOBhfe2cAGulK9z2Ri91CrXgeS05ch)
 
 인공지능 이전에 기계에게 결정을 내리도록 하는데 알고리즘을 사용하였다. 소프트웨어가 수신하는 각 유형의 입력값들에 대한 출력을 정의하는 **규칙**을 설정하였고, 기계는 이 규칙을 토대로 입력값들에 대한 출력을 결정하였다. 
 
