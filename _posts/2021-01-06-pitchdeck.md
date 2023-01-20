@@ -6,14 +6,6 @@ categories: [article]
 tags: [business, startup]
 ---
 
-
-## 목차
-1. [PitchDeck이란?](#pitchdeck이란?)
-2. [PitchDeck에 포함되어야할 내용](#pitchdeck내용)
-3. [PitchDeck에 포함시키지 말아야할 내용](#pitchdeck제외내용)
-4. [예시를 통해 알아보는 PitchDeck](#pitchdeck예시)
-5. [참고자료](#참고자료)
-
 # PitchDeck이란?
 > 투자자들에게 보이기 위한 파워포인트, 키노트 형식으로 된 회사 비즈니스 모델에 대한 설명 자료<br>
 _Pithch(던지다, 투수)의 의미에서 유추할 수 있듯 투자자들에게 사업 아이템, 상품, 비즈니스 모델 등을 "던지는" 것을 말함_
