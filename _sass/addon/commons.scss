@@ -32,7 +32,7 @@ body {
   background: var(--body-bg);
   color: var(--text-color);
   -webkit-font-smoothing: antialiased;
-  font-family: "Source Sans Pro", "Microsoft Yahei", sans-serif;
+  font-family: 'Noto Sans KR', "Source Sans Pro", "Microsoft Yahei", sans-serif;
   line-height: 1.75;
 }
 
@@ -1208,7 +1208,7 @@ $sidebar-display: "sidebar-display";
   }
 
   .toast-body {
-    font-family: Lato, sans-serif;
+    font-family: 'Noto Sans KR', Lato, sans-serif;
     line-height: 1.25rem;
 
     button {
