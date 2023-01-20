@@ -1,10 +1,9 @@
 ---
-title: test
+title: 추천시스템
 author: csLee94
-date: 2023-01-18 00:00:00 +0000
+date: 2023-01-18 00:00:00 +0900
 categories: [article]
 tags: [recommendation]
-render_with_liquid: false
 ---
 
 
@@ -65,7 +64,7 @@ contents의 프로필을 작성하고 해당 프로필을 기반으로 “유사
     - 데이터셋 단위에 대한 재정의 (채널 → 포스트)
 4. 크리에이터에 대한 판단 기준이 서비스 측과 브랜드가 불일치
     - 광고주들이 우리의 가용 범위 밖에 있는 인스타그램에서 판단하기 이전에, 크리에이터에 대한 충분한 정보를 제공함으로써 기준 일치 시도
-{:.note}
+{: .prompt-tip }
 
 
 <br><br>
