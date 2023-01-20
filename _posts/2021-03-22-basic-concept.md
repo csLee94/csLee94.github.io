@@ -5,7 +5,6 @@ date: 2021-03-22 00:00:00 +0900
 categories: [datascience]
 tags: [AI]
 math: true
-img_cdn: https://drive.google.com
 ---
 
 
@@ -15,7 +14,7 @@ img_cdn: https://drive.google.com
 
 인공지능이란 기계가 주어진 문제를 사고를 통해 해결하고, 경험을 통해 능력을 향상하는 학습 능력을 갖추도록 하는 기술이라고 정의할 수 있다. 
 
-![Desktop View](https://drive.google.com/uc?id=1u_lOBhfe2cAGulK9z2Ri91CrXgeS05ch)
+![Desktop View](/assets/img/legacy/basic_ai_0.png)
 
 인공지능 이전에 기계에게 결정을 내리도록 하는데 알고리즘을 사용하였다. 소프트웨어가 수신하는 각 유형의 입력값들에 대한 출력을 정의하는 **규칙**을 설정하였고, 기계는 이 규칙을 토대로 입력값들에 대한 출력을 결정하였다. 
 
@@ -33,7 +32,7 @@ img_cdn: https://drive.google.com
 
 ## 2. AI는 어떻게 학습하는가?
 
-![img](https://drive.google.com/uc?id=1x6KVtFQXcCWkore-p1vCKr7slbKxRzM0)
+![img](/assets/img/legacy/basic_ai_1.png)
 
 1. Machine Learning 
 
@@ -43,7 +42,7 @@ img_cdn: https://drive.google.com
 
     >사실 기계학습 알고리즘은 통계 기반 뿐만 아니라 신호 기반, 물체 인식, 패턴 기반 등 조금 더 다양하지만 지금은 편의상 통계 기반으로 뭉뚱그려 표현한다. 
 
-    ![img](https://drive.google.com/uc?id=1PvmfWT1VO3gR7c66Dvphe6uGOlhnHzAg)
+    ![img](/assets/img/legacy/basic_ai_2.png)
 
     예를 들어 몸무게와 키에 대한 데이터 분포가 위와 같다. 데이터 분포를 토대로  \\(y = ax + b\\) 과 같은 수식으로 데이터 가운데 직선을 그릴 수 있다. 다만 분포가 완벽한 형태를 띄지 않기 때문에 각 데이터들에 대한 \\(e\\)(오차)가 생길 것이고, 컴퓨터는 \\(e\\) 의 총합이 최소가 되는 직선을 찾는다. 
 
@@ -61,7 +60,7 @@ img_cdn: https://drive.google.com
 
     2.1 Perceptron
 
-    ![img](https://drive.google.com/uc?id=1G9E-PurPAEma2hgF26C4IyFqVREOonhS)
+    ![img](/assets/img/legacy/basic_ai_3.png)
 
     사람이나 동물의 신경계를 본 따 만든 학습 알고리즘으로 . Input, Weights, Output, Activation Function으로 나누어 볼 수 있다. Input 된 다수의 신호를 받아 각각 고유한 weight 값을 곱한 값을 활성화함수를 통해 0과 1로 출력한다. 
 
@@ -103,9 +102,9 @@ img_cdn: https://drive.google.com
 
     이 후 퍼셉트론은 Hidden layer를 추가하는 다층 퍼셉트론, 결과를 보고 연결된 가중치를 역으로 조절해나가는 Backpropagation(역전파)를 통해 XOR 문제를 해결하였다. 그러나 Hidden layer를 무작정 많이 쌓다 보니 모델의 복잡도가 높아졌다. 이에 임의로 지정된 초기 \\(w\\)값을 튜닝할 수 있는 사전훈련법을 도입하여 Deep Learning이라고 명명했다. 
 
-    ![img](https://drive.google.com/uc?id=1JXmth-ipSxscKA-iI-wFn0nU_4id56tP)
+    ![img](/assets/img/legacy/basic_ai_4.png)
 
-    ![img](https://drive.google.com/uc?id=16vOkb45uTpt82kNxcPXdSA-5cbRLMR5V)
+    ![img](/assets/img/legacy/basic_ai_5.png)
 
     이론 상 퍼셉트론의 층을 거듭 쌓아가면 비선형 표현 뿐만 아니라 컴퓨터가 수행하는 모든 처리도 표현 가능하게 된다. 
 
@@ -115,15 +114,15 @@ img_cdn: https://drive.google.com
 
     Machine Learning으로 문제를 해결하려고 할 때는 변수(feature)를 정의해줘야 한다. 예를 들어 사람 얼굴을 인식한다고 할 때, [눈, 코, 입, 각 부위 별 길이 및 비율] 등 사람 얼굴을 잘 표현할 수 있는 변수들을 찾고, 검증을 거쳐야 한다. 
 
-    ![img](https://drive.google.com/uc?id=1yc-8v9XNTpHw-4r-GiHQTO1AH7JpDiJf)
+    ![img](/assets/img/legacy/basic_ai_6.png)
 
     반면 Deep Learning은 사람 얼굴에 관련된 유의미한 feature를 연결된 신경망을 거치면서 스스로 찾는다. CNN(Convolution Neural Network의 경우 초기 layer에서 convolution을 통해 이미지의 edge나 line같은 low-level-feature를 학습하고 그 다음 이미지의 high-level-feature 표현을 학습한다. 
 
-    ![img](https://drive.google.com/uc?id=1sJiMn4IODIWX1U6xoVF8nLrLW1d7L6hx)
+    ![img](/assets/img/legacy/basic_ai_7.png)
 
     조금 더 쉬운 예로 손글씨를 인식하는 Deep Learning 모델을 가정해보자. 이미지를 28*28로 쪼개어 784개의 Input layer를 만들고 각각 16개의 Hidden layer를 2개 배치한다. 숫자는 0~9까지로 총 10개의 output layer가 만들어진다.  input된 데이터는 각각 연결된 노드를 통해 w를 곱해 계산되며 최종적으로 0~8까지의 출력층에서는 활성화되지 않고, 9노드만 활성화되어 이 모델은 9라고 판단하게 된다. 각 layer들을 거칠 때 신경망은 아래 그림과 같이 스스로 feature를 탐색하여 학습한다. 
 
-    ![img](https://drive.google.com/uc?id=1c-UhcQg76jxoMxEEpS32NUbAKXlsFZTM)
+    ![img](/assets/img/legacy/basic_ai_8.png)
 
     3.2 결과에 대한 해석
 
@@ -149,7 +148,7 @@ img_cdn: https://drive.google.com
 
     3.4 Machine Learning과 Deep Learning의 차이 예시
 
-    ![img](https://drive.google.com/uc?id=1EPRjDZ-ORcSKPy55KRdNFW6d5UepQlK_)
+    ![img](/assets/img/legacy/basic_ai_9.png)
 
     사진에 나와 있는 것은 왜 강아지이고 고양이인가? 그렇다면 어떤 기준을 가지고 둘을 '분류'할 수 있겠는가? 대부분 사람들에게 물어보면 아마도 '그냥'이라고 대답할 것이다. 뭐라 설명할 수 없는 경험적으로 알고 있는 것. 
 
