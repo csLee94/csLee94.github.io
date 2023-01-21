@@ -4,7 +4,6 @@ icon: fas fa-info-circle
 order: 4
 ---
 
-# INTRODUCE
 ---
 > **수학은 철학을 증명하기 위해 발전했다."** 라는 말을 믿습니다.
 {: .prompt-info }
