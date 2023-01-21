@@ -21,10 +21,10 @@ timezone: Asia/Seoul
 
 title: csLee94                          # the main title
 
-tagline: We are what we repeatedly  do  # it will display as the sub-title
+tagline: We are what we repeatedly  do. Excellence, then, is not an act but a habit.  # it will display as the sub-title
 
 description: >-                        # used by seo meta and the atom feed
-  data analytics, data engineering, AI
+  data analytics, data engineering, AI, python
 
 # fill in the protocol & hostname for your site, e.g., 'https://username.github.io'
 url: https://cslee94.github.io
