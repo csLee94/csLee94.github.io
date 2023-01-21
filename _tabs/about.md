@@ -4,5 +4,12 @@ icon: fas fa-info-circle
 order: 4
 ---
 
-> Add Markdown syntax content to file `_tabs/about.md`{: .filepath } and it will show up on this page.
-{: .prompt-tip }
+# INTRODUCE
+---
+> **수학은 철학을 증명하기 위해 발전했다."** 라는 말을 믿습니다.
+{: .prompt-info }
+
+스타트업에서 비즈니스 가치를 발견하고, 증명하기 위한 데이터 분석가로 근무하고 있습니다. 분석을 위한 분석에서 멈추지 않기 위해서, 오늘도 다양한 Business Agenda를 정의하고 **어떤 문제를 어떻게 해결할까** 고민합니다.
+
+얕게 나마 다양한 경험들을 기반으로 융합해 매년 복리성장하기 위해 노력하고 있습니다. 아직은 미약하지만, 시간이 지났을 때의 스노우볼 효과를 믿습니다.
+그래서, 오늘도 까먹지 않기 위해서 기록합니다.
