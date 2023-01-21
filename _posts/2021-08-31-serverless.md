@@ -2,7 +2,7 @@
 title: 서버리스 개념과 Serverless Framework
 author: csLee94
 date: 2021-08-31 00:00:00 +0900
-categories: [data engineering]
+categories: [learning, data engineering]
 tags: [serverless, aws, lamdba]
 ---
 

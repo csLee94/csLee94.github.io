@@ -2,7 +2,7 @@
 title: basic concept of AI
 author: csLee94
 date: 2021-03-22 00:00:00 +0900
-categories: [datascience]
+categories: [learning, datascience]
 tags: [AI]
 math: true
 ---
