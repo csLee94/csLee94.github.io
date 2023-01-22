@@ -26,10 +26,8 @@ tail_includes:
       </span>
     {% endif %}
     </em>
-    <em id="pv_hits" class="pageviews_hits" style="vertical-align: bottom;" data-proofer-ignore>
-      <a href="https://hits.seeyoufarm.com"  data-proofer-ignore>
-        <img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https://{{ site.url | rdivove_first: 'https://' | remove_first: 'http://' }}{{ page.url }}%2F&count_bg=%237A7A7A&title_bg=%23313131&icon=&icon_color=%23E7E7E7&title=views&edge_flat=false"  data-proofer-ignore/>
-      </a>
+    <em id="pv_hits" class="pageviews_hits" style="vertical-align: bottom;">
+      {% include post-view.html %}
     </em> 
   </div>
 
