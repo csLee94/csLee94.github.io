@@ -176,7 +176,7 @@
     {% else %}
       <!-- create the image wrapper -->
       {%- capture _wrapper_start -%}
-        <a href="{{ _final_src | default: _src }}" class="popup img-link {{ _class }}">
+        <a href="{{ _final_src | default: _src  }}" class="popup img-link {{ _class }}">
       {%- endcapture -%}
       {% assign _img_content = _img_content | append: _wrapper_start %}
       {% assign _right = _right | prepend: '></a' %}

@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="generator" content="Jekyll v4.3.1" />
+    <meta property="og:title" content="CNN 알고리즘" />
+    <meta name="author" content="csLee94" />
+    <meta property="og:locale" content="en" />
+    <meta name="description"
+        content="CNN의 개념 기존 Fully Connected Layer(;FC)로 구성된 인공 신경망 사용 시 3차원 데이터를 1차원으로 평면화 시키는 과정에서 공간 정보가 손실되어 성능을 높이는데 한계가 있었습니다. 이런 문제를 보완하여 이미지의 공간 정보를 유지한 상태로 학습 가능한 모델이 CNN(Convolutional Neural Network) 입니다. 기존 Fully Connected Neural Network와 비교 시 CNN의 차별성 FC와 CNN의 차이점에 대한 조금 더 자세한 설명 각 레이어의 입출력 데이터의 형상 유지 이미지의 공간 정보를 유지하면서 인접 이미지와의 특징을 효과적으로 인식 복수의 필터로 이미지의 특징 추출 및 학습 추출한 이미지의 특징을 모으고 강화하는 Pooling Layer 필터를 공유 파라미터로 사용 하기 때문에 일반 인공 신경망과 비교하여 학습 파라미터가 매우 적음" />
+    <meta property="og:description"
+        content="CNN의 개념 기존 Fully Connected Layer(;FC)로 구성된 인공 신경망 사용 시 3차원 데이터를 1차원으로 평면화 시키는 과정에서 공간 정보가 손실되어 성능을 높이는데 한계가 있었습니다. 이런 문제를 보완하여 이미지의 공간 정보를 유지한 상태로 학습 가능한 모델이 CNN(Convolutional Neural Network) 입니다. 기존 Fully Connected Neural Network와 비교 시 CNN의 차별성 FC와 CNN의 차이점에 대한 조금 더 자세한 설명 각 레이어의 입출력 데이터의 형상 유지 이미지의 공간 정보를 유지하면서 인접 이미지와의 특징을 효과적으로 인식 복수의 필터로 이미지의 특징 추출 및 학습 추출한 이미지의 특징을 모으고 강화하는 Pooling Layer 필터를 공유 파라미터로 사용 하기 때문에 일반 인공 신경망과 비교하여 학습 파라미터가 매우 적음" />
+    <link rel="canonical" href="https://cslee94.github.io/posts/ai-cnn/" />
+    <meta property="og:url" content="https://cslee94.github.io/posts/ai-cnn/" />
+    <meta property="og:site_name" content="csLee94" />
+    <meta property="og:type" content="article" />
+    <meta property="article:published_time" content="2021-03-22T00:00:00+09:00" />
+    <meta name="twitter:card" content="summary" />
+    <meta property="twitter:title" content="CNN 알고리즘" />
+    <meta name="google-site-verification" content="l5aJ9LiYyT4k6Xfa6q30GBHJ2WPGY7rCF1thCmG0U3U" />
+    <script
+        type="application/ld+json"> {"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"csLee94","url":"https://github.com/csLee94"},"dateModified":"2023-01-22T01:45:28+09:00","datePublished":"2021-03-22T00:00:00+09:00","description":"CNN의 개념 기존 Fully Connected Layer(;FC)로 구성된 인공 신경망 사용 시 3차원 데이터를 1차원으로 평면화 시키는 과정에서 공간 정보가 손실되어 성능을 높이는데 한계가 있었습니다. 이런 문제를 보완하여 이미지의 공간 정보를 유지한 상태로 학습 가능한 모델이 CNN(Convolutional Neural Network) 입니다. 기존 Fully Connected Neural Network와 비교 시 CNN의 차별성 FC와 CNN의 차이점에 대한 조금 더 자세한 설명 각 레이어의 입출력 데이터의 형상 유지 이미지의 공간 정보를 유지하면서 인접 이미지와의 특징을 효과적으로 인식 복수의 필터로 이미지의 특징 추출 및 학습 추출한 이미지의 특징을 모으고 강화하는 Pooling Layer 필터를 공유 파라미터로 사용 하기 때문에 일반 인공 신경망과 비교하여 학습 파라미터가 매우 적음","headline":"CNN 알고리즘","mainEntityOfPage":{"@type":"WebPage","@id":"https://cslee94.github.io/posts/ai-cnn/"},"url":"https://cslee94.github.io/posts/ai-cnn/"}</script>
+    <title>CNN 알고리즘 | csLee94</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/img/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/img/favicons/favicon-16x16.png">
+    <link rel="manifest" href="/assets/img/favicons/site.webmanifest">
+    <link rel="shortcut icon" href="/assets/img/favicons/favicon.ico">
+    <meta name="apple-mobile-web-app-title" content="csLee94">
+    <meta name="application-name" content="csLee94">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="msapplication-config" content="/assets/img/favicons/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://cdn.jsdelivr.net">
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Lato&family=Source+Sans+Pro:wght@400;600;700;900&display=swap">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.1/css/all.min.css">
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/afeld/bootstrap-toc@1.0.1/dist/bootstrap-toc.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/magnific-popup@1.1.0/dist/magnific-popup.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.1/dist/jquery.min.js"></script>
+    <script
+        type="text/javascript"> class ModeToggle { static get MODE_KEY() { return "mode"; } static get MODE_ATTR() { return "data-mode"; } static get DARK_MODE() { return "dark"; } static get LIGHT_MODE() { return "light"; } static get ID() { return "mode-toggle"; } constructor() { if (this.hasMode) { if (this.isDarkMode) { if (!this.isSysDarkPrefer) { this.setDark(); } } else { if (this.isSysDarkPrefer) { this.setLight(); } } } let self = this; /* always follow the system prefers */ this.sysDarkPrefers.addEventListener("change", () => { if (self.hasMode) { if (self.isDarkMode) { if (!self.isSysDarkPrefer) { self.setDark(); } } else { if (self.isSysDarkPrefer) { self.setLight(); } } self.clearMode(); } self.notify(); }); } /* constructor() */ get sysDarkPrefers() { return window.matchMedia("(prefers-color-scheme: dark)"); } get isSysDarkPrefer() { return this.sysDarkPrefers.matches; } get isDarkMode() { return this.mode === ModeToggle.DARK_MODE; } get isLightMode() { return this.mode === ModeToggle.LIGHT_MODE; } get hasMode() { return this.mode != null; } get mode() { return sessionStorage.getItem(ModeToggle.MODE_KEY); } /* get the current mode on screen */ get modeStatus() { if (this.isDarkMode || (!this.hasMode && this.isSysDarkPrefer)) { return ModeToggle.DARK_MODE; } else { return ModeToggle.LIGHT_MODE; } } setDark() { $('html').attr(ModeToggle.MODE_ATTR, ModeToggle.DARK_MODE); sessionStorage.setItem(ModeToggle.MODE_KEY, ModeToggle.DARK_MODE); } setLight() { $('html').attr(ModeToggle.MODE_ATTR, ModeToggle.LIGHT_MODE); sessionStorage.setItem(ModeToggle.MODE_KEY, ModeToggle.LIGHT_MODE); } clearMode() { $('html').removeAttr(ModeToggle.MODE_ATTR); sessionStorage.removeItem(ModeToggle.MODE_KEY); } /* Notify another plugins that the theme mode has changed */ notify() { window.postMessage({ direction: ModeToggle.ID, message: this.modeStatus }, "*"); } } /* ModeToggle */ const toggle = new ModeToggle(); function flipMode() { if (toggle.hasMode) { if (toggle.isSysDarkPrefer) { if (toggle.isLightMode) { toggle.clearMode(); } else { toggle.setLight(); } } else { if (toggle.isDarkMode) { toggle.clearMode(); } else { toggle.setDark(); } } } else { if (toggle.isSysDarkPrefer) { toggle.setLight(); } else { toggle.setDark(); } } toggle.notify(); } /* flipMode() */ </script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-FPQ7H0NCDZ"></script>
+    <script> window.dataLayer = window.dataLayer || []; function gtag() { dataLayer.push(arguments); } gtag('js', new Date()); gtag('config', 'G-FPQ7H0NCDZ'); </script>
+    <meta name="google-site-verification" content="HjgppIK3bN020qEO4ZAvQvesmGZhavh0YEY4Caws-0k" />
+
+<body data-spy="scroll" data-target="#toc" data-topbar-visible="true">
+    <div id="sidebar" class="d-flex flex-column align-items-end">
+        <div class="profile-wrapper text-center">
+            <div id="avatar"> <a href="/" class="mx-auto"> <img src="/assets/img/me_128.jpg" alt="avatar"
+                        onerror="this.style.display='none'"> </a></div>
+            <div class="site-title"> <a href="/">csLee94</a></div>
+            <div class="site-subtitle font-italic">We are what we repeatedly do. Excellence, then, is not an act but a
+                habit.</div>
+        </div>
+        <ul class="w-100">
+            <li class="nav-item"> <a href="/" class="nav-link"> <i
+                        class="fa-fw fas fa-home ml-xl-3 mr-xl-3 unloaded"></i> <span>HOME</span> </a>
+            <li class="nav-item"> <a href="/categories/" class="nav-link"> <i
+                        class="fa-fw fas fa-stream ml-xl-3 mr-xl-3 unloaded"></i> <span>CATEGORIES</span> </a>
+            <li class="nav-item"> <a href="/tags/" class="nav-link"> <i
+                        class="fa-fw fas fa-tag ml-xl-3 mr-xl-3 unloaded"></i> <span>TAGS</span> </a>
+            <li class="nav-item"> <a href="/archives/" class="nav-link"> <i
+                        class="fa-fw fas fa-archive ml-xl-3 mr-xl-3 unloaded"></i> <span>ARCHIVES</span> </a>
+            <li class="nav-item"> <a href="/about/" class="nav-link"> <i
+                        class="fa-fw fas fa-info-circle ml-xl-3 mr-xl-3 unloaded"></i> <span>ABOUT</span> </a>
+        </ul>
+        <div class="sidebar-bottom mt-auto d-flex flex-wrap justify-content-center align-items-center"> <button
+                class="mode-toggle btn" aria-label="Switch Mode"> <i class="fas fa-adjust"></i> </button> <span
+                class="icon-border"></span> <a href="https://github.com/csLee94" aria-label="github" target="_blank"
+                rel="noopener"> <i class="fab fa-github"></i> </a> <a
+                href=" javascript:location.href = 'mailto:' + ['chungsok625','gmail.com'].join('@')" aria-label="email">
+                <i class="fas fa-envelope"></i> </a> <a
+                href="https://cslee94.notion.site/Business-Agenda-a3fbc2524eed442992c24f840cff1a96"
+                aria-label="portfolio" target="_blank" rel="noopener"> <i class="fa-solid fa-square-up-right"></i> </a>
+            <a href="/feed.xml" aria-label="rss"> <i class="fas fa-rss"></i> </a>
+        </div>
+    </div>
+    <div id="topbar-wrapper">
+        <div id="topbar"
+            class="container d-flex align-items-center justify-content-between h-100 pl-3 pr-3 pl-md-4 pr-md-4"> <span
+                id="breadcrumb"> <span> <a href="/"> Home </a> </span> <span>CNN 알고리즘</span> </span> <i
+                id="sidebar-trigger" class="fas fa-bars fa-fw"></i>
+            <div id="topbar-title"> Post</div><i id="search-trigger" class="fas fa-search fa-fw"></i> <span
+                id="search-wrapper" class="align-items-center"> <i class="fas fa-search fa-fw"></i> <input
+                    class="form-control" id="search-input" type="search" aria-label="search" autocomplete="off"
+                    placeholder="Search..."> </span> <span id="search-cancel">Cancel</span>
+        </div>
+    </div>
+    <div id="main-wrapper" class="d-flex justify-content-center">
+        <div id="main" class="container pl-xl-4 pr-xl-4">
+            <div class="row">
+                <div id="core-wrapper" class="col-12 col-lg-11 col-xl-9 pr-xl-4">
+                    <div class="post pl-1 pr-1 pl-md-2 pr-md-2">
+                        <h1 data-toc-skip>CNN 알고리즘</h1>
+                        <div class="post-meta text-muted">
+                            <div class="d-flex justify-content-between"> <em> <span> Posted <em class=""
+                                            data-ts="1616338800" data-df="ll" data-toggle="tooltip"
+                                            data-placement="bottom"> Mar 22, 2021 </em> </span> <span> Updated <em
+                                            class="" data-ts="1674319528" data-df="ll" data-toggle="tooltip"
+                                            data-placement="bottom"> Jan 22, 2023 </em> </span> </em> <em
+                                    style="vertical-align: bottom;"> <a href="https://hits.seeyoufarm.com"
+                                        class="img-link shimmer"><img
+                                            data-src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https://cslee94.github.io/posts/ai-cnn/%2F&count_bg=%237A7A7A&title_bg=%23313131&icon=&icon_color=%23E7E7E7&title=views&edge_flat=false"
+                                            class="lazyload" data-proofer-ignore/></a> </em></div>
+                            <div class="d-flex justify-content-between"> <span> By <em> <a
+                                            href="https://github.com/csLee94">csLee94</a> </em> </span>
+                                <div> <span class="readtime" data-toggle="tooltip" data-placement="bottom"
+                                        title="3019 words"> <em>16 min</em> read</span></div>
+                            </div>
+                        </div>
+                        <div class="post-content">
+                            <h2 id="cnn의-개념"><span class="mr-2">CNN의 개념</span><a href="#cnn의-개념"
+                                    class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
+                            <p>기존 Fully Connected Layer(;FC)로 구성된 인공 신경망 사용 시 3차원 데이터를 1차원으로 평면화 시키는 과정에서 공간 정보가 손실되어
+                                성능을 높이는데 한계가 있었습니다. <br /> 이런 문제를 보완하여 이미지의 공간 정보를 유지한 상태로 학습 가능한 모델이
+                                <strong>CNN(Convolutional Neural Network)</strong> 입니다.
+                            </p>
+                            <blockquote>
+                                <p>기존 Fully Connected Neural Network와 비교 시 <strong>CNN</strong>의 차별성<br /> <a
+                                        href="https://sungwookkang.com/1408#:~:text=CNN(Convolutional%20Neural%20Network)%EC%9D%80,%EC%9C%A0%EC%A7%80%ED%95%98%EB%A9%B0%20%ED%95%99%EC%8A%B5%EC%9D%84%20%ED%95%9C%EB%8B%A4.%22%20data-ved=%222ahUKEwjRkpm8w8XvAhWnwosBHVZmBVEQFjABegQIBRAD%22%20ping=%22/url?sa=t&amp;source=web&amp;rct=j&amp;url=https://sungwookkang.com/1408%23:~:text%3DCNN(Convolutional%2520Neural%2520Network)%25EC%259D%2580,%25EC%259C%25A0%25EC%25A7%2580%25ED%2595%2598%25EB%25A9%25B0%2520%25ED%2595%2599%25EC%258A%25B5%25EC%259D%2584%2520%25ED%2595%259C%25EB%258B%25A4.&amp;ved=2ahUKEwjRkpm8w8XvAhWnwosBHVZmBVEQFjABegQIBRAD">FC와
+                                        CNN의 차이점에 대한 조금 더 자세한 설명</a></p>
+                                <ul>
+                                    <li>각 레이어의 입출력 데이터의 형상 유지
+                                    <li>이미지의 공간 정보를 유지하면서 인접 이미지와의 특징을 효과적으로 인식
+                                    <li>복수의 필터로 이미지의 특징 추출 및 학습
+                                    <li>추출한 이미지의 특징을 모으고 강화하는 Pooling Layer
+                                    <li>필터를 공유 파라미터로 사용 하기 때문에 일반 인공 신경망과 비교하여 학습 파라미터가 매우 적음
+                                </ul>
+                            </blockquote>
+                            <p><br /></p>
+                            <p><a href="/assets/img/legacy/cnn_0.png" class="popup img-link "><img
+                                        data-src="/assets/img/legacy/cnn_0.png" alt="img" class="lazyload"
+                                        data-proofer-ignore></a> <a href="/assets/img/legacy/cnn_1.png"
+                                    class="popup img-link "><img data-src="/assets/img/legacy/cnn_1.png" alt="img"
+                                        class="lazyload" data-proofer-ignore></a> CNN은 이미지의 특징을 추출하는 부분과 클래스를 분류하는 부분으로
+                                나눌 수 있습니다. <br /> <strong>특징 추출 영역</strong>은 Convolution Layer와 Pooling Layer를 여러 겹 쌓는
+                                형태로 구성됩니다. 이 중 Convolution Layer는 입력 데이터에 필터를 적용 후 활성화 함수를 반영하는 필수 요소입니다. Pooling Layer는
+                                선택적인 레이어입니다. <br /> <strong>클래스 분류 영역</strong>은 Fully Connected Layer(Dense Layer; 신경망)로
+                                이루어집니다. 그리고 특징 추출 부분과 분류 부분 사이에 이미지 형태의 데이터를 배열 형태로 만드는 <strong>Flatten Layer</strong>가
+                                위치합니다. <br /><br /> CNN은 이미지 특징 추출을 위하여 입력데이터를 필터가 순회하며 합성곱을 계산하고, 그 계산 결과를 이용하여 Feature
+                                Map을 만듭니다. Convolution Layer는 Fiter 크기, Stride, Padding 적용 여부, Max Pooling 크기에 따라서 출력
+                                데이터의 Shape이 변경됩니다.</p>
+                            <blockquote>
+                                <p>이미지의 특징을 추출하는 과정을 Feature Extraction이라고 합니다. Deep Learning은 이미지로부터 Filter 개수 등의 하이퍼
+                                    파라미터(Hyperparameter)를 조절하여 특징 추출을 자동화 한 것이 강점입니다.</p>
+                            </blockquote>
+                            <p><br /></p>
+                            <h3 id="convolution"><span class="mr-2">Convolution</span><a href="#convolution"
+                                    class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
+                            <p>합성곱 처리 절차 <br /> <a href="/assets/img/legacy/cnn_2.gif" class="popup img-link "><img
+                                        data-src="/assets/img/legacy/cnn_2.gif" alt="img" class="lazyload"
+                                        data-proofer-ignore></a></p>
+                            <blockquote>
+                                <p><em>출처: <a
+                                            href="http://deeplearning.stanford.edu/wiki/index.php/Feature_extraction_using_convolution">보기</a></em>
+                                </p>
+                            </blockquote>
+                            <p>인접한 Pixel에 Covolution Filter를 곱해 얻어진 Feature Map으로 이미지의 특징을 뽑을 수 있다.</p>
+                            <h3 id="channel"><span class="mr-2">Channel</span><a href="#channel"
+                                    class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
+                            <p>컬러 사진은 색표현을 위해 RGB 3개의 실수를 사용하여 3개의 채널로 구성됩니다. 반면 흑백 사진의 경우 흑백의 명암만을 표현하기 때문에 1개 채널로
+                                구성됩니다. 데이터의 Shape은 (높이, 폭, 채널)입니다.<br /> <a href="/assets/img/legacy/cnn_3.png"
+                                    class="popup img-link "><img data-src="/assets/img/legacy/cnn_3.png" alt="img"
+                                        class="lazyload" data-proofer-ignore></a></p>
+                            <h3 id="filter"><span class="mr-2">Filter</span><a href="#filter"
+                                    class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
+                            <p>CNN에서는 Kernel은 Filter와 같은 의미로, 일반적으로 (4,4)나 (3,3)과 같은 정사각 행렬로 정의됩니다. <strong>CNN에서 학습의
+                                    대상은 Filter 파라미터입니다.</strong> <br /> Filter는 입력 데이터를 지정한 간격으로 순회하면서 합성곱을 계산합니다. 여기서
+                                지정된 간격을 <strong>Stride</strong>라고 합니다. <br /> 입력 데이터가 여러 채널을 갖는 경우, Filter는 각 채널을 순회하며
+                                합성곱을 계산한 후, 채널별 Feature Map을 만듭니다. 그리고 각 채널의 Feature Map을 합산하여 최종 Feature Map으로 반환합니다.
+                                입력 데이터는 채널 수와 상관없이 Filter 별로 1개의 Feature Map이 만들어 집니다.</p>
+                            <blockquote>
+                                <p>1개 Filter는 Feature Map의 채널이 됩니다. 따라서 Convolution Layer에 <strong>N</strong>개의 Filter가
+                                    적용된다면 출력 데이터는 <strong>N개</strong>의 채널을 갖게 됩니다.</p>
+                            </blockquote>
+                            <ul>
+                                <li>이미지의 특징을 추출하는 Filter의 종류와 기능은 다음과 같다.<blockquote>
+                                        <p><a href="/assets/img/legacy/cnn_4.png" class="popup img-link "><img
+                                                    data-src="/assets/img/legacy/cnn_4.png" alt="img" class="lazyload"
+                                                    data-proofer-ignore></a>*</p>
+                                    </blockquote>
+                            </ul>
+                            <p>일반적인 이미지 처리에서는 sobel Filter와 같이 유명한 Filter들을 직접 사용자가 찾아서 사용해야했지만, <strong>CNN은 신경망에서 학습을
+                                    통해 자동으로 적합한 필터를 생성</strong>해준다는 특징이 있습니다.</p>
+                            <blockquote>
+                                <p>이 부분이 딥러닝에 의한 결과의 해석을 어렵게 만드는 부분 중 하나입니다. 정확히 어떤 Filter를 사용하여 어떤 Feature를 추출했는지 저는 알
+                                    수 없습니다.</p>
+                            </blockquote>
+                            <p>Convolution Layer의 입력 데이터를 Filter가 순회하며 합성곱을 통해 만든 출력을 Feature Map 혹은 Activation Map이라고
+                                합니다. <strong>Feature Map</strong>은 합성곱 계산으로 만들어진 행렬이며 <strong>Activation Map</strong>은
+                                활성 함수를 적용한 결과입니다. 즉, Convolution Layer의 최종 출력 결과가 Activation Map입니다.</p>
+                            <h3 id="padding"><span class="mr-2">Padding</span><a href="#padding"
+                                    class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
+                            <p>Convolution Layer에서 Filter와 Stride의 작용으로 Feature Map의 크기는 입력 데이터보다 Shape이 작아집니다. 이를 방지하기
+                                위한 방법이 Padding입니다. Padding은 입력 데이터의 외각에 지정된 픽셀만큼 특정 값으로 채워 넣는 것을 의미하며 보통 0으로 채워 넣습니다.
+                            </p>
+                            <blockquote>
+                                <p><a href="/assets/img/legacy/cnn_5.png" class="popup img-link "><img
+                                            data-src="/assets/img/legacy/cnn_5.png" alt="img" class="lazyload"
+                                            data-proofer-ignore></a> <em>출처: <a
+                                            href="http://taewan.kim/post/cnn/">taewan.kim님의 블로그</a></em></p>
+                            </blockquote>
+                            <p>Padding을 통해서 Convolution Layer의 출력 데이터 사이즈를 조절하는 기능 외에, 외각을 <code
+                                    class="language-plaintext highlighter-rouge">0</code>값으로 둘러싸 인공 신경망이 이미지의 외각을 인식하는
+                                학습 효과도 있습니다.</p>
+                            <h3 id="pooling-layer"><span class="mr-2">Pooling Layer</span><a href="#pooling-layer"
+                                    class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
+                            <p>Pooling Layer는 Convolution Layer의 출력 데이터를 입력받아 출력 데이터(Activation Map)의 크기를 줄이거나 특정 데이터를
+                                강조하는 용도로 사용됩니다. 만약 이미지의 크기를 줄이지 않고 Fully Connected Layer까지 가게 된다면 연산량이 기하급수적으로 늘어날 것입니다.
+                                <br /> Pooling Layer를 처리하는 방법으로는 <code
+                                    class="language-plaintext highlighter-rouge">Max Pooling</code>과 <strong>Average
+                                    Pooling</strong>, <strong>Min Pooling</strong>이 있습니다. 정사각 행렬의 특정 영역 안 값의 최댓값을 모으거나
+                                평균을 구하는 방식으로 동작합니다. 일반적으로 Pooling 크기와 Stride를 같은 크기로 설정하여 모든 원소가 한 번씩 처리 되도록 설정합니다.
+                            </p>
+                            <blockquote>
+                                <p>CNN에서 주로 <strong>Max Pooling</strong>을 사용하는 이유는 뉴런이 가장 큰 신호에 반응하는 것과 유사하다고 합니다. 이렇게
+                                    했을 때 노이즈가 감소하고 속도가 빨라지며 영상의 분별력이 좋아진다고 합니다.</p>
+                            </blockquote>
+                            <blockquote>
+                                <p><a href="/assets/img/legacy/cnn_6.png" class="popup img-link "><img
+                                            data-src="/assets/img/legacy/cnn_6.png" alt="img" class="lazyload"
+                                            data-proofer-ignore></a> <em>출처: <a
+                                            href="http://taewan.kim/post/cnn/">taewan.kim님의 블로그</a></em></p>
+                            </blockquote>
+                            <p>CNN에서는 주로 <code class="language-plaintext highlighter-rouge">Max Pooling</code>을 사용하며 입력된
+                                데이터가 Pooling Layer를 통과하면서 행렬의 크기가 감소하나 채널 수는 변하지 않습니다. 또한 학습대상 파라미터가 없습니다.</p>
+                            <h3 id="flatten-layer"><span class="mr-2">Flatten Layer</span><a href="#flatten-layer"
+                                    class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
+                            <p>Flatten Layer는 CNN의 데이터 타입을 Fully Connected Neural Network의 형태로 변경하는 레이어입니다. (높이, 폭, 채널)의
+                                형태를 (X, 1)의 형태로 바뀌어 줍니다. Flatten Layer에는 파라미터가 존재하지 않고, 입력 데이터의 Shape 변경만 수행합니다.</p>
+                            <ul>
+                                <li>입력 데이터 Shape (2,1,80)
+                                <li>출력 데이터 Shape (160,1)
+                            </ul>
+                            <h3 id="layer-별-출력-데이터-크기-계산"><span class="mr-2">Layer 별 출력 데이터 크기 계산</span><a
+                                    href="#layer-별-출력-데이터-크기-계산" class="anchor text-muted"><i
+                                        class="fas fa-hashtag"></i></a></h3>
+                            <p>입력 데이터에 대한 filter의 크기와 Stride 크기에 따라서 Feature Map의 크기가 결정됩니다.</p>
+                            <div class="table-wrapper">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>Name
+                                            <th>Word
+                                    <tbody>
+                                        <tr>
+                                            <td>입력 데이터의 높이
+                                            <td>H
+                                        <tr>
+                                            <td>입력 데이터의 폭
+                                            <td>W
+                                        <tr>
+                                            <td>필터의 높이
+                                            <td>FH
+                                        <tr>
+                                            <td>필터의 폭
+                                            <td>FW
+                                        <tr>
+                                            <td>Stride 크기
+                                            <td>S
+                                        <tr>
+                                            <td>패딩 사이즈
+                                            <td>P
+                                </table>
+                            </div>
+                            <p><br /></p>
+                            <p><strong>식1: 출력 데이터 크기 계산</strong></p>\[OutputHeight = OH = {(H+2P-FH) \over S} +1\]
+                            \[OutputWeight = OW = {(W+2P-FW) \over S} +1\]<p><code
+                                    class="language-plaintext highlighter-rouge">식1</code>의 결과는 자연수가 되어야 하며 Convolution
+                                Layer 다음에 Pooling Layer가 온다면, Feature Map의 행과 열 크기는 Pooling 크기의 배수여야 합니다. 예를 들어 Pooling
+                                사이즈가 (3,3)이라면 위 식의 결과는 자연수이며, 3의 배수여야 합니다. <strong>이 조건을 만족하도록 Filter의 크기, Stride의 간격,
+                                    Pooling 크기 및 패딩 크기를 조절</strong>해야합니다.</p>
+                            <p><strong>식2: Pooling Layer 출력 데이터 크기 산정</strong></p>\[OutputRowSize = {InputRowSize \over
+                            PoolingSize}\] \[OutputColumnSize = {InputColumnSize \over PoolingSize}\]<p>일반적으로 Pooling
+                                사이즈는 정사각형입니다. <strong>Pooling 사이즈를 Stride 크기와 같게 만들어서, 모든 요소가 한번씩 Pooling되도록
+                                    만듭니다.</strong> 입력 데이터의 행 크기와 열 크기는 Pooling 사이즈의 배수(나누어 떨어지는 수)여야 합니다. 결과적으로 Pooling
+                                Layer의 출력 데이터의 크기는 행과 열의 크기를 Pooling 사이즈로 나눈 몫입니다. Pooling 크기가 (2,2)라면 출력 데이터 크기는 입력
+                                데이터의 행과 열 크기를 2로 나눈 몫입니다. Pooling 크기가 (3,3)이라면 입력 데이터의 행과 크기를 3으로 나눈 몫이 됩니다.</p>
+                            <p><br /></p>
+                            <h2 id="cnn-구성"><span class="mr-2">CNN 구성</span><a href="#cnn-구성"
+                                    class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
+                            <blockquote>
+                                <p><a href="/assets/img/legacy/cnn_7.png" class="popup img-link "><img
+                                            data-src="/assets/img/legacy/cnn_7.png" alt="img" class="lazyload"
+                                            data-proofer-ignore></a> <em>출처: <a
+                                            href="https://www.researchgate.net/figure/Architecture-of-our-unsupervised-CNN-Network-contains-three-stages-each-of-which_283433254">보기</a></em>
+                                </p>
+                            </blockquote>
+                            <p>위 그림은 전형적인 CNN의 구성입니다. Convolution Layer와 Max Pooling Layer를 반복적으로 stack를 쌓아 특징을 추출하는
+                                부분(Featuree Extraction)과 Fully Connected Layer를 구성하고 마지막에 출력층에 Softmax를 적용한 분류 부분으로
+                                나뉩니다. CNN을 구성하면서 Filter, Stride, Padding을 조절하여 특징 추출 부분의 입력과 출력 크기를 계산하고 맞추는 작업이 중요합니다.
+                                아래 코드는 위 그림을 Keras로 구현한 것입니다.</p>
+                            <div class="language-python highlighter-rouge">
+                                <div class="code-header"> <span data-label-text="Python"><i
+                                            class="fas fa-code small"></i></span> <button aria-label="copy"
+                                        data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div>
+                                <div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
