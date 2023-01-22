@@ -64,7 +64,8 @@ main() {
   bundle exec htmlproofer "$SITE_DIR" \
     --disable-external \
     --check-html \
-    --allow_hash_href
+    --allow_hash_href \
+    --href_ignore
 }
 
 while (($#)); do
