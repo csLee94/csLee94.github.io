@@ -2,17 +2,17 @@
 layout: page
 refactor: true
 panel_includes:
-  - toc
+- toc
 tail_includes:
-  - related-posts
-  - post-nav
-  - comments
+- related-posts
+- post-nav
+- comments
 ---
 <h1 data-toc-skip>{{ page.title }}</h1>
 
 <div class="post-meta text-muted">
   <div class="d-flex justify-content-between">
-    <em>
+    <div>
       <!-- published date -->
       <span>
         {{ site.data.locales[site.lang].post.posted }}
@@ -20,55 +20,55 @@ tail_includes:
       </span>
       <!-- lastmod date -->
       {% if page.last_modified_at %}
-        <span>
-          {{ site.data.locales[site.lang].post.updated }}
-          {% include datetime.html date=page.last_modified_at tooltip=true %}
-        </span>
+      <span>
+        {{ site.data.locales[site.lang].post.updated }}
+        {% include datetime.html date=page.last_modified_at tooltip=true %}
+      </span>
       {% endif %}
-    </em>
-    <em style="vertical-align: bottom;">
+    </div>
+    <div style="vertical-align: bottom;">
       {% include post-view.html %}
-    </em> 
+    </div>
   </div>
 
   {% if page.image %}
-    {% capture src %}src="{{ page.image.path | default: page.image }}"{% endcapture %}
-    {% capture class %}class="preview-img{% if page.image.no_bg %}{{ ' no-bg' }}{% endif %}"{% endcapture %}
-    {% capture alt %}alt="{{ page.image.alt | default: "Preview Image" }}"{% endcapture %}
+  {% capture src %}src="{{ page.image.path | default: page.image }}"{% endcapture %}
+  {% capture class %}class="preview-img{% if page.image.no_bg %}{{ ' no-bg' }}{% endif %}"{% endcapture %}
+  {% capture alt %}alt="{{ page.image.alt | default: "Preview Image" }}"{% endcapture %}
 
-    {% capture lqip %}
-      {% if page.image.lqip %}
-        lqip="{{ page.image.lqip }}"
-      {% endif %}
-    {% endcapture %}
+  {% capture lqip %}
+  {% if page.image.lqip %}
+  lqip="{{ page.image.lqip }}"
+  {% endif %}
+  {% endcapture %}
 
-    <div class="mt-3 mb-3">
-      <img {{ src }} {{ class }} {{ alt }} w="1200" h="630" {{ lqip | strip }}>
-      {%- if page.image.alt -%}
-        <figcaption class="text-center pt-2 pb-2">{{ page.image.alt }}</figcaption>
-      {%- endif -%}
-    </div>
+  <div class="mt-3 mb-3">
+    <img {{ src }} {{ class }} {{ alt }} w="1200" h="630" {{ lqip | strip }}>
+    {%- if page.image.alt -%}
+    <figcaption class="text-center pt-2 pb-2">{{ page.image.alt }}</figcaption>
+    {%- endif -%}
+  </div>
   {% endif %}
   <div class="d-flex justify-content-between">
     <!-- author(s) -->
     <span>
       {% if page.author %}
-        {% assign authors = page.author %}
+      {% assign authors = page.author %}
       {% elsif page.authors %}
-        {% assign authors = page.authors %}
+      {% assign authors = page.authors %}
       {% endif %}
 
       {{ site.data.locales[site.lang].post.written_by }}
 
       <em>
-      {% if authors %}
+        {% if authors %}
         {% for author in authors %}
-          <a href="{{ site.data.authors[author].url }}">{{ site.data.authors[author].name }}</a>
-          {% unless forloop.last %}</em>, <em>{% endunless %}
+        <a href="{{ site.data.authors[author].url }}">{{ site.data.authors[author].name }}</a>
+        {% unless forloop.last %}</em>, <em>{% endunless %}
         {% endfor %}
-      {% else %}
+        {% else %}
         <a href="{{ site.social.links[0] }}">{{ site.social.name }}</a>
-      {% endif %}
+        {% endif %}
       </em>
     </span>
 
@@ -101,8 +101,8 @@ tail_includes:
   <div class="post-meta mb-3">
     <i class="far fa-folder-open fa-fw mr-1"></i>
     {% for category in page.categories %}
-      <a href='{{ site.baseurl }}/categories/{{ category | slugify | url_encode }}/'>{{ category }}</a>
-      {%- unless forloop.last -%}, {%- endunless -%}
+    <a href='{{ site.baseurl }}/categories/{{ category | slugify | url_encode }}/'>{{ category }}</a>
+    {%- unless forloop.last -%}, {%- endunless -%}
     {% endfor %}
   </div>
   {% endif %}
@@ -111,12 +111,11 @@ tail_includes:
   {% if page.tags.size > 0 %}
   <div class="post-tags">
     <i class="fa fa-tags fa-fw mr-1"></i>
-      {% for tag in page.tags %}
-      <a href="{{ site.baseurl }}/tags/{{ tag | slugify | url_encode }}/"
-          class="post-tag no-text-decoration" >
-        {{- tag -}}
-      </a>
-      {% endfor %}
+    {% for tag in page.tags %}
+    <a href="{{ site.baseurl }}/tags/{{ tag | slugify | url_encode }}/" class="post-tag no-text-decoration">
+      {{- tag -}}
+    </a>
+    {% endfor %}
   </div>
   {% endif %}
 
@@ -126,13 +125,13 @@ tail_includes:
 
       {% if site.data.locales[site.lang].copyright.license.template %}
 
-        {% capture _replacement %}
-        <a href="{{ site.data.locales[site.lang].copyright.license.link }}">
-          {{ site.data.locales[site.lang].copyright.license.name }}
-        </a>
-        {% endcapture %}
+      {% capture _replacement %}
+      <a href="{{ site.data.locales[site.lang].copyright.license.link }}">
+        {{ site.data.locales[site.lang].copyright.license.name }}
+      </a>
+      {% endcapture %}
 
-        {{ site.data.locales[site.lang].copyright.license.template | replace: ':LICENSE_NAME', _replacement }}
+      {{ site.data.locales[site.lang].copyright.license.template | replace: ':LICENSE_NAME', _replacement }}
 
       {% endif %}
     </div>
@@ -145,16 +144,12 @@ tail_includes:
 
 <!-- Comments -->
 <div class="comments">
-  <script src="https://utteranc.es/client.js"
-          repo="csLee94/csLee94.github.io"
-          issue-term="pathname"
-          theme="github-light"
-          crossorigin="anonymous"
-          async>
-  </script>
+  <script src="https://utteranc.es/client.js" repo="csLee94/csLee94.github.io" issue-term="pathname"
+    theme="github-light" crossorigin="anonymous" async>
+    </script>
   <!-- select theme depend on light/dark option -->
   <script type="text/javascript">
-    $(function() {
+    $(function () {
       const origin = "https://utteranc.es";
       const iframe = "iframe.utterances-frame";
       const lightTheme = "github-light";
@@ -162,8 +157,8 @@ tail_includes:
       let initTheme = lightTheme;
 
       if ($("html[data-mode=dark]").length > 0
-          || ($("html[data-mode]").length == 0
-              && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
+        || ($("html[data-mode]").length == 0
+          && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
         initTheme = darkTheme;
       }
 
@@ -176,7 +171,7 @@ tail_includes:
           theme = initTheme;
 
         } else if (event.source === window && event.data &&
-              event.data.direction === ModeToggle.ID) {
+          event.data.direction === ModeToggle.ID) {
           /* global theme mode changed */
           const mode = event.data.message;
           theme = (mode === ModeToggle.DARK_MODE ? darkTheme : lightTheme);
