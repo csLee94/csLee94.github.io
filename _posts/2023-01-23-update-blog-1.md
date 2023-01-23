@@ -23,7 +23,7 @@ tags: [github pages, blog, jekyll]
 
 ## How to build Blog on github
 
-### 1. Setting prerequirements
+### Setting prerequirements
 github pages를 이용하기 위해서 몇 가지 설치가 필요합니다.
 
 우선 **git**을 설치해줍니다.
@@ -37,7 +37,7 @@ _빨간 네모 참고_
 
 마지막으로, 저는 블로그 에디터로 **VScode**를 사용합니다. 별도의 에디터를 사용하시는 게 아니라면, vscode도 설치해주세요.
 
-### 2. Select jekyll theme
+### Select jekyll theme
 먼저 아래 사이트에서, 원하는 블로그 테마를 선택합니다. 이 때, github repository에서 readme 파일을 확인해보시거나 Demo site 내 Docs 설명이 충분한지 살펴보는 것을 권해드립니다. 아무래도 설명이 부족한 테마를 선택하시게 되면, 설정 난이도가 확 올라가버리게 됩니다. 구글에 해당 테마를 검색해본 다음, 참고할만한 레퍼런스가 충분한지 확인해보시는 것도 좋은 방법입니다.[^footnote_1]
 > - [http://jekyllthemes.org/](http://jekyllthemes.org/)
 > - [https://jekyllthemes.io/free](https://jekyllthemes.io/free)
@@ -46,7 +46,7 @@ _빨간 네모 참고_
 
 참고로 저는, 처음엔 `Hydejack` 이라는 테마를 사용했으며 지금은 `Chirpy` 라는 테마를 사용하고 있습니다. (유료 버전을 포함할 때) 다양한 기능들과 화려한 UI에 반해 `Hydejack`이라는 테마로 시작했지만, 유료버전 전용 기능부터 자잘한 기능을 제가 다루기엔 버겁다고 느꼈습니다. 또한 블로그 셋팅에 너무 많은 시간을 들이게 되어, 글쓰기 자체에 집중하고자, 조금 더 Compact한 현재 테마로 변경했습니다.
 
-### 3. Getting Source Code of themes
+### Getting Source Code of themes
 > 아래 내용부터는 현재 제 블로그 테마인 `Chirpy` 테마를 기준으로 진행합니다.
 
 자, 마음에 드시는 테마를 결정하셨다면 자신의 github에 새로운 repository를 만드셔야합니다. 이 때, 두 가지 방법을 사용할 수 있습니다.
@@ -75,7 +75,7 @@ _example of repository page_
 자, 이 상태로 git을 통해 해당 repository에 commit하고 잠시 기다리면[^footnote_2] `https://${username}.github.io/` 주소에서 Blog를 확인하실 수 있습니다. 
 
 
-### 4. Initializing of Chirpy
+### Initializing of Chirpy
 기본적인 준비를 마쳤으니, 본격적으로 Blog를 내 것으로 만듭니다. Vscode terminal에서 아래 명령을 사용해, chirpy를 초기화합니다.
 
 ```terminal
@@ -204,7 +204,7 @@ Jekyll 이란 github 설립자 중의 한명이 Ruby 언어를 통해 개발한 
 
 서버 리소스 없이, 정적 파일만으로 사이트를 Build하기 때문에 빠르고 가볍다는 장점이 있고 복잡한 로직이 없는 블로그와 같은 사이트에 적합하다고 볼 수 있습니다.
 
-나중에, jekyll을 이용한 블로그에 익숙해지고 좀 더 디테일한 customizing을 할 떄 jekyll의 기본 directory 구조를 알아 두시면, 소스를 분석하는데 훨씬 수월해집니다.
+나중에, jekyll을 이용한 블로그에 익숙해지고 좀 더 디테일한 customizing을 할 때 jekyll의 기본 directory 구조를 알아 두시면, 소스를 분석하는데 훨씬 수월해집니다.
 
 [여기](https://jekyllrb.com/docs/)에서 확인해보실 수 있고, 이 내용도 나중에 기회가 되면 정리해보겠습니다!
 
