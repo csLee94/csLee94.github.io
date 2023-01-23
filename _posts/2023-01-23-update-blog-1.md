@@ -1,11 +1,9 @@
 ---
-title: Github Pages로 블로그 만들기(feat.Chirpy)
+title: Github Pages로 블로그 만들기(feat.Chirpy) [1]
 author: csLee94
-date: 2023-01-22 00:00:00 +0900
-# last_modified_at: 2023-01-22 00:00:00 +0900
+date: 2023-01-23 00:00:00 +0900
 categories: [others]
 tags: [github pages, blog, jekyll]
-# published: False
 ---
 
 
@@ -105,14 +103,112 @@ Server running... press ctrl-c to stop
 
 브라우저에 http://127.0.0.1:4000 주소를 입력했을 때 기본 블로그 화면이 나타나면 성공입니다.
 
+<br>
+
 ## Customizing
 > 본격적으로 Customizing하기 전에 **꼭!** 아래 공식 Docs를 확인해보실 것을 권장드립니다!
 > [https://chirpy.cotes.page/posts/getting-started/](https://chirpy.cotes.page/posts/getting-started/)
 {: .prompt-danger}
 
-## APPEDIX. jekyll이란?
-*jekyll 내용 간단 정료*
+소스를 확인해보시면, 굉장히 많은 파일들이 생성되어 있을 텐데, 우선은 기본 설정에는 몇 가지 항목만 알면 됩니다. 전반적으로 세부 설정에 필요한 상세 내용은 [여기](https://jekyllrb.com/docs/)에서 확인할 수 있으며, 다음 포스트에서 다뤄 보겠습니다.
 
+|file Name|Description|
+|---|---|
+|**_config.yml**| 블로그의 기본 설정 파일로, 기초적인 setting은 이 파일만으로도 할 수 있습니다.|
+|_data/authors.yml| username, url 등을 설정합니다. |
+|_data/contact.yml| sidebar 하단 영역에 들어갈 github 주소, 메일 등을 관리할 수 있습니다.|
+|_posts/| 작성할 포스트들이 저장될 곳입니다. `yyyy-mm-dd-name.md` 형식으로 파일을 저장합니다.|
+|assets/| 블로그 로고 사진, favicon 부터 포스트에 사용될 이미지들을 저장하는 곳입니다.|
+
+우선은, 간단하게 `_config.yml` 파일부터 수정해보겠습니다. 부분적으로 바꾸어야할 부분만 살펴보고, 제 블로그와 [_config.yml](https://github.com/csLee94/csLee94.github.io/blob/main/_config.yml)를 비교해보시면 다른 부분들도 참고하실 수 있습니다.
+
+```yaml
+timezone: Asia/Seoul
+title: csLee94 # side bar 영역 내 logo 아래 큰 글씨 영역입니다.
+tagline: We are what we repeatedly  do ... # 그 아래 작은 글씨 영역입니다.
+url: https://cslee94.github.io
+github:
+    username: csLee94
+social:
+    name: csLee94
+    email: cslee94@gmail.com
+    links: # 사용 중인 SNS의 link를 추가합니다.
+        - https://github.com/csLee94
+
+google_site_verification: l5a... # google search console에서 메타 tag string을 입력
+avatar: /assets/img/me_128.jpg # sidebar 영역의 logo 이미지
+```
+{: file='_config.yml'}
+
+그 밖에 google_analytics나, comments와 같은 부분들은 `_config.yml` 내에서 설정할 때 에러가 발생했고, 이 부분은 아직 해결할 방법을 찾지 못했습니다. 그래서 해당 파일이 아닌 직접 html 소스를 추가했는데, 이 부분은 다음 포스트에서 다루도록 하겠습니다.
+
+바뀐 내용을 로컬에서 확인하실 땐, 위와 동일하게 `bundle exec jekyll serve` command를 실행 후 http://127.0.0.1:4000에서 확인가능합니다. 다만, _confing.yml파일을 수정했을 땐 항상 종료 후 다시 실행시켜주셔야 합니다.
+
+```terminal
+$ bundle exec jekyll serve
+
+... # 아래 메세지 출력시 성공
+    Server address: http://127.0.0.1:4000
+Server running... press ctrl-c to stop
+```
+
+<br>
+
+## Writing first Post
+vscode를 통해 첫 번째 글을 작성해보겠습니다. _posts/ 폴더 아래에 `yyyy-mm-dd-name.md` 형식의 이름으로 md 파일을 생성합니다. 만약 name 부분에 띄어쓰기가 필요하다면, 공백 없이 `-`으로 구분짓습니다.
+
+저는 *2023-01-23-hello-world.md* 이름으로 파일을 생성했습니다.
+
+```markdown
+---
+title: Hello world   *post의 제목입니다.*
+author: csLee94   *_data/authors.yml과 _config.yml 파일에서 설정한 내용을 토대로 링크가 생성됩니다.*
+date: 2019-08-08 14:10:00 +0800   *post page에서 posted 내용입니다.*
+categories: [Blogging, Tutorial]   *sidebar의 category에 반영됩니다. 앞에 쓸 수록 상위 카테고리로 인식됩니다.*
+tags: [writing]   *sidebar의 tag 반영됩니다.*
+math: True   *mathJax를 이용해 수식을 표현합니다.*
+mermaid : True   *mermaid를 이용해 diagram*을 표현합니다.*
+---
+
+## Hello world
+toc 기능에 따라 header들이 우측에 Contents 영역에 표시됩니다.
+
+```
+{: file='_posts/2023-01-23-helloworld.md'}
+
+작성을 마치고, 로컬에서도 문제가 없다면 git을 통해 진짜 블로그에 반영해 볼 차례입니다.
+
+```terminal
+$ git add .
+...
+$ git commit -m "first commit"
+...
+$ git push
+```
+
+잠시 기다리시고, 저희 블로그 주소인 `https://${username}.github.io`로 접속해보시면, 작성하신 포스트를 확인하실 수 있습니다.
+
+<br>
+
+## Wrap up
+> 항상 기본 테마는 뭔가 아쉽고, 그렇다고 Front source를 손보는 것은 너무 부담되는 일이었는데 Chirpy 테마는 원했던 기능들이 대부분 잘 구현되어 있어 굉장히 좋았습니다. 물론 조금 더 복잡했던 기존 "Hydejack" 테마와 비교했을 때 몇몇 기능들이 빠진 것이 못내 아쉽기는 하지만요. <br>
+> 하지만, category&tag 관리의 용이성과 toc 기능, 검색 기능 등 제가 생각했던 필수기능들이 대부분 minimal하게 잘 구현된 것 같아 굉장히 만족합니다! 이제 Customizing 지옥에서 벗어나, posting 자체에 조금 더 집중해봐야겠습니다.
+
+<br>
+
+## APPEDIX. jekyll이란?
+Jekyll 이란 github 설립자 중의 한명이 Ruby 언어를 통해 개발한 Framework입니다. jekyll의 핵심은 HTML/MARKDOWN 등의 마크업 언어로 글을 작성하면, 이를 사전 정의된 레이아웃으로 포장해, 정적 웹사이트로 만들어줍니다. 
+
+> 저희 블로그 repository에 `_site/` 폴더 아래서 만들어지는 정적 웹사이트를 확인할 수 있습니다.
+{: .prompt-tip }
+
+서버 리소스 없이, 정적 파일만으로 사이트를 Build하기 때문에 빠르고 가볍다는 장점이 있고 복잡한 로직이 없는 블로그와 같은 사이트에 적합하다고 볼 수 있습니다.
+
+나중에, jekyll을 이용한 블로그에 익숙해지고 좀 더 디테일한 customizing을 할 떄 jekyll의 기본 directory 구조를 알아 두시면, 소스를 분석하는데 훨씬 수월해집니다.
+
+[여기](https://jekyllrb.com/docs/)에서 확인해보실 수 있고, 이 내용도 나중에 기회가 되면 정리해보겠습니다!
+
+<br>
 
 ## reference
 > - [Docs of jekyll](https://jekyllrb.com/docs/)
