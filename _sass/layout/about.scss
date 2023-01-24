@@ -1,6 +1,19 @@
 /*
   Style for about
 */
+
+.username {
+    margin-top: 0rem;
+    margin-bottom: 1rem;
+    font-size: 150%;
+    font-weight: bolder;
+}
+
+.img-wrap {
+    margin-top:0.7rem;
+    max-width: 50%;
+}
+
 .timeline {
     border-left: 4px solid hsl(0, 0%, 90%);
     position: relative;
