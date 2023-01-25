@@ -1,6 +1,6 @@
 #  custom
 _posts_draft
-
+.DS_Store
 # hidden files
 .*
 !.git*
