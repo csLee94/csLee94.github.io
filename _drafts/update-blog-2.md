@@ -44,8 +44,8 @@ _참고_
 위 사진과 같이, 원하는 굵기별로 선택하신 뒤 **Selected family** 탭을 보시면 아래 **@import**라고 되어 있는 부분을 copy해줍니다. 이후 **assets/css/style.scss** 최하단에 붙여넣습니다.
 
 ``` scss
-...
-/* append your custom style below */ 
+// ...
+/* append your custom style below */
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;500;700&display=swap');
 ```
 {: file='assets/css/style.scss'}
@@ -95,8 +95,8 @@ _ctrl+shift+c 누른 후, 원하는 영역 클릭_
 ### configuration
 [https://github.com/apps/utterances](https://github.com/apps/utterances)에 접속하셔서 <kbd>Install</kbd> 버튼을 눌러줍니다.
 
-![img](/assets/img/blog-update/img_5.png){: .left}
-좌측 사진처럼 <kbd>Only select repository</kbd> > <kbd>Select repositories</kbd>에서 저희의 github page 저장소를 선택합니다.
+![img](/assets/img/blog-update/img_5.png)
+위 사진처럼 <kbd>Only select repository</kbd> > <kbd>Select repositories</kbd>에서 저희의 github page 저장소를 선택합니다.
 
 그리고 <kbd>Install</kbd> 버튼을 누르면 Utterance 홈페이지로 다시 돌아오게 됩니다. 돌아온 [홈페이지](https://utteranc.es/)에서 조금 스크롤을 내려보면 **configuration** 영역을 찾을 수 있습니다. **repo:**되어 있는 부분에 다시 저희 github page 저장소를 입력해 줍니다.
 
@@ -123,7 +123,7 @@ _ctrl+shift+c 누른 후, 원하는 영역 클릭_
     </script>
 </div>
 ```
-{. file='_layout/post.html'}
+{: file='_layout/post.html'}
 
 그런대, 이렇게만 붙여넣으면 한 가지 문제가 생깁니다. Chirpy 테마는 light/dark theme간 변경을 지원하는데, 만약 이렇게만 붙여넣으면 저희가 블로그를 dark theme로 변경해도 여전히 utterance 영역은 light theme로 남게 됩니다. 
 
@@ -182,14 +182,81 @@ _ctrl+shift+c 누른 후, 원하는 영역 클릭_
   </script>
 </div>
 ```
-{. file='_layout/post.html'}
+{: file='_layout/post.html'}
 
 이제 theme 변경에 따라 utterance 테마가 함께 변경되는지 확인해보시고, 댓글을 달고 저희 git repository의 issue 탭에 정상적으로 생성되면 완료된 것입니다.
 
 <br>
 
 ## Enable GA4 and Google-search-console 
+GA를 먼저 등록하면, google search console 등록 시 소유권 확인이 간편해지기 때문에 GA를 먼저 등록합니다.
 
+### Set up Google Analytics
+[https://analytics.google.com/](https://analytics.google.com/)에 접속 후, 하단 톱니모양의 설정 페이지로 이동합니다. 해당 페이지에서, <kbd>+ 속성 만들기</kbd> 버튼을 눌러, 속성 이름과 시간대, 통화 정보를 입력합니다. 
+
+만들어진 속성 탭 아래 데이터 스트림 메뉴를 클릭하고, <kbd>스트림 만들기</kbd> 버튼을 눌러 `웹`을 클릭합니다. 
+그 다음 창에서, 블로그 url과 스트림 명을 입력해주고 스트림을 생성합니다.
+![img](/assets/img/blog-update/img_6.png)
+_from: https://chirpy.cotes.page/posts/enable-google-pv/_
+
+만들어진 스트림을 눌러보시면, G-XXXXXXXXXX format의 `측정 ID`를 확인할 수 있습니다. 이것을 _config.yml 파일 아래 `google_analytics` 영역에 붙여넣어줍니다. 
+
+```yaml
+google_analytics:
+  id: 'G-XXXXXXXXX'   # fill in your Google Analytics ID
+  # Google Analytics pageviews report settings
+```
+
+analytics 페이지로 돌아가 보고서/실시간에서 데이터를 확인하시면 됩니다!
+
+#### Install gtag manually
+> 저는 _config.yml 파일 내용이 정상적으로 작동하지 않아, gtag를 직접 설치했습니다. chirpy 테마 외 ga4를 아직 지원하지 않는 테마들도 이와 같은 방식으로 ga4를 적용할 수 있습니다.
+{: .prompt-warning}
+
+스트림 페이지로 돌아와 맨 아래 <kbd>태그 안내 보기</kbd>을 선택합니다. 이후에 `직접 설치`탭을 확인해보시면, **수동으로 Google 태그 설치** 라는 안내 문구와 함께 script코드를 확인할 수 있습니다. 이 코드를 head tag 마지막에 삽입합니다.
+
+```html
+...
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-XXXXXXXXX');
+</script>
+</head>
+
+```
+{: file='_includes/head.html}
+
+
+![img](/assets/img/blog-update/img_7.png)
+
+git push를 통해 배포 후, 저희 페이지에서 F12를 눌러 개발자 도구 중 **Console** 탭에서 `gtag`를 입력했을 때 위 사진과 같이 나오면 적용 성공입니다.
+
+### Set up google search console
+> ga까지 등록했으니, 이제 구글에서 검색 시 저희 블로그가 노출될 수 있게끔 설정해줄 차례입니다. 굳이 구글 검색에 노출 시킬 필요가 없으시다면, 넘어가셔도 됩니다.
+
+[https://search.google.com/](https://search.google.com/)에서 시작하기 버튼을 클릭합니다. 속성 유형을 선택하는 화면에서 **URL 접두어**를 사용해 사이트 주소를 입력하고 계속 버튼을 클릭합니다. 
+
+다음 페이지에서 `다른 확인 방법`에서 **Google 애널리틱스**를 이용해 소유권 확인을 진행합니다. 혹은 **HTML 태그**를 선택해, 다음 화면에 나오는 content= 이후에 나오는 내용을 복사해주세요. 확인 버튼을 누르기 전에 우선 이 내용을 _config.yml 파일에 넣어줍니다.
+
+```yml
+...
+
+google_site_verification: XXXXXXXXXXXXXXXXXXXXX
+...
+```
+{: file='_config.yml}
+
+변경된 _config.yml 내용을 git에 push 및 배포를 완료한 뒤에, 다시 google search console 화면으로 돌아와서 확인 버튼을 눌러 소유권 확인 절차를 마무리합니다.
+
+다음으로, 메뉴 사이드 바에서 **Sitemaps**에서 `사이트맵 URL 입력` 영역에 `sitemap.xml`을 입력하고 제출합니다. `sitemap.xml`은 배포하는 과정에서 jekyll plugin에 의해 자동으로 생성됩니다. 
+
+이 과정이 끝나자마자 바로 적용되는 것은 아니고, 3일에서 약 1주일 정도 시간이 소요됩니다. 구글에 **site:블로그주소** (eg.`site:cslee94.github.io`)를  검색했을 때 결과가 나오면 모든 절차가 정상적으로 완료된 것입니다!
 
 <br>
 
