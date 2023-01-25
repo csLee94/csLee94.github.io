@@ -19,6 +19,8 @@ tags: [github pages, blog, jekyll]
 
 그럼 하나 하나, 진행해보겠습니다.
 
+<br>
+
 ## Update Favicon 
 > [Chirpy 공식 문서](https://chirpy.cotes.page/posts/customize-the-favicon/)를 확인해보시면, 굉장히 쉽게 해결하실 수 있습니다.
 {: .prompt-tip}
