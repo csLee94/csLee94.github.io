@@ -258,6 +258,8 @@ google_site_verification: XXXXXXXXXXXXXXXXXXXXX
 
 이 과정이 끝나자마자 바로 적용되는 것은 아니고, 3일에서 약 1주일 정도 시간이 소요됩니다. 구글에 **site:블로그주소** (eg.`site:cslee94.github.io`)를  검색했을 때 결과가 나오면 모든 절차가 정상적으로 완료된 것입니다!
 
+만약 동일한 URL에 미리 받아놓은 html이나 meta tag가 있는 경우, google search console에서는 기존 값들을 확인하기 어렵습니다. 이럴 때는 [웹마스터](https://www.google.com/webmasters/verification/home?hl=ko)로 접속해 확인할 수 있습니다. 해당 링크에 접속해보면, 기존에 등록한 url의 소유권 확인 관련 상세 정보를 확인하실 수 있습니다!
+
 <br>
 
 ## Enable Hits 
