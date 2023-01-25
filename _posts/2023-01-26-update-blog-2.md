@@ -1,7 +1,7 @@
 ---
-title: Github Pages로 블로그 만들기(feat.Chirpy) [2]
+title: Github Pages로 블로그 만들기(feat.Chirpy) [2] - ga, google search console, hits 설정
 author: csLee94
-date: 2023-01-25 00:00:00 +0900
+date: 2023-01-26 00:00:00 +0900
 categories: [others]
 tags: [github pages, blog, jekyll]
 ---
@@ -261,16 +261,72 @@ google_site_verification: XXXXXXXXXXXXXXXXXXXXX
 <br>
 
 ## Enable Hits 
+> Chirpy theme는 ga를 이용해 page view를 표현하는 기능이 포함되어 있으나, 이 기능은 곧 작동하지 않을 예정입니다. 자세한 사항은 [공식문서](https://chirpy.cotes.page/posts/enable-google-pv/)를 확인해주세요.
 
-<br>
+저희는 **Hits**를 이용해 포스트별 방문자 수를 표시하려고 합니다. Hits는 원래 Github 프로젝트의 방문자 수를 표시하기 위한 프로젝트로, 상세한 내용까지는 어렵지만 정적 웹사이트의 방문자 수를 확인하기 가장 손쉬운 방법 중 하나입니다.
 
-## Make new layout
+```html
+<a href="https://hits.seeyoufarm.com"><img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2Fgjbae1212%2Fhit-counter"/></a>                        
+```
+
+저희 html 소스에 위와 같은 소스를 삽입하게 되면 이 포스트 상단에 있는 것과 같이 조회수를 나타내는 이미지가 생기게 됩니다. 저희는 이것을 모든 포스트에 각각 삽입하려고 합니다.
+
+먼저 _includes 폴더 아래에 `post-view.html`이라는 파일을 만들어주고 아래와 같이 코드를 작성합니다.
+
+> 아래 `(( site.url / ))(( page.url ))` 부분에서 괄호'()'를 중괄호'{}"로 변경해주세요.
+{: .prompt-danger}
+
+```html
+<a href="https://hits.seeyoufarm.com"><img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=(( site.url / ))(( page.url ))%2F&count_bg=%237A7A7A&title_bg=%23313131&icon=&icon_color=%23E7E7E7&title=views&edge_flat=false" class="lazyload" /></a>
+```
+{: file='_includes/post-view.html'}
+
+`(( site.url / ))(( page.url ))` 부분에서 각각 포스트별 url를 생성 후, 페이지별로 조회수를 표현하는 이미지 태그를 생성합니다. 다음으론, 생성된 이미지를 post.html에 포함시켜야 합니다.
+
+_layouts/post.html 파일을 열어 블로그 포스트 화면과 비교해보면서, 삽입하고자 하는 위치를 선정합니다. 주의하실 점은, Hits는 로드가 완료됐을 때 조회수를 측정하므로 포스트 하단보다는 상단에 위치시키는 게 좋습니다. 
+
+저는 posted 날짜 옆 좌측으로 선택했습니다.
+
+```html
+<div class="d-flex justify-content-between"> 
+<!-- split section -->
+  <div>
+    <!-- published date -->
+    <span>
+      {{ site.data.locales[site.lang].post.posted }}
+      {% include datetime.html date=page.date tooltip=true %}
+    </span>
+    <!-- lastmod date -->
+    {% if page.last_modified_at %}
+    <span>
+      {{ site.data.locales[site.lang].post.updated }}
+      {% include datetime.html date=page.last_modified_at tooltip=true %}
+    </span>
+    {% endif %}
+  </div>
+  <!-- add _includes/post-view.html -->
+  <div style="vertical-align: bottom;">
+    {% include post-view.html %}
+  </div>
+</div>
+...
+```
+{: file='_layouts/post.html}
+
+먼저 published date를 표현하는 영역을 찾고, 해당 영역을 `<div class="d-flex justify-content-between">` tag로 감싸줍니다. 그 후, add _includes/post-view.html이라고 주석처리된 아래 영역을 넣어주시면 아래 사진과 같이 완성입니다.
+
+![img](/assets/img/blog-update/img_8.png)
+
+빨간 영역 친 곳이 `<div class="d-flex justify-content-between">` tag로 감싸주신 곳이고, 우측에 <kbd>views 6/6</kbd>라는 이미지가 생성된 것을 확인할 수 있습니다.
 
 <br>
 
 ## Wrap up
+생각보다 포스트가 너무 길어져서, 여기서 일단 마무리하려고 합니다. 이외에도, 제 about 페이지처럼 신규 layout을 추가하는 방법이나 github에 push 했을 때 어떤 일들이 일어나는지까지 정리하고자 했으나 분량과 저 스스로도 정리가 미흡한 것 같아 다음 기회에 정리해보도록 하겠습니다. 
+
+아직 미흡한 글이지만, 댓글로 다른 사항 말씀주시면 알고 있는 선에서 최대한 공유드릴 수 있다면 좋겠습니다. 뿐만 아니라, 이 포스트가 가진 부족한 부분들을 짚어주실 수 있다면 그 역시 제 배움 포인트로 굉장히 좋을 것 같습니다! 
 
 <br>
 
-## APPENDIX. github actions
+
 
