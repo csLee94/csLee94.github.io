@@ -1,0 +1,68 @@
+/*
+  Style for about
+*/
+
+.username {
+    margin-top: 0rem;
+    margin-bottom: 1rem;
+    font-size: 150%;
+    font-weight: bolder;
+}
+
+.img-wrap {
+    margin-top:0.7rem;
+    max-width: 50%;
+}
+
+.timeline {
+    border-left: 4px solid hsl(0, 0%, 90%);
+    position: relative;
+    list-style: none;
+  }
+  
+  .timeline .timeline-item {
+    position: relative;
+  }
+  
+  .timeline .timeline-item:after {
+    position: absolute;
+    display: block;
+    top: 4px;
+  }
+  
+  .timeline .timeline-item:after {
+    background-color: hsl(0, 0%, 90%);
+    left: -47.5px;
+    border-radius: 50%;
+    height: 11px;
+    width: 11px;
+    content: "";
+  }
+
+  .date {
+    margin-bottom: 0rem;
+    font-size: 70%;
+    font-family: Lato, sans-serif;
+  }
+
+  .main-contents {
+    margin-bottom: 0rem;
+    font-size: 95%;
+    font-family: 'Noto Sans KR', Lato, sans-serif;
+    font-weight: bolder;
+  }
+
+  .sub-contents {
+    margin-left: 0.3rem;
+    margin-bottom: 0rem;
+    font-family: 'Noto Sans KR', Lato, sans-serif;
+    font-weight: lighter;
+    font-style: italic;
+    color:hsl(0, 0%, 65%);
+  }
+
+  .description {
+    margin-bottom: 0rem;
+    font-family: 'Noto Sans KR', Lato, sans-serif;
+    font-weight: lighter;
+  }
