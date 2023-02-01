@@ -6,7 +6,7 @@ categories: [others]
 tags: [jupyter notebook, visual studio code, venv]
 ---
 
-> 저는 EDA를 진행할 때는 jupyter notebook을 선호합니다. 다만 브라우저에서 사용하는 것이 아닌, 다양한 편의성을 제공하는 vscode에서 사용하고 싶었습니다. 또한, 프로젝트별로 library를 별도로 관리하기 위해서 venv까지 함께 사용하는 법을 정리합니다!
+> 저는 EDA를 진행할 때는 jupyter notebook을 선호합니다. 다만 브라우저에서 사용하는 것이 아닌, 다양한 편의성을 제공하는 vscode에서 사용하고 싶었습니다. 또한, 프로젝트별로 library를 별도로 관리하기 위해서 venv까지 함께 사용하는 법을 정리합니다! <br>
 > 사용 환경
 > - Mac, Win 10 *(이 포스트는 Mac 기준으로 작성합니다.)*
 > - Python 3.8
