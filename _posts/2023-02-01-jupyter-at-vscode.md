@@ -74,7 +74,7 @@ kernel 추가하는 방식이 아닌 Jupyter의 리모트 서버를 vscode로 �
 ```vim
 $ (.venv) pip3 install jupyer
 $ (.venv) cd ./.venv/
-$ (.venv) jupyter 
+$ (.venv) ~/.venv/ jupyter 
 ```
 
 그러면 jupyter server 주소가 나오면서 실행됩니다. vscode에서 `ctrl+shift+p`를 누르고, `Jupyter: Specify Jupyter Server for Connet`를 찾아 선택한 다음 Terminal에서 확인한 주소를 입력합니다. 
