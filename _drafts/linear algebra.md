@@ -6,3 +6,5 @@ categories: [learning, data science]
 tags: [linear algebra]
 ---
 
+# REFERENCE
+- https://sites.google.com/mensakorea.org/math/%EC%B7%A8%EB%AF%B8%EB%A1%9C-%EC%88%98%ED%95%99%ED%95%98%EC%9E%90/%EC%84%A0%ED%98%95%EB%8C%80%EC%88%98%ED%95%99
