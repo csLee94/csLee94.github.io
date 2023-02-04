@@ -91,6 +91,9 @@ tail_includes:
 </div> <!-- .post-meta -->
 
 <div class="post-content">
+  {% if page.series %}
+    {% include post-series.html %}
+  {% endif %}
   {{ content }}
 </div>
 
