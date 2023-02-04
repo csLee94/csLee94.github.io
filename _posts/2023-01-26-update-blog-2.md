@@ -4,6 +4,9 @@ author: csLee94
 date: 2023-01-26 00:00:00 +0900
 categories: [others]
 tags: [github pages, blog, jekyll]
+series:
+    Github Pages로 블로그 만들기(feat.Chirpy) [1]: 
+        url: update-blog-1
 ---
 
 > 저는 개발자도 아니고, 더더욱 Front 관련해서는 관련 지식이 매우 부족합니다. 아래 기술하는 내용들은 최대한 구글링해보며, 개인적인 미봉책에 불과합니다. 이 보다 더 좋은 방법을 댓글 통해 알려주시면 정말 좋을 것 같습니다.

@@ -4,6 +4,9 @@ author: csLee94
 date: 2023-01-23 00:00:00 +0900
 categories: [others]
 tags: [github pages, blog, jekyll]
+series:
+    Github Pages로 블로그 만들기(feat.Chirpy) [2] - ga, google search console, hits 설정: 
+        url: update-blog-2
 ---
 
 
