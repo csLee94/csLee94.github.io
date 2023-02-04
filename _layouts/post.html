@@ -90,15 +90,16 @@ tail_includes:
 
 </div> <!-- .post-meta -->
 
+{% if page.series %}
+<div>
+  {% include post-series.html %}
+</div>
+{% endif %}
 <div class="post-content">
-  {% if page.series %}
-    {% include post-series.html %}
-  {% endif %}
   {{ content }}
 </div>
 
 <div class="post-tail-wrapper text-muted">
-
   <!-- categories -->
   {% if page.categories.size > 0 %}
   <div class="post-meta mb-3">
