@@ -32,7 +32,7 @@ series:
 저희 repository 아래 **assets/img/favicons** path를 확인해보시면 하위 폴더에 파일이 굉장히 많습니다. 다른 파비콘 생성 사이트를 이용하기 보단 공식 문서에 안내되어 있는 대로, [Real Favicon Generator](https://realfavicongenerator.net/)에서 <kbd>Select your Favicon image</kbd> 버튼을 눌러 원하는 이미지를 업로드합니다. 그 다음 페이지에서 최하단으로 내리면 <kbd>Generate your Favicons and HTML code</kbd> 버튼을 통해 favicon을 생성합니다.
 
 ### Download & Replace
-파일을 다운받고 압축을 풀면 여러 파일이 있을텐데, 그 중 `browserconfig.xml`, `site.webmanifest` 파일을 제외하고 *assets/img/favicons** path에 넣어줍니다. 그리고 사이트를 다시 빌드하면 변경된 favicon을 확인할 수 있습니다.
+파일을 다운받고 압축을 풀면 여러 파일이 있을텐데, 그 중 `browserconfig.xml`, `site.webmanifest` 파일을 제외하고 **assets/img/favicons** path에 넣어줍니다. 그리고 사이트를 다시 빌드하면 변경된 favicon을 확인할 수 있습니다.
 
 <br>
 
