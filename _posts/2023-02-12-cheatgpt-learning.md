@@ -1,7 +1,7 @@
 ---
 title: ChatGPT가 가져올 지능격차
 author: csLee94
-date: 2023-02-05 00:00:00 +0900
+date: 2023-02-12 00:00:00 +0900
 categories: [article, tech issue]
 tags: [shorts, ChatGPT]
 ---
