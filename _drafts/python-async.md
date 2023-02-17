@@ -35,7 +35,7 @@ if __name__ == "__main__":
 
 `example_task` 함수는 random하게 1~5초 정도 소요됩니다. 만약 일반적으로 `example_task`를 3회 반복하면 각각 소요되는 시간의 합 이상이 소요될 것 입니다. 실제로 **주어진 작업 순서대로, 하나하나 처리됨**을 알 수 있습니다.
 
-```vim
+```terminal
 Done | proceed time of task_1 is 2
 Done | proceed time of task_2 is 4
 Done | proceed time of task_3 is 1
@@ -69,7 +69,7 @@ if __name__ == "__main__":
 
 작업 결과는 주어진 작업 순서대로 진행되지도 않았으며, 전체 `main` 함수의 프로세스의 처리 시간이 가장 긴 처리 시간과 거의 비슷함을 알 수 있습니다.
 
-```vim
+```terminal
 Done | proceed time of task_2 is 1
 Done | proceed time of task_3 is 3
 Done | proceed time of task_1 is 4
