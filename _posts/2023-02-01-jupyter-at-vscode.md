@@ -3,7 +3,7 @@ title: vscode에서 가상환경 jupyter notebook 사용하기(with. venv)
 author: csLee94
 date: 2023-02-01 00:00:00 +0900
 categories: [others]
-tags: [jupyter notebook, visual studio code, venv]
+tags: [jupyter notebook, python, visual studio code, venv]
 ---
 
 > 저는 EDA를 진행할 때는 jupyter notebook을 선호합니다. 다만 브라우저에서 사용하는 것이 아닌, 다양한 편의성을 제공하는 vscode에서 사용하고 싶었습니다. 또한, 프로젝트별로 library를 별도로 관리하기 위해서 venv까지 함께 사용하는 법을 정리합니다! <br>
