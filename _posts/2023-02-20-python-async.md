@@ -6,7 +6,7 @@ categories: [learning, data engineering]
 tags: [python, async]
 ---
 
-분석 위해 python을 활용해 데이터를 가공처리하다보면, 단순한 작업인데도 시간이 너무 오래 걸리는 경우들이 생깁니다. 이런 문제를 해결하기 위해 처리 방식을 **동기**처리에서 **비동기**처리로 변경하면서, 이 참에 python의 `asyncio` library에 대해서 정리해봅니다.
+분석을 위해 python을 활용해 데이터를 가공 처리하다 보면, 단순한 작업인데도 시간이 너무 오래 걸리는 경우들이 생깁니다. 이런 문제를 해결하기 위해 처리 방식을 **동기** 처리에서 **비동기** 처리로 변경하면서, 이참에 python의 `asyncio` library에 대해서 정리해 봅니다.
 
 ## Asynchronous Programming (비동기 프로그래밍)
 Python은 기본적으로 동기 방식으로 동작하는 언어입니다. 즉, 기본적으로 코드가 반드시 작성된 순서 그대로 실행됩니다. 애초에 비동기 방식으로 동작하도록 설계된 언어인 JavaScript와 달리 Python은 `3.4 버전`부터 **asyncio** 라이브러리가 표준으로 채택되었고 `3.5 버전`부터 **async/await** 키워드가 문법으로 채택됐습니다.
@@ -34,7 +34,7 @@ if __name__ == "__main__":
     main()
 ```
 
-`example_task` 함수는 random하게 1~5초 정도 소요됩니다. 만약 일반적으로 `example_task`를 3회 반복하면 각각 소요되는 시간의 합 이상이 소요될 것 입니다. 실제로 **주어진 작업 순서대로, 하나하나 처리됨**을 알 수 있습니다.
+`example_task` 함수는 random 하게 1~5초 정도 소요됩니다. 만약 일반적으로 `example_task`를 3회 반복하면 각각 소요되는 시간의 합 이상이 소요될 것입니다. 실제로 **주어진 작업 순서대로, 하나하나 처리됨**을 알 수 있습니다.
 
 ```terminal
 Done | proceed time of task_1 is 2
@@ -43,7 +43,7 @@ Done | proceed time of task_3 is 1
 All process is Done | proceed time is 7.011507987976074
 ```
 
-반면에 간단하게 위 예시에 asyncio 라이브러리를 적용해보고, 결과를 보면 다른 결과가 나옵니다.
+반면에 간단하게 위 예시에 asyncio 라이브러리를 적용해 보고, 결과를 보면 다른 결과가 나옵니다.
 
 ```python
 import asyncio
@@ -81,7 +81,8 @@ All process is Done | proceed time is 4.001569032669067
 동기 처리 방식의 경우, `time.sleep()` 부분에서 결과를 기다리며 CPU를 놀리는 반면에, 비동기 처리 방식의 경우 이런 대기 시간을 낭비하지 않고 CPU가 다른 처리를 할 수 있도록 합니다.
 
 ## How to use asyncio?
-기존 `def` 키워드 앞에 `async` 키워드를 추가하면 이 함수는 비동기 처리됩니다. 이런 비동기 함수는 일반적으로 `async`로 선언된 다른 비동기 함수 내에서 `await` 키워드를 붙여 호출해야하며, `asyncio` 라이브러리의 이벤트 루프를 이용해 호출할 수 있습니다.
+기존 `def` 키워드 앞에 `async` 키워드를 추가하면 이 함수는 비동기 처리됩니다. 이런 비동기 함수는 일반적으로 `async`로 선언된 다른 비동기 함수 내에서 `await` 키워드를 붙여 호출해야 하며, `asyncio` 라이브러리의 이벤트 루프를 이용해 호출할 수 있습니다.
+
 ```python
 async def task_async():
     print("hello world")
@@ -122,7 +123,7 @@ async def main_async():
 asyncio.run(main_async()) # python 3.7 이상
 ```
 
-각각의 task에 무작위로 time.sleep을 지정해줘, task 처리에 걸리는 시간을 다르게 설정해보겠습니다. 또한 각 task에 소요된 시간을 함께 출력해, 비동기 처리가 반영되었는지 확인해보겠습니다. 이 때, time.sleep 함수 대신 **asyncio.sleep** 함수를 사용해 소요 시간을 발생시키는데, **asyncio.sleep** 자체도 비동기 함수이기 때문에 반드시 **await** 키워드를 붙여 호출해야 합니다.
+각각의 task에 무작위로 time.sleep을 지정해 줘, task 처리에 걸리는 시간을 다르게 설정해보겠습니다. 또한 각 task에 소요된 시간을 함께 출력해, 비동기 처리가 반영되었는지 확인해 보겠습니다. 이때, time.sleep 함수 대신 **asyncio.sleep** 함수를 사용해 소요 시간을 발생시키는데, **asyncio.sleep** 자체도 비동기 함수이기 때문에 반드시 **await** 키워드를 붙여 호출해야 합니다.
 
 > time.sleep 함수는 기다리는 동안 CPU를 놀리는 반면에, **asyncio.sleep**은 비동기 함수로서 기다리는 동안 다른 처리를 할 수 있도록 해줍니다.
 {: .prompt-info }
@@ -150,7 +151,7 @@ if __name__ == "__main__":
     asyncio.run(main_async()) # python 3.7 이상
 ```
 
-결과를 확인해보면, 잘 적용된 것을 확인할 수 있습니다.
+결과를 확인해 보면, 잘 적용된 것을 확인할 수 있습니다.
 
 ```terminal
 hello python | it takes 2.0014259815216064
@@ -160,7 +161,7 @@ All tasks are finished | it takes totally 5.000496864318848
 ```
 
 ## Wrap UP
-어찌저찌, 비동기 구조가 반영된 코드는 작성을 마쳤습니다! 다만 python에서의 비동기 구조를 학습하다보면, **코루틴(coroutine) / 이벤트루프(event loop) / 제너레이터(generator) / 퓨처 객체와 태스크 객체** 등 다양한 용어가 나와 처음 학습하는 입장에서 혼동스럽습니다. 이번 포스트에서는 간단한 예시 코드로 한 사이클을 돌아봤다면, 다음 포스트에서는 각각 용어별로 정리해보도록 하겠습니다.
+어찌어찌, 비동기 구조가 반영된 코드는 작성을 마쳤습니다! 다만 python에서의 비동기 구조를 학습하다 보면, **코루틴(coroutine) / 이벤트 루프(event loop) / 제너레이터(generator) / 퓨처 객체와 태스크 객체** 등 다양한 용어가 나와 처음 학습하는 입장에서 혼동스럽습니다. 이번 포스트에서는 간단한 예시 코드로 한 사이클을 돌아봤다면, 다음 포스트에서는 각각 용어별로 정리해 보도록 하겠습니다.
 
 ## REFERENCE
 > - [DaleSeo](https://www.daleseo.com/python-asyncio/)
