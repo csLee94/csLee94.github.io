@@ -1,14 +1,17 @@
 ---
-title: 왕초보를 위한 Python에서 asyncio로 비동기 처리 구현하기
+title: 왕초보를 위한 Python에서 asyncio로 비동기 처리 구현하기[1]
 author: csLee94
 date: 2023-02-17 00:00:00 +0900
 categories: [learning, data engineering]
 tags: [python, async]
+series:
+    왕초보를 위한 Python에서 asyncio로 비동기 처리 구현하기[2] - coruntine & generator:
+        url: python-async-2
 ---
 
 분석을 위해 python을 활용해 데이터를 가공 처리하다 보면, 단순한 작업인데도 시간이 너무 오래 걸리는 경우들이 생깁니다. 이런 문제를 해결하기 위해 처리 방식을 **동기** 처리에서 **비동기** 처리로 변경하면서, 이참에 python의 `asyncio` library에 대해서 정리해 봅니다.
 
-## Asynchronous Programming (비동기 프로그래밍)
+## Asynchronous Programming
 Python은 기본적으로 동기 방식으로 동작하는 언어입니다. 즉, 기본적으로 코드가 반드시 작성된 순서 그대로 실행됩니다. 애초에 비동기 방식으로 동작하도록 설계된 언어인 JavaScript와 달리 Python은 `3.4 버전`부터 **asyncio** 라이브러리가 표준으로 채택되었고 `3.5 버전`부터 **async/await** 키워드가 문법으로 채택됐습니다.
 
 **비동기라는 것은 쉽게 말해서 어떠한 작업이 완료되기를 기다리지 않고, 그 시간 동안 다른 작업을 하는 것**을 말합니다. 데이터 분석을 위해 Python을 공부했던 이에게는 꽤나 어색했던 개념입니다. 아주 간단한 예시를 들어보겠습니다.
