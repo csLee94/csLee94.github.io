@@ -4,6 +4,9 @@ author: csLee94
 date: 2023-01-26 00:00:00 +0900
 categories: [others]
 tags: [github pages, blog, jekyll]
+series:
+    Github Pages로 블로그 만들기(feat.Chirpy) [1]: 
+        url: update-blog-1
 ---
 
 > 저는 개발자도 아니고, 더더욱 Front 관련해서는 관련 지식이 매우 부족합니다. 아래 기술하는 내용들은 최대한 구글링해보며, 개인적인 미봉책에 불과합니다. 이 보다 더 좋은 방법을 댓글 통해 알려주시면 정말 좋을 것 같습니다.
@@ -29,7 +32,7 @@ tags: [github pages, blog, jekyll]
 저희 repository 아래 **assets/img/favicons** path를 확인해보시면 하위 폴더에 파일이 굉장히 많습니다. 다른 파비콘 생성 사이트를 이용하기 보단 공식 문서에 안내되어 있는 대로, [Real Favicon Generator](https://realfavicongenerator.net/)에서 <kbd>Select your Favicon image</kbd> 버튼을 눌러 원하는 이미지를 업로드합니다. 그 다음 페이지에서 최하단으로 내리면 <kbd>Generate your Favicons and HTML code</kbd> 버튼을 통해 favicon을 생성합니다.
 
 ### Download & Replace
-파일을 다운받고 압축을 풀면 여러 파일이 있을텐데, 그 중 `browserconfig.xml`, `site.webmanifest` 파일을 제외하고 *assets/img/favicons** path에 넣어줍니다. 그리고 사이트를 다시 빌드하면 변경된 favicon을 확인할 수 있습니다.
+파일을 다운받고 압축을 풀면 여러 파일이 있을텐데, 그 중 `browserconfig.xml`, `site.webmanifest` 파일을 제외하고 **assets/img/favicons** path에 넣어줍니다. 그리고 사이트를 다시 빌드하면 변경된 favicon을 확인할 수 있습니다.
 
 <br>
 
