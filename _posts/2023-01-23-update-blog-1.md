@@ -155,6 +155,12 @@ $ bundle exec jekyll serve
 Server running... press ctrl-c to stop
 ```
 
+아래와 같이 `--drafts` 옵션을 주면, **_drafts** 디렉토리 아래 있는 초안이 포함시켜 확인할 수 있습니다.
+
+```terminal
+$ bundle exec jekyll serve --drafts
+```
+
 <br>
 
 ## Writing first Post
